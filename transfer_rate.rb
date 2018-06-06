@@ -22,7 +22,7 @@ end
 puts "Benchmarking write..."
 time = Benchmark.realtime do
   iter_count.times do |i|
-    collection.insert_one(i: i, data: 'y' * (1500000 + i))
+    collection.insert_one(i: i, data: 'y' * (15000000 + i))
   end
 end
 
