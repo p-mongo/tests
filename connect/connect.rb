@@ -9,7 +9,16 @@ MONGODB_URI = 'mongodb://127.0.0.1:27017/'
 
 client = Mongo::Client.new(MONGODB_URI)
 
-puts client.inspect_verbose
-#puts client.inspect
+if client.respond_to?(:inspect_verbose)
+  puts client.inspect_verbose
+else
+  puts client.inspect
+end
+
 p client.database['test'].insert_one({a:1})
-puts client.inspect_verbose
+
+if client.respond_to?(:inspect_verbose)
+  puts client.inspect_verbose
+else
+  puts client.inspect
+end
