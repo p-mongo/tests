@@ -1,5 +1,6 @@
 require 'benchmark'
 require 'mongo'
+require_relative 'load'
 
 Mongo::Logger.level = Logger::INFO
 
@@ -30,21 +31,7 @@ end
 
 puts "#{'%.2f' % (iter_count / t)} reads/second"
 
-$load_count = 100
-
-$load_count.times do |i|
-  eval "module TestM#{i}; def f#{i}; true; end; end"
-end
-
-module TestM
-  $load_count.times do |i|
-    eval "include TestM#{i}"
-  end
-end
-
-$load_count.times do |i|
-  eval "class C#{i}; include TestM; end"
-end
+load(100)
 
 puts "Benchmarking..."
 t = Benchmark.realtime do
