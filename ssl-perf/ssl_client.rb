@@ -66,6 +66,15 @@ def do_all_tests(host, port)
     end
   end
   puts "Array append: %.5f" % t
+
+  all = []
+  t = Benchmark.realtime do
+    do_test(host, port) do |chunk|
+      all << chunk
+    end
+    all.join('')
+  end
+  puts "Array append and join: %.5f" % t
 end
 
 do_all_tests(host, port)
@@ -77,14 +86,16 @@ do_all_tests(host, port)
 
 # Results:
 #
-# Read only: 0.15228
-# Explicit buf read only: 0.13387
-# Explicit large buf read only: 0.13169
-# String append: 1.20166
-# Array append: 0.15354
+# Read only: 0.14694
+# Explicit buf read only: 0.12585
+# Explicit large buf read only: 0.13010
+# String append: 1.30883
+# Array append: 0.15662
+# Array append and join: 0.15834
 # Loading
-# Read only: 0.28902
-# Explicit buf read only: 0.13180
-# Explicit large buf read only: 0.13264
-# String append: 2.23689
-# Array append: 0.32241
+# Read only: 0.28593
+# Explicit buf read only: 0.13307
+# Explicit large buf read only: 0.13348
+# String append: 2.20808
+# Array append: 0.20270
+# Array append and join: 0.34690

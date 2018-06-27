@@ -19,7 +19,7 @@ client = Mongo::Client.new(
 collection = client[:test]
 
 collection.delete_many
-collection.insert_one(a:1, data: 'x'*15000000)
+collection.insert_one(a:1, data: 'x'*15_000_000)
 collection.find(a:1)
 
 puts "Benchmarking..."
