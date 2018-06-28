@@ -50,5 +50,7 @@ end
 bench_read(collection, iter_count)
 
 require 'mongoid'
+require_relative '../ssl-perf/load'
+load(300)
 
 bench_read(collection, iter_count)
