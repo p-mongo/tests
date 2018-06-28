@@ -28,16 +28,26 @@ end
 
 puts "%.2f inserts/second" % (iter_count.to_f / time)
 
-puts "Warming up..."
-(iter_count/5).times do |i|
-  collection.find(i: i).to_a
-end
+collection.indexes.create_one(i: 1)
 
-puts "Benchmarking read..."
-time = Benchmark.realtime do
-  iter_count.times do |i|
+def bench_read(collection, iter_count)
+  puts "Warming up..."
+  (iter_count/5).times do |i|
     collection.find(i: i).to_a
   end
+
+  puts "Benchmarking read..."
+  time = Benchmark.realtime do
+    iter_count.times do |i|
+      collection.find(i: i).to_a
+    end
+  end
+
+  puts "%.2f reads/second" % (iter_count.to_f / time)
 end
 
-puts "%.2f reads/second" % (iter_count.to_f / time)
+bench_read(collection, iter_count)
+
+require 'mongoid'
+
+bench_read(collection, iter_count)

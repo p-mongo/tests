@@ -1,3 +1,5 @@
+require 'byebug'
+require 'uri'
 require 'benchmark'
 require 'mongoid'
 
@@ -7,8 +9,18 @@ iter_count = (ENV['ITER_COUNT'] || 300).to_i
 
 puts "Connecting..."
 
+uri = Mongo::URI.new(ENV['MONGODB_URI'] || 'mongodb://127.0.0.1:27400/test?ssl=true')
+spec = {
+  hosts: uri.servers,
+  database: uri.database,
+  options: {
+    ssl: uri.uri_options['ssl'],
+    ssl_verify: false,
+  },
+}
+
 Mongoid.configure do |config|
-  config.connect_to(ENV['MONGODB_URI'] || 'mongodb://127.0.0.1:27017/test' )
+  config.clients.default = spec
 end
 
 class TestDoc
