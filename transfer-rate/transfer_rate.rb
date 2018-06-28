@@ -9,6 +9,7 @@ puts "Connecting..."
 client = Mongo::Client.new(
   ENV['MONGODB_URI'] || [ '127.0.0.1:27017' ],
   database: 'test',
+  ssl_verify: false,
 )
 
 collection = client[:test]
