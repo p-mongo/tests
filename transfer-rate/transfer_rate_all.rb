@@ -26,19 +26,19 @@ class Bench
   end
 
   def large_iter_count
-    (ENV['LARGE_ITER_COUNT'] || 200).to_i
+    @large_iter_count ||= (ENV['LARGE_ITER_COUNT'] || 200).to_i
   end
 
   def small_iter_count
-    (ENV['SMALL_ITER_COUNT'] || 30).to_i
+    @small_iter_count ||= (ENV['SMALL_ITER_COUNT'] || 30).to_i
   end
 
   def small_data_size
-    (ENV['SMALL_DATA_SIZE'] || 10_000).to_i
+    @small_data_size ||= (ENV['SMALL_DATA_SIZE'] || 10_000).to_i
   end
 
   def small_batch_size
-    (ENV['SMALL_BATCH_SIZE'] || 1).to_i
+    @small_batch_size ||= (ENV['SMALL_BATCH_SIZE'] || 1).to_i
   end
 
   def client
@@ -85,19 +85,22 @@ class Bench
   end
 
   def read_small
+    batch_size = self.small_batch_size
+    collection = self.small_collection
+
     puts "Warming up..."
     (small_iter_count/5).times do |i|
-      small_collection.find({}, batch_size: small_batch_size).to_a
+      collection.find({}, batch_size: batch_size).to_a
     end
 
     puts "Benchmarking small read..."
     time = Benchmark.realtime do
       small_iter_count.times do |i|
-        small_collection.find({}, batch_size: small_batch_size).to_a
+        collection.find({}, batch_size: batch_size).to_a
       end
     end
 
-    puts "%.2f reads/second of #{small_data_size} small documents" % (small_iter_count.to_f / time)
+    puts "%.2f reads/second of #{small_data_size} small documents with batch size #{small_batch_size}" % (small_iter_count.to_f / time)
   end
 
   def read_large
@@ -128,12 +131,12 @@ class Bench
 
   def run
     prepare_small
-    #prepare_large
+    prepare_large
     read_small
-    #read_large
+    read_large
     apply_load(300)
     read_small
-    #read_large
+    read_large
   end
 end
 
@@ -143,6 +146,7 @@ else
   puts 'Non-SSL'
   no_ssl = Bench.new('mongodb://localhost:27100/?connect=direct')
   no_ssl.run
+  exit
 end
 
 if pid = fork
@@ -151,4 +155,5 @@ else
   puts 'SSL'
   ssl = Bench.new('mongodb://localhost:27400/?ssl=true&connect=direct')
   ssl.run
+  exit
 end
