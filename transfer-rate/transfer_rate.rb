@@ -1,6 +1,16 @@
 require 'benchmark'
 require 'mongo'
 
+# This benchmark measures (network) performance of Ruby driver when reading
+# large documents.
+#
+# This is accomplished by creating 15 mb documents and reading them
+# one at a time.
+#
+# The second read benchmark simulates a real application with many
+# classes/modules defined in the object space. This significantly slows down
+# memory allocations.
+
 Mongo::Logger.level = Logger::INFO
 
 iter_count = (ENV['ITER_COUNT'] || 300).to_i
@@ -52,5 +62,6 @@ bench_read(collection, iter_count)
 require 'mongoid'
 require_relative '../ssl-perf/load'
 load(300)
+GC.start
 
 bench_read(collection, iter_count)
