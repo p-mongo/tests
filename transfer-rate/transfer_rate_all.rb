@@ -140,20 +140,17 @@ class Bench
   end
 end
 
-if pid = fork
-  Process.wait pid
-else
-  puts 'Non-SSL'
-  no_ssl = Bench.new('mongodb://localhost:27100/?connect=direct')
-  no_ssl.run
-  exit
+def run(variant, uri)
+  if pid = fork
+    Process.wait pid
+  else
+    puts variant
+    no_ssl = Bench.new(uri)
+    no_ssl.run
+    exit
+  end
 end
 
-if pid = fork
-  Process.wait pid
-else
-  puts 'SSL'
-  ssl = Bench.new('mongodb://localhost:27400/?ssl=true&connect=direct')
-  ssl.run
-  exit
-end
+run('Non-SSL', 'mongodb://localhost:27100/?connect=direct')
+run('SSL', 'mongodb://localhost:27400/?ssl=true&connect=direct')
+run('Unix socket', "mongodb://#{URI.escape('/var/run/m/mongodb-27090.sock', '/')}/")
