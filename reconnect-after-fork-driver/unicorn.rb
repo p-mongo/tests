@@ -17,3 +17,15 @@ pid "#{@dir}tmp/pids/unicorn.pid"
 # Set log file paths
 stderr_path "#{@dir}log/unicorn.stderr.log"
 stdout_path "#{@dir}log/unicorn.stdout.log"
+
+preload_app true
+
+before_fork do |server, worker|
+  puts "Before fork: #{$$}"
+end
+
+after_fork do |server, worker|
+  puts "Forked: #{$$}"
+  $client.close
+  $client.reconnect
+end
