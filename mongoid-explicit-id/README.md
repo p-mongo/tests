@@ -1,3 +1,4 @@
+<pre>
 speed% be rails c
 PLoading development environment (Rails 5.1.6)
 irb(main):001:0> Proxy.first
@@ -23,3 +24,4 @@ irb(main):003:0> Proxy.first.id
 MONGODB | localhost:27027 | mongoid.find | STARTED | {"find"=>"proxies", "filter"=>{}, "sort"=>{"_id"=>1}, "limit"=>1, "singleBatch"=>true, "lsid"=>{"id"=><BSON::Binary:0x46960348047740 type=uuid data=0xbbe2aa5224124d7f...>}}
 MONGODB | localhost:27027 | mongoid.find | SUCCEEDED | 0.001s
 => "hello"
+</pre>
