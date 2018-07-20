@@ -16,7 +16,7 @@ module Psr
     end
 
     def run
-      Process.setpgrp
+      #Process.setpgrp
       at_exit { kill_child_processes }
 
       rd, wr = IO.pipe

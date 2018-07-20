@@ -9,6 +9,8 @@ require 'drb/drb'
 require 'rspec'
 require 'forwardable'
 
+concurrency = ARGV.shift.to_i
+
 #Psr.logger.level = Logger::DEBUG
 
 $queue = []
@@ -247,7 +249,7 @@ else
 end
 RSpec.configuration.files_or_directories_to_run = files
 
-supervisor = Psr::Supervisor.new(concurrency: 8)
+supervisor = Psr::Supervisor.new(concurrency: concurrency)
 supervisor.run
 exit 4
 

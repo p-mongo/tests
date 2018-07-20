@@ -12,6 +12,9 @@ module Psr
   #    executions.
   class Master
     def initialize(options={})
+      # remove once the test suite is fixed to always load all tests
+      ENV['TEST_ENV_NUMBER'] = '1'
+
       @supervisor_pipe = options[:supervisor_pipe]
       #RSpec.configuration.formatter = 'progress'
       if RSpec.world.example_groups.count > 0

@@ -31,6 +31,7 @@ module Psr
     # It appears that any DRb operation can also hang while producing
     # no exceptions or output of any sort.
     private def drb_connect(uri)
+      wait_time = 500
       start_time = Time.now
       Psr.logger.debug("#{ident} Connecting to DRb")
       remote = TimeoutWrapper.new(DRbObject.new_with_uri(uri), 2)
@@ -39,12 +40,12 @@ module Psr
         # Assumes remote has a ping method
         remote.ping
       rescue DRb::DRbConnError, TypeError
-        raise if Time.now - start_time > 5
+        raise if Time.now - start_time > wait_time
         sleep 0.5
         Psr.logger.debug("#{ident} Retrying DRb ping")
         retry
       rescue Timeout::Error
-        raise if Time.now - start_time > 5
+        raise if Time.now - start_time > wait_time
         Psr.logger.debug("#{ident} Reconnecting to DRb")
         remote = TimeoutWrapper.new(DRbObject.new_with_uri(uri), 2)
         retry
