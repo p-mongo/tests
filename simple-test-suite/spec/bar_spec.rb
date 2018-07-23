@@ -1,5 +1,8 @@
 require 'byebug'
 require 'rspec'
+require 'spec_helper'
+
+p "Loading bar into #{$$}"
 
 # be parallel_rspec -n 4 spec
 
