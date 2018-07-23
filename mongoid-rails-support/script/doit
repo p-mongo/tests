@@ -1,0 +1,64 @@
+#!/usr/bin/env ruby
+
+require 'fileutils'
+require 'byebug'
+require 'childprocess'
+
+def check_call(cmd)
+  pr = ChildProcess.new(*cmd)
+  pr.io.inherit!
+  pr.start
+  rv = pr.wait
+  if rv != 0
+    raise "Failed"
+  end
+end
+
+railses = %w(5.2 5.1)
+mongoids = {
+  '5.2' => %w(7.0),
+  '5.1' => %w(7.0),
+}
+
+railses.each do |rails|
+  puts "Testing rails #{rails}"
+  check_call(['gem', 'install', 'rails', '-v', "~> #{rails}.0"])
+  mongoids[rails].each do |mongoid|
+    puts "Testing rails #{rails} - mongoid #{mongoid}"
+    dir = "rails-#{rails}-mongoid-#{mongoid}"
+    FileUtils.rm_rf(dir)
+    FileUtils.mkdir(dir)
+    File.open("#{dir}/Gemfile", 'w') do |f|
+      f << <<T
+source 'https://rubygems.org'
+gem 'mongoid', '~> #{mongoid}.0'
+gem 'rails', '~> #{rails}.0'
+T
+    end
+    Dir.chdir(dir) do
+      check_call(['bundle', 'install'])
+      check_call(['sh', '-c', 'yes |bundle exec rails new . --skip-active-record --skip-spring'])
+      check_call(['sh', '-c', "echo \"gem 'mongoid', '~> #{mongoid}.0'\" >>Gemfile"])
+      check_call(['bundle', 'install'])
+      File.open("config/mongoid.yml", 'w') do |f|
+        f << <<T
+development:
+  clients:
+    default:
+      database: mongoid-rails-support
+      hosts:
+        - localhost:27027
+T
+      end
+      File.open("app/models/blog.rb", 'w') do |f|
+        f << <<T
+class Blog
+  include Mongoid::Document
+  field :title, type: String
+end
+T
+      end
+      check_call(%w(bundle exec rails runner) + ['Blog.create!(title: "Hello"); Blog.first'])
+    end
+  end
+end
