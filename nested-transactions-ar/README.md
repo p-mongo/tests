@@ -1,8 +1,9 @@
 # README
 
 <pre>
-speed% rake runme 
+speed% rake runme
 0
-Caught 
+Previous nested transaction succeeded
+Caught RuntimeError: 
 0
 </pre>
