@@ -113,3 +113,18 @@ This is existing behavior.
 Neither sessions nor transactions may be nested when managing transactions
 explicitly like this, making explicit transaction management non-composable
 and practical only for short sequences of code.
+
+If session is created in a different scope from where a transaction is
+desired, the session may be obtained from Mongoid::Threaded as follows:
+
+    User.with_session do
+    
+      # elsewhere in code
+      session = Mongoid::Threaded.get_session
+      
+      session.start_transaction
+      
+      User.create!(name: 'John T')
+      
+      session.commit_transaction
+    end
