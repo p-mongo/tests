@@ -41,10 +41,10 @@ must not be set.
 
 `with_session` calls cannot be nested:
 
-    User.with_session do
+    User.with_session(causal_consistency: true) do
     
       # elsewhere in application
-      User.with_session do # raises Mongoid::Errors::InvalidSessionUse
+      User.with_session(causal_consistency: true) do # raises Mongoid::Errors::InvalidSessionUse
       
         # ...
         
@@ -53,6 +53,10 @@ must not be set.
 
 Lack of nesting ability makes explicit sessions non-composable, and therefore
 limited to specialized use cases.
+
+Note that the only option that appears to be defined presently is
+`causal_consistency`. Retryable writes are turned on/off on the client level
+and are not a session option. Transactions are also not a session option.
 
 ## Mongoid & Transactions
 
@@ -92,3 +96,20 @@ all operations are performed within the context of the outermost transaction.
 
 Nested transactions maintain the semantics of all operations under them
 persisting to the database together or not at all.
+
+### Explicit Transaction Management
+
+This is existing behavior.
+
+    User.with_session do |session|
+      session.start_transaction
+      
+      User.create!(name: 'John T')
+      
+      # commit can be manually retried by the application at this point
+      session.commit_transaction
+    end
+
+Neither sessions nor transactions may be nested when managing transactions
+explicitly like this, making explicit transaction management non-composable
+and practical only for short sequences of code.
