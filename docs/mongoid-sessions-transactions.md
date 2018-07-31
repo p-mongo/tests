@@ -2,6 +2,9 @@
 
 ### Global Configuration (Proposed)
 
+The use case for configuring sessions globally is to enable retryable writes
+and/or causal consistency globally for the application.
+
     development:
       clients:
         default:
@@ -23,6 +26,10 @@ and both retry_writes and causal_consistency are existing options in Ruby driver
 If either retry_writes or causal_consistency are set, a session is
 implicitly created by Mongoid around all operations. Attempting to
 start a session via `Model#with_session` raises an exception.
+
+Note that global session configuration is not necessary for the proposed
+transaction API below - transactions can still implicitly create sessions
+for themselves if there isn't a global session.
 
 ### Explicit Session Management
 
