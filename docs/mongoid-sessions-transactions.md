@@ -3,7 +3,9 @@
 ### Global Configuration (Proposed)
 
 The use case for configuring sessions globally is to enable retryable writes
-and/or causal consistency globally for the application.
+and/or causal consistency globally for the application (but note that
+Ruby driver implements "legacy retryable writes" which do not need or use
+a session, which an application may utilize even when in a transaction).
 
     development:
       clients:
@@ -80,9 +82,7 @@ If a session is thus created, it is ended when the `transaction` block ends.
 This means `with_session` cannot be nested under `transaction calls`.
 
 To obtain retryable writes or causal consistency, application should configure
-sessions globally as proposed above (but note that Ruby driver implements
-"legacy retryable writes" which do not need or use a session, which
-an application may utilize even when in a transaction).
+sessions globally as proposed above.
 
 ### Transaction Nesting (Proposed)
 
