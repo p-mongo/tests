@@ -2,7 +2,7 @@
 # note the trailing slash in this example
 @dir = Dir.pwd + '/'
 
-worker_processes 4
+worker_processes 1
 working_directory @dir
 
 timeout 30
@@ -26,6 +26,8 @@ end
 
 after_fork do |server, worker|
   puts "Forked: #{$$}"
-  $client.close
-  $client.reconnect
+  Mongoid::Clients.clients.each do |name, client|
+    client.close
+    client.reconnect
+  end
 end

@@ -1,23 +1,39 @@
-require 'mongo'
+require 'byebug'
+require 'mongoid'
 require 'sinatra'
 
-$client = Mongo::Client.new(
-  ENV['MONGODB_URI'] || 'mongodb://localhost:27017',
-  ssl_verify: false,
-)
-10.times do
-  $client['test'].insert_one(a: 'x'*15000000)
+Mongoid.configure do |config|
+  config.clients.default = {
+    hosts: ['localhost:27017'],
+    database: 'my_db',
+  }
+
+  config.log_level = :debug
+end
+
+class Model
+  include Mongoid::Document
+end
+
+byebug
+
+begin
+  Timeout.timeout(1) do
+    Model.count
+  end
+rescue => e
+  puts e
 end
 
 class App < Sinatra::Base
   get '/' do
-    count = $client['test'].find(a: {'$ne' => nil}).count
+    count = Model.count
     puts "Found #{count}"
-    'ok'
+    count.to_s
   end
 
   post '/' do
-    $client['test'].insert_one(params)
+    Model.create!
     'ok'
   end
 end
