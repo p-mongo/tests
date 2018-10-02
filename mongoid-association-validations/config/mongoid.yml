@@ -1,0 +1,6 @@
+development:
+  clients:
+    default:
+      database: mongoidav
+      hosts:
+        - localhost:27027
