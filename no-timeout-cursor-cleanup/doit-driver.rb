@@ -1,5 +1,6 @@
 require 'byebug'
 require 'mongo'
+#require 'mongoid'
 
 Mongo::Logger.logger.level = 2
 c = Mongo::Client.new(['127.0.0.1:27100'])

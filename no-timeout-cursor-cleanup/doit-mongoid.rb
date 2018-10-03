@@ -18,7 +18,7 @@ end
 
 #10000.times { Post.create!(title: 'blah') }
 
-1.times { Post.where(title: 'blah').no_timeout.first }
+10.times { Post.where(title: 'blah').no_timeout.first }
 
 GC.start
 
