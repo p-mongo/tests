@@ -1,11 +1,18 @@
 task :atomically => :environment do
 
+#Mongo::Logger.logger = Logger.new(STDOUT)
+#Mongo::Logger.logger.level = Logger::DEBUG
+
+
+# --
+
 u = User.create!(name: "bar#{rand}")
 v = Vote.create!
 
 begin
-  u.atomically(join_context: true) do
-    u.atomically(join_context: false) do
+  puts 'start'
+  v.atomically(join_context: true) do
+    v.atomically(join_context: true) do
       u.set(name: "foo#{rand}")
     end
     u.set(city: "city")
