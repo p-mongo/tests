@@ -1,0 +1,18 @@
+development:
+  clients:
+    default:
+      database: mongoid
+      hosts:
+        - localhost:27100
+      options:
+        read:
+          mode: :primary
+test:
+  clients:
+    default:
+      database: test1
+      hosts:
+        - localhost:27100
+      options:
+        read:
+          mode: :primary
