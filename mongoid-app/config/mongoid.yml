@@ -1,4 +1,4 @@
-development:
+xdevelopment:
   clients:
     default:
       database: mongoid
@@ -6,3 +6,16 @@ development:
         - localhost:27100
   options:
     log_level: :debug
+
+
+development:
+  clients:
+    default:
+      database: mongoid
+      hosts:
+        - localhost:27741
+      options:
+        compressors: [zlib]
+  options:
+    log_level: :debug
+
