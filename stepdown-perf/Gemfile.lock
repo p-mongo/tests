@@ -1,0 +1,17 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bson (4.4.2)
+    byebug (11.0.0)
+    mongo (2.7.0)
+      bson (>= 4.4.2, < 5.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  byebug
+  mongo
+
+BUNDLED WITH
+   1.16.3
