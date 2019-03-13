@@ -1,4 +1,4 @@
-xdevelopment:
+development:
   clients:
     default:
       database: mongoid
@@ -8,7 +8,7 @@ xdevelopment:
     log_level: :debug
 
 
-development:
+xdevelopment:
   clients:
     default:
       database: mongoid
