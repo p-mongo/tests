@@ -4,7 +4,7 @@ def define_example
       expect(1).to eq(2)
     end
 
-    3.times do |i|
+    2.times do |i|
       it("bazzes #{i}") do
         expect(1).to eq(3)
       end
