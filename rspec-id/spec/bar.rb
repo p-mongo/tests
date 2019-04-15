@@ -11,3 +11,14 @@ def define_example
     end
   end
 end
+
+def bar_defining_fn
+  it 'bar does things' do
+  end
+end
+
+def bar_nested_context_fn
+  context 'bar context' do
+    defining_fn
+  end
+end
