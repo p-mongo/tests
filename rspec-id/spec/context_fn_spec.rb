@@ -1,5 +1,4 @@
 require 'rspec'
-require_relative './bar'
 
 def context_fn
   context 'my context' do
@@ -45,6 +44,21 @@ describe 'nested fn with yield' do
   end
 end
 
-describe 'bar nested fn' do
-  bar_nested_context_fn
-end
+=begin output
+speed% rspec spec/context_fn_spec.rb -fd
+
+thing
+  my context
+    does things
+
+nested fn
+  my context
+    does things
+
+nested fn with yield
+  my context
+    does things
+
+Finished in 0.00075 seconds (files took 0.05731 seconds to load)
+3 examples, 0 failures
+=end
