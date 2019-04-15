@@ -28,15 +28,15 @@ def yielding_nested_context_fn
   end
 end
 
-describe 'thing' do
+RSpec.describe 'thing' do
   context_fn
 end
 
-describe 'nested fn' do
+RSpec.describe 'nested fn' do
   nested_context_fn
 end
 
-describe 'nested fn with yield' do
+RSpec.describe 'nested fn with yield' do
   yielding_nested_context_fn do
     yielding_fn do
       nested_context_fn
