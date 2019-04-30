@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+
+#gem 'mongoid', path: '/home/w/apps/mongoid'
+gem 'mongoid', git: 'https://github.com/p-mongo/mongoid', ref: '4730'
+gem 'rails', git: 'https://github.com/rails/rails', ref: 'v6.0.0.rc1'
