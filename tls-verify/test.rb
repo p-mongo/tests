@@ -1,54 +1,18 @@
 require 'openssl'
 
-include OpenSSL::X509
+def check(desc, ca_path, cert_path)
+  store = OpenSSL::X509::Store.new
+  store.add_file(ca_path)
 
-puts 'Rogue CA, good cert'
+  client_cert = OpenSSL::X509::Certificate.new(File.read(cert_path))
 
-store = Store.new
-store.add_file('ca-rogue.crt')
+  result = store.verify(client_cert)
 
-client_cert = Certificate.new(File.read('client.pem'))
+  puts "#{desc}: #{result}"
+end
 
-result = store.verify(client_cert)
-puts "Result: #{result}"
-
-# --
-
-puts 'Rogue CA, rogue cert'
-
-store = Store.new
-store.add_file('ca-rogue.crt')
-
-client_cert = Certificate.new(File.read('python-client.pem'))
-
-result = store.verify(client_cert)
-puts "Result: #{result}"
-
-# --
-
-puts 'Good CA, good cert - bundle'
-
-store = Store.new
-store.add_file('ca.crt')
-
-client_cert = Certificate.new(File.read('client-second-level-bundle.pem'))
-
-result = store.verify(client_cert)
-puts "Result: #{result}"
-
-store = Store.new
-store.add_file('ca.crt')
-
-client_cert = Certificate.new(File.read('client.crt'))
-
-p store.verify(client_cert)
-
-int_cert = Certificate.new(File.read('client-int.crt'))
-
-p store.verify(int_cert)
-
-client_cert = Certificate.new(File.read('client-second-level.crt'))
-
-p store.verify(client_cert, [int_cert])
-p store.error
-p store.error_string
+check('Rogue CA, good cert', 'ca-rogue.crt', 'client.pem')
+check('Rogue CA, rogue cert', 'ca-rogue.crt', 'python-client.pem')
+check('Good CA, good cert', 'ca.crt', 'client.pem')
+check('Good CA, good cert - bundle', 'ca.crt', 'client-second-level-bundle.pem')
+check('Good CA, good cert - bundle', 'ca.crt', 'server-second-level-bundle.pem')
