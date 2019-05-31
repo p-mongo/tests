@@ -1,5 +1,12 @@
 require 'openssl'
 
+# OK: openssl  verify  -CAfile ca.crt client.pem
+# Fail: openssl  verify  -CAfile ca.crt python-client.pem
+# OK: openssl  verify  -CAfile ca-rogue.crt python-client.pem
+# OK: openssl  verify  -CAfile ca.crt -untrusted client-int.crt client-second-level.pem
+# Fail: openssl  verify  -CAfile ca.crt  client-second-level-bundle.pem
+
+
 def check(desc, ca_path, cert_path)
   store = OpenSSL::X509::Store.new
   store.add_file(ca_path)
