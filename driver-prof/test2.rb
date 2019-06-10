@@ -4,23 +4,25 @@ require 'mongo'
 
 require 'ruby-prof'
 
- 
+
 
 Mongo::Logger.level = Logger::FATAL
 
 client = Mongo::Client.new('mongodb://127.0.0.1:27741/test', :connect => :direct, min_pool_size:1)
 
- 
+
 
 result = RubyProf.profile do
 
+100.times do
 
     client.cluster.next_primary
 
+end
 
 end
 
- 
+
 
 printer = RubyProf::CallStackPrinter.new(result)
 
