@@ -1,6 +1,8 @@
 require 'mongo'
 require 'logger'
 
+#=begin
+
 $logger = Logger.new(STDOUT)
 $logger.level = Logger::DEBUG
 
@@ -45,6 +47,8 @@ end
 subscriber = CommandLogSubscriber.new
 
 Mongo::Monitoring::Global.subscribe(Mongo::Monitoring::COMMAND, subscriber)
+
+#=end
 
 require_relative 'boot'
 

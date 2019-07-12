@@ -4,3 +4,15 @@
 require_relative 'config/application'
 
 Rails.application.load_tasks
+
+
+task 'test-embedding' => :environment do
+  Band.destroy_all
+
+  Band.create!(name: 'SUN Project', cities: [City.new(name: 'London')])
+
+  band = Band.where('cities.name' => 'London').only(:cities).first
+  p band
+  p band.cities
+
+end

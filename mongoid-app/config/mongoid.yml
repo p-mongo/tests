@@ -6,8 +6,9 @@ development:
         - localhost:27741
       options:
         server_selection_timeout: 1
+        #log_level: :warn
   options:
-    log_level: :warn
+    #log_level: :warn
 
 
 xdevelopment:
