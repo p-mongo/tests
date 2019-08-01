@@ -64,3 +64,6 @@ raised by the driver. If there are no exceptions raised, the driver handles
 any errors internally without failing application operations.
 - The current topology, and a summary of all servers known to the driver along
 with statistics on each server's connection pool.
+
+Additionally, the tests create log file(s) in the current directory with all
+logging output that the driver generates during each run.
