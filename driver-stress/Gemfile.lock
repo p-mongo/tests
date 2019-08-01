@@ -1,14 +1,13 @@
 PATH
   remote: ../../ruby-driver
   specs:
-    mongo (2.9.0.rc0)
+    mongo (2.9.0)
       bson (>= 4.4.2, < 5.0.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     bson (4.5.0)
-    bson (4.5.0-java)
     byebug (11.0.1)
 
 PLATFORMS

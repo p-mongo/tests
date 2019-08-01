@@ -27,7 +27,9 @@ class Tester
   def client
     @client ||= Mongo::Client.new(uri, logger: logger,
       max_pool_size: 10,
-      socket_timeout: 3, connect_timeout: 3, server_selection_timeout: 5,
+      #socket_timeout: 3,
+      #connect_timeout: 3,
+      server_selection_timeout: 5,
     )
   end
 
