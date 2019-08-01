@@ -3,7 +3,7 @@ development:
     default:
       database: mongoid
       hosts:
-        - localhost:27741
+        - localhost:14420
       options:
         server_selection_timeout: 1
         #log_level: :warn
