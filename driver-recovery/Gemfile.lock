@@ -1,5 +1,6 @@
-PATH
-  remote: ../../ruby-driver
+GIT
+  remote: https://github.com/mongodb/mongo-ruby-driver
+  revision: 04ca01aaede398fff92f4f2ed6ec02bf50122b91
   specs:
     mongo (2.9.0.rc0)
       bson (>= 4.4.2, < 5.0.0)
@@ -11,7 +12,6 @@ GEM
     byebug (11.0.1)
 
 PLATFORMS
-  java
   ruby
 
 DEPENDENCIES
@@ -19,4 +19,4 @@ DEPENDENCIES
   mongo!
 
 BUNDLED WITH
-   2.0.2
+   1.17.2
