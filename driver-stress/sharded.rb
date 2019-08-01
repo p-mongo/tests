@@ -77,6 +77,7 @@ class Tester
       end.length
       puts "#{Time.now}: #{read_ops - prev_read_ops} read ops, " +
         "#{alive_threads_count} alive threads, #{exception_count} exceptions"
+      puts client.cluster.summary
       prev_read_ops = read_ops
     end
   end
