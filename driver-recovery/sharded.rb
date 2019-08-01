@@ -119,5 +119,5 @@ class Tester
   end
 end
 
-uri = 'mongodb://localhost:14440,localhost:14441'
+uri = ARGV.shift || 'mongodb://localhost:14440,localhost:14441'
 Tester.new(uri).run
