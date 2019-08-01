@@ -1,4 +1,7 @@
-require 'byebug'
+begin
+  require 'byebug'
+rescue LoadError
+end
 require 'mongo'
 
 class Tester
@@ -7,6 +10,11 @@ class Tester
     @threads = []
     @read_ops = 0
     @exception_count = 0
+    @lock = Mutex.new
+
+    logger
+    client
+    collection
   end
 
   attr_reader :uri
@@ -17,7 +25,10 @@ class Tester
   end
 
   def client
-    @client ||= Mongo::Client.new(uri, logger: logger)
+    @client ||= Mongo::Client.new(uri, logger: logger,
+      max_pool_size: 10,
+      socket_timeout: 3, connect_timeout: 3, server_selection_timeout: 5,
+    )
   end
 
   def collection
@@ -30,10 +41,10 @@ class Tester
 
   def run
     reader_thread_count.times do |i|
-      @threads << run_thread("reader #{i}") do
-        until @stop
-          collection.find(a: 1).to_a
-          sleep 0.01
+      @threads << run_thread_loop("reader-#{i}") do
+        collection.find(a: 1).to_a
+        sleep 0.01
+        @lock.synchronize do
           @read_ops += 1
         end
       end
@@ -62,19 +73,42 @@ class Tester
       rescue => e
         puts "Unhandled exception in thread #{thread_label}: #{e.class}: #{e}"
         puts e.backtrace.join("\n")
-        @exception_count += 1
+        @lock.synchronize do
+          @exception_count += 1
+        end
+      end
+    end
+  end
+
+  def run_thread_loop(thread_label)
+    Thread.new do
+      until @stop
+        begin
+          yield
+        rescue => e
+          puts "Unhandled exception in thread #{thread_label}: #{e.class}: #{e}"
+          puts e.backtrace.join("\n")
+          @lock.synchronize do
+            @exception_count += 1
+          end
+        end
       end
     end
   end
 
   def run_monitor
-    prev_read_ops = @read_ops
+    prev_read_ops = @lock.synchronize { @read_ops }
     until @stop
       sleep 1
-      read_ops = @read_ops
+      read_ops = @lock.synchronize do
+        @read_ops
+      end
       alive_threads_count = @threads.select do |thread|
         thread.alive?
       end.length
+      exception_count = @lock.synchronize do
+        self.exception_count
+      end
       puts "#{Time.now}: #{read_ops - prev_read_ops} read ops, " +
         "#{alive_threads_count} alive threads, #{exception_count} exceptions"
       puts client.cluster.summary

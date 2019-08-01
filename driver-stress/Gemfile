@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'byebug'
+platform :mri do
+  gem 'byebug'
+end
 
 gem 'mongo', path: '../../ruby-driver'
