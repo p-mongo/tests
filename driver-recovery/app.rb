@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'mongoid'
 
+Mongo::Logger.logger.level = Logger::WARN
+
 Mongoid.configure do |config|
   config.clients.default = {
     uri: ENV['MONGODB_URI'],
