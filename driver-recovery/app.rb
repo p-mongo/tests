@@ -9,6 +9,7 @@ Mongoid.configure do |config|
     database: 'my_db',
     max_pool_size: 1,
     server_selection_timeout: 3,
+    socket_timeout: 5,
   }
 
   config.log_level = :warn

@@ -5,4 +5,4 @@ set -e
 export MONGODB_URI=mongodb://localhost:13480,localhost:13481,localhost:13482,localhost:13483,localhost:13484,localhost:13485,localhost:13486,localhost:13487,localhost:13488,localhost:13489
 
 rm -f server.log
-puma config.puma.ru "$@" |tee server.log
+puma config.puma.ru "$@" -w 3 -t 0:3 |tee server.log
