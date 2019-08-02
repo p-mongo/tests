@@ -27,8 +27,8 @@ class Tester
   def client
     @client ||= Mongo::Client.new(uri, logger: logger,
       max_pool_size: 10,
-      #socket_timeout: 3,
-      #connect_timeout: 3,
+      socket_timeout: 5,
+      #connect_timeout: 5,
       server_selection_timeout: 5,
     )
   end
@@ -119,5 +119,5 @@ class Tester
   end
 end
 
-uri = ARGV.shift || 'mongodb://localhost:14440,localhost:14441'
+uri = ARGV.shift || 'mongodb://localhost:13480,localhost:13481,localhost:13482,localhost:13483,localhost:13484,localhost:13485,localhost:13486,localhost:13487,localhost:13488,localhost:13489'
 Tester.new(uri).run
