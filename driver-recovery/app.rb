@@ -14,6 +14,13 @@ Mongoid.configure do |config|
   config.log_level = :warn
 end
 
+Thread.new do
+  loop do
+    puts "pid=#{$$}: #{Mongoid::Clients.default.cluster.summary}"
+    sleep 1
+  end
+end
+
 class Model
   include Mongoid::Document
 
@@ -25,5 +32,12 @@ end
 end
 
 get '/' do
-  {count: Model.count}.to_json
+  begin
+    Model.count
+    'ok'
+  rescue => e
+    "error: #{e.class}: #{e}"
+  end
+ensure
+  p Mongoid::Clients.default
 end

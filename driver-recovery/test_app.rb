@@ -34,8 +34,17 @@ class Tester
 
       @threads << run_thread_loop("reader-#{i}") do
         resp = client.get('/')
+        failed = false
         if resp.status != 200
           puts "Bad status in reader-#{i}: #{resp.status}"
+          failed = true
+        end
+        body = resp.body
+        unless body.start_with?('ok')
+          puts "Operation failed: #{body}"
+          failed = true
+        end
+        if failed
           @lock.synchronize do
             @exception_count += 1
           end
@@ -69,7 +78,7 @@ class Tester
         yield
       rescue => e
         puts "Unhandled exception in thread #{thread_label}: #{e.class}: #{e}"
-        puts e.backtrace.join("\n")
+        #puts e.backtrace.join("\n")
         @lock.synchronize do
           @exception_count += 1
         end
@@ -84,7 +93,7 @@ class Tester
           yield
         rescue => e
           puts "Unhandled exception in thread #{thread_label}: #{e.class}: #{e}"
-          puts e.backtrace.join("\n")
+          #puts e.backtrace.join("\n")
           @lock.synchronize do
             @exception_count += 1
           end
