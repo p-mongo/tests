@@ -28,7 +28,7 @@ class Tester
     @client ||= Mongo::Client.new(uri, logger: logger,
       max_pool_size: 10,
       socket_timeout: 5,
-      #connect_timeout: 5,
+      connect_timeout: 5,
       server_selection_timeout: 5,
     )
   end
@@ -44,7 +44,13 @@ class Tester
   def run
     reader_thread_count.times do |i|
       @threads << run_thread_loop("reader-#{i}") do
-        collection.find(a: 1).to_a
+        begin
+          Timeout.timeout(20) do
+            collection.find(a: 1).to_a
+          end
+        rescue Timeout::Error => e
+          raise "Find took more than 20 seconds: #{e.class}: #{e}"
+        end
         sleep 0.01
         @lock.synchronize do
           @read_ops += 1
