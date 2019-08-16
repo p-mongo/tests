@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'rspec', '~> 3.0'
+gem 'rspec-core', '~> 3.0'
 gem 'byebug'
-gem 'rspec-mocks', path: '../../exp/rspec-mocks'
+gem 'rspec-mocks-diag', path: '../../exp/rspec-mocks'
