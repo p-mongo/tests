@@ -6,7 +6,7 @@ unavailable, or change state.
 ## Basic Usage
 
     bundle install
-    bundle exec ruby sharded.rb MONGODB-URI
+    bundle exec ruby test_sharded.rb MONGODB-URI
 
 ## Driver Version
 
