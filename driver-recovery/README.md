@@ -11,6 +11,9 @@ concurrent reads.
     bundle install
     bundle exec ruby test_client.rb MONGODB-URI
 
+The URI can be to a replica set or sharded custer deployment with a minimum of
+two nodes.
+
 ## Driver Version
 
 `master` branch of the Ruby driver contains the most diagnostics. The test
