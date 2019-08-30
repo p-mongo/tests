@@ -1,0 +1,4 @@
+uri: mongodb://localhost:14440,localhost:14441
+client_options:
+options:
+  application_timeout: 20

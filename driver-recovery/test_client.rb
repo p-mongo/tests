@@ -4,9 +4,13 @@ rescue LoadError
 end
 require 'mongo'
 
+class OurTimeoutError < StandardError; end
+
 class Tester
-  def initialize(uri)
+  def initialize(uri, client_options, options)
     @uri = uri
+    @client_options = client_options
+    @options = options
     @threads = []
     @read_ops = 0
     @exception_count = 0
@@ -18,6 +22,8 @@ class Tester
   end
 
   attr_reader :uri
+  attr_reader :options
+  attr_reader :client_options
   attr_reader :exception_count
 
   def logger
@@ -25,12 +31,7 @@ class Tester
   end
 
   def client
-    @client ||= Mongo::Client.new(uri, logger: logger,
-      max_pool_size: 10,
-      socket_timeout: 5,
-      connect_timeout: 5,
-      server_selection_timeout: 5,
-    )
+    @client ||= Mongo::Client.new(uri, logger: logger, **client_options)
   end
 
   def collection
@@ -45,10 +46,8 @@ class Tester
     reader_thread_count.times do |i|
       @threads << run_thread_loop("reader-#{i}") do
         begin
-          Timeout.timeout(20) do
-            collection.find(a: 1).to_a
-          end
-        rescue Timeout::Error => e
+          do_one_find
+        rescue OurTimeoutError => e
           raise "Find took more than 20 seconds: #{e.class}: #{e}"
         end
         sleep 0.01
@@ -72,6 +71,20 @@ class Tester
     end
 
     @threads.map(&:join)
+  end
+
+  def do_one_find
+    if options[:application_timeout]
+      Timeout.timeout(options[:application_timeout], OurTimeoutError) do
+        do_find_itself
+      end
+    else
+      do_find_itself
+    end
+  end
+
+  def do_find_itself
+    collection.find(a: 1).to_a
   end
 
   def run_thread(thread_label)
@@ -125,5 +138,6 @@ class Tester
   end
 end
 
-uri = ARGV.shift || 'mongodb://localhost:13480,localhost:13481,localhost:13482,localhost:13483,localhost:13484,localhost:13485,localhost:13486,localhost:13487,localhost:13488,localhost:13489'
-Tester.new(uri).run
+config_path = ARGV.shift or raise 'need config file'
+config = YAML.load(File.read(config_path))
+Tester.new(config['uri'], config['client_options'] || {}, config['options'] || {}).run
