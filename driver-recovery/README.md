@@ -3,10 +3,13 @@
 These tests verify the driver's behavior when nodes in a deployment become
 unavailable, or change state.
 
-## Basic Usage
+## Client Test
+
+This test uses a client instance from many threads concurrently, performing
+concurrent reads.
 
     bundle install
-    bundle exec ruby test_sharded.rb MONGODB-URI
+    bundle exec ruby test_client.rb MONGODB-URI
 
 ## Driver Version
 
@@ -24,10 +27,15 @@ but the error behavior should generally be the same.
 
 The test assumes an externally provisioned deployment. Local deployments with
 various configurations can be obtained following instructions in the
-[driver spec readme](). 
+[driver spec readme](https://github.com/mongodb/mongo-ruby-driver/blob/master/spec/README.md).
 
 Pass the MongoDB URI to the deployment as the first argument to the test being
 run.
+
+There are some helper scripts to create specific deployments:
+
+- [Big sharded cluster](https://github.com/p-mongo/dev/blob/master/script/launch-4.4-sharded-big) -
+2 shards x 2 RS nodes each, 10 mongos routers.
 
 ## Deployment Events
 
