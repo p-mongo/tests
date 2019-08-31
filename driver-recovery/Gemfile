@@ -8,3 +8,4 @@ gem 'mongo', path: '../../ruby-driver'
 #gem 'mongo', git: 'https://github.com/mongodb/mongo-ruby-driver'
 
 gem 'faraday'
+gem 'activesupport'

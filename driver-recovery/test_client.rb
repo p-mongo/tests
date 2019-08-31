@@ -3,6 +3,7 @@ begin
 rescue LoadError
 end
 require 'mongo'
+require 'active_support/core_ext/hash'
 
 class OurTimeoutError < StandardError; end
 
@@ -39,21 +40,18 @@ class Tester
   end
 
   def reader_thread_count
-    20
+    options[:application_threads] || 20
   end
 
   def run
     reader_thread_count.times do |i|
       @threads << run_thread_loop("reader-#{i}") do
         begin
-          do_one_find
+          do_run_loop_iteration
         rescue OurTimeoutError => e
-          raise "Find took more than 20 seconds: #{e.class}: #{e}"
+          raise "Find operation timed out by the application: #{e.class}: #{e}"
         end
         sleep 0.01
-        @lock.synchronize do
-          @read_ops += 1
-        end
       end
     end
 
@@ -73,6 +71,26 @@ class Tester
     @threads.map(&:join)
   end
 
+  def target_ops
+    options[:target_ops] || 100
+  end
+
+  def do_run_loop_iteration
+    target_time = Time.now + 1
+    ops = 0
+    while Time.now < target_time
+      do_one_find
+      ops += 1
+      if ops >= target_ops
+        break
+      end
+    end
+    delta = target_time - Time.now
+    if delta > 0
+      sleep delta
+    end
+  end
+
   def do_one_find
     if options[:application_timeout]
       Timeout.timeout(options[:application_timeout], OurTimeoutError) do
@@ -85,6 +103,9 @@ class Tester
 
   def do_find_itself
     collection.find(a: 1).to_a
+    @lock.synchronize do
+      @read_ops += 1
+    end
   end
 
   def run_thread(thread_label)
@@ -139,5 +160,5 @@ class Tester
 end
 
 config_path = ARGV.shift or raise 'need config file'
-config = YAML.load(File.read(config_path))
-Tester.new(config['uri'], config['client_options'] || {}, config['options'] || {}).run
+config = YAML.load(File.read(config_path)).deep_symbolize_keys
+Tester.new(config[:uri], config[:client_options] || {}, config[:options] || {}).run
