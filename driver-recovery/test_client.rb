@@ -11,9 +11,7 @@ ChildProcess.posix_spawn = true
 class OurTimeoutError < StandardError; end
 
 class Tester
-  def initialize(uri, client_options, options)
-    @uri = uri
-    @client_options = client_options
+  def initialize(options)
     @options = options
     @threads = []
     @read_ops = 0
@@ -25,9 +23,7 @@ class Tester
     collection
   end
 
-  attr_reader :uri
   attr_reader :options
-  attr_reader :client_options
   attr_reader :exception_count
 
   def logger
@@ -35,7 +31,8 @@ class Tester
   end
 
   def client
-    @client ||= Mongo::Client.new(uri, logger: logger, **client_options)
+    @client ||= Mongo::Client.new(options[:uri], logger: logger,
+      **options[:client_options] || {})
   end
 
   def collection
@@ -188,4 +185,4 @@ end
 
 config_path = ARGV.shift or raise 'need config file'
 config = YAML.load(File.read(config_path)).deep_symbolize_keys
-Tester.new(config[:uri], config[:client_options] || {}, config[:options] || {}).run
+Tester.new(config).run

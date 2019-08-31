@@ -1,9 +1,8 @@
 uri: mongodb://localhost:14440,localhost:14441
 client_options:
-options:
-  application_timeout: 20
-  application_threads: 20
-  target_ops: 5
-  preexec:
-    - sh: sudo iptables -D INPUT -p tcp --destination-port 14440 -j DROP || true
-    - sh: sudo iptables -D INPUT -p tcp --destination-port 14441 -j DROP || true
+application_timeout: 20
+application_threads: 20
+target_ops: 5
+preexec:
+  - sh: sudo iptables -D INPUT -p tcp --destination-port 14440 -j DROP || true
+  - sh: sudo iptables -D INPUT -p tcp --destination-port 14441 -j DROP || true
