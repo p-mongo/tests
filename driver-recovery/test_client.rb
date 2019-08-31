@@ -1,9 +1,12 @@
+require 'childprocess'
 begin
   require 'byebug'
 rescue LoadError
 end
 require 'mongo'
 require 'active_support/core_ext/hash'
+
+ChildProcess.posix_spawn = true
 
 class OurTimeoutError < StandardError; end
 
@@ -43,7 +46,31 @@ class Tester
     options[:application_threads] || 20
   end
 
+  def prepare
+    if options[:preexec]
+      options[:preexec].each do |cmd|
+        execute(cmd)
+      end
+    end
+  end
+
+  def execute(cmd)
+    if sh_cmd = cmd[:sh]
+      puts "Run #{sh_cmd}"
+      proc = ChildProcess.new('sh', '-c', sh_cmd)
+      proc.start
+      proc.wait
+      unless proc.exit_code == 0
+        raise "Failed to execute #{cmd}"
+      end
+    else
+      raise "Don't know what to do with #{cmd}"
+    end
+  end
+
   def run
+    prepare
+
     reader_thread_count.times do |i|
       @threads << run_thread_loop("reader-#{i}") do
         begin

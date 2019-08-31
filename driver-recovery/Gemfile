@@ -9,3 +9,5 @@ gem 'mongo', path: '../../ruby-driver'
 
 gem 'faraday'
 gem 'activesupport'
+gem 'childprocess'
+gem 'ffi'
