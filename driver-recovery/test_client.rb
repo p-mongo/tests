@@ -17,14 +17,11 @@ class Tester
     @read_ops = 0
     @exception_count = 0
     @lock = Mutex.new
-
-    logger
-    client
-    collection
   end
 
   attr_reader :options
   attr_reader :exception_count
+  attr_reader :start_time
 
   def logger
     @logger ||= Logger.new(File.open('client.log', 'w'))
@@ -60,6 +57,9 @@ class Tester
       unless proc.exit_code == 0
         raise "Failed to execute #{cmd}"
       end
+    elsif cmd[:exit]
+      puts "Exiting"
+      @stop = true
     else
       raise "Don't know what to do with #{cmd}"
     end
@@ -67,6 +67,18 @@ class Tester
 
   def run
     prepare
+
+    logger
+    client
+    collection
+
+    @start_time = Time.now
+
+    if options[:exec]
+      Thread.new do
+        do_exec
+      end
+    end
 
     reader_thread_count.times do |i|
       @threads << run_thread_loop("reader-#{i}") do
@@ -175,10 +187,24 @@ class Tester
       exception_count = @lock.synchronize do
         self.exception_count
       end
-      puts "#{Time.now}: #{read_ops - prev_read_ops} read ops, " +
+      now = Time.now
+      puts "#{now} [+#{'%.0f' % (now - start_time)}]: #{read_ops - prev_read_ops} read ops, " +
         "#{alive_threads_count} alive threads, #{exception_count} exceptions"
       puts client.cluster.summary
       prev_read_ops = read_ops
+    end
+  end
+
+  def do_exec
+    options[:exec].each do |time_delta, cmd|
+      target_time = @start_time + time_delta
+      wait_delta = target_time - Time.now
+      if wait_delta > 0
+        sleep(wait_delta)
+      end
+
+      puts "At #{time_delta}, run #{cmd}"
+      execute(cmd)
     end
   end
 end

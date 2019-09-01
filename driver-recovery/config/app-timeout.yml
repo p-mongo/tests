@@ -6,3 +6,8 @@ target_ops: 5
 preexec:
   - sh: sudo iptables -D INPUT -p tcp --destination-port 14440 -j DROP || true
   - sh: sudo iptables -D INPUT -p tcp --destination-port 14441 -j DROP || true
+exec:
+  5:
+    sh: sudo iptables -A INPUT -p tcp --destination-port 14440 -j DROP
+  40:
+    exit: true
