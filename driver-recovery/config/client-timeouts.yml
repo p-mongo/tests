@@ -1,6 +1,6 @@
 uri: mongodb://localhost:14440,localhost:14441
 client_options:
-  max_pool_size: 10,
-  socket_timeout: 3,
-  connect_timeout: 3,
-  server_selection_timeout: 3,
+  max_pool_size: 10
+  socket_timeout: 3
+  connect_timeout: 3
+  server_selection_timeout: 3
