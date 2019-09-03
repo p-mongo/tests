@@ -34,7 +34,7 @@ class Tester
   end
 
   def collection
-    @collection ||= client['test-collection']
+    @collection ||= client['test-collection'].with(options[:collection_options] || {})
   end
 
   def reader_thread_count

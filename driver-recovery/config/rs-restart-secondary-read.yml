@@ -1,0 +1,38 @@
+uri: 'mongodb://localhost:30200,localhost:30201,localhost:30202/'
+client_options:
+collection_options:
+  read:
+    mode: secondary
+application_timeout: 20
+application_threads: 20
+target_ops: 5
+driver_log: /tmp/rs-restart-secondary-read-driver.log
+preexec:
+  - sh: pgrep -f 30200 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30201 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30202 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: rm -rf /mnt/zram/sandbox/rs-restart
+  - sh: "mlaunch --replicaset --name ruby-driver-rs \
+    --dir /mnt/zram/sandbox/rs-restart \
+    --setParameter diagnosticDataCollectionEnabled=false \
+    --wiredTigerCacheSizeGB 0.25 \
+    --setParameter enableTestCommands=1 \
+    --filePermissions 0666 \
+    --binarypath /usr/local/m/versions/4.4 \
+    --port 30200"
+  - sh: "mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 \
+    --eval 'db.test.insertOne({foo:1})'"
+exec:
+  10:
+    sh: "mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 \
+      --eval 'db.adminCommand({shutdown:1})' || true"
+  20:
+    sh: "mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 \
+      --eval 'db.adminCommand({shutdown:1})' || true"
+  30:
+    sh: "mlaunch start --dir /mnt/zram/sandbox/rs-restart"
+  40:
+    sh: "mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 \
+      --eval 'db.adminCommand({shutdown:1})' || true"
+  50:
+    exit: true
