@@ -24,7 +24,8 @@ class Tester
   attr_reader :start_time
 
   def logger
-    @logger ||= Logger.new(File.open('client.log', 'w'))
+    log_path = options[:driver_log] || 'client.log'
+    @logger ||= Logger.new(File.open(log_path, 'w'))
   end
 
   def client
@@ -52,10 +53,11 @@ class Tester
     if sh_cmd = cmd[:sh]
       puts "Run #{sh_cmd}"
       proc = ChildProcess.new('sh', '-c', sh_cmd)
+      proc.io.inherit!
       proc.start
       proc.wait
       unless proc.exit_code == 0
-        raise "Failed to execute #{cmd}"
+        raise "Failed to execute #{cmd} (exited with code #{proc.exit_code})"
       end
     elsif cmd[:exit]
       puts "Exiting"
