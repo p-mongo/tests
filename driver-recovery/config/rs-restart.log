@@ -1,0 +1,231 @@
+butler% (cd ~me/apps/mongo/tests/driver-recovery/ && bundle exec ruby test_client.rb config/rs-restart.yml)
+Run pgrep -f 30200 | grep -v $$ | xargs kill -9 2>/dev/null || true
+Run pgrep -f 30201 | grep -v $$ | xargs kill -9 2>/dev/null || true
+Run pgrep -f 30202 | grep -v $$ | xargs kill -9 2>/dev/null || true
+Run rm -rf /mnt/zram/sandbox/rs-restart
+Run mlaunch --replicaset --name ruby-driver-rs --dir /mnt/zram/sandbox/rs-restart --setParameter diagnosticDataCollectionEnabled=false --wiredTigerCacheSizeGB 0.25 --setParameter enableTestCommands=1 --filePermissions 0666 --binarypath /usr/local/m/versions/4.4 --port 30200
+launching: "/usr/local/m/versions/4.4/mongod" on port 30200
+launching: "/usr/local/m/versions/4.4/mongod" on port 30201
+launching: "/usr/local/m/versions/4.4/mongod" on port 30202
+replica set 'ruby-driver-rs' initialized.
+Run mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 --eval 'db.test.insertOne({foo:1})'
+MongoDB shell version v3.6.9
+connecting to: mongodb://localhost:30200,localhost:30201,localhost:30202/?replicaSet=ruby-driver-rs
+2019-09-03T02:15:15.047-0400 I NETWORK  [thread1] Starting new replica set monitor for ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202
+2019-09-03T02:15:15.067-0400 I NETWORK  [ReplicaSetMonitor-TaskExecutor-0] Successfully connected to localhost:30202 (1 connections now open to localhost:30202 with a 5 second timeout)
+2019-09-03T02:15:15.067-0400 I NETWORK  [thread1] Successfully connected to localhost:30201 (1 connections now open to localhost:30201 with a 5 second timeout)
+2019-09-03T02:15:15.068-0400 I NETWORK  [ReplicaSetMonitor-TaskExecutor-0] Successfully connected to localhost:30200 (1 connections now open to localhost:30200 with a 5 second timeout)
+2019-09-03T02:15:15.068-0400 W NETWORK  [ReplicaSetMonitor-TaskExecutor-0] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:15.069-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:15.571-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:16.072-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:16.573-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:17.074-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:17.576-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:18.077-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:18.578-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:19.079-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:19.580-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:20.082-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:20.583-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:21.084-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:21.585-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:22.087-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:22.588-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:23.089-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:23.590-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:24.092-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:24.593-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:25.094-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:25.595-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:15:26.097-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+Implicit session: session { "id" : UUID("22444603-e299-4279-99ae-ff0268533093") }
+MongoDB server version: 4.3.0-574-g6e02a4d
+WARNING: shell and server versions do not match
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("5d6e04fe1116be8c8ecccff3")
+}
+2019-09-03 02:15:27 -0400 [+1]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:30200 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=5 avail=0 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:28 -0400 [+2]: 107 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:30200 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=3 avail=2 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:29 -0400 [+3]: 98 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:30200 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=2 avail=3 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:30 -0400 [+4]: 99 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:30200 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:31 -0400 [+5]: 96 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:30200 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=1 avail=4 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:32 -0400 [+6]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:30200 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:33 -0400 [+7]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:30200 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:34 -0400 [+8]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:30200 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:35 -0400 [+9]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:30200 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+At 10, run {:sh=>"mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 --eval 'db.adminCommand({shutdown:1})' || true"}
+Run mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 --eval 'db.adminCommand({shutdown:1})' || true
+MongoDB shell version v3.6.9
+2019-09-03 02:15:36 -0400 [+10]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:30200 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+connecting to: mongodb://localhost:30200,localhost:30201,localhost:30202/?replicaSet=ruby-driver-rs
+2019-09-03T02:15:36.729-0400 I NETWORK  [thread1] Starting new replica set monitor for ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202
+2019-09-03T02:15:36.746-0400 I NETWORK  [ReplicaSetMonitor-TaskExecutor-0] Successfully connected to localhost:30201 (1 connections now open to localhost:30201 with a 5 second timeout)
+2019-09-03T02:15:36.746-0400 I NETWORK  [thread1] Successfully connected to localhost:30200 (1 connections now open to localhost:30200 with a 5 second timeout)
+2019-09-03T02:15:36.747-0400 I NETWORK  [ReplicaSetMonitor-TaskExecutor-0] Successfully connected to localhost:30202 (1 connections now open to localhost:30202 with a 5 second timeout)
+Implicit session: session { "id" : UUID("637f4b77-37da-4c78-babf-878a1648f471") }
+MongoDB server version: 4.3.0-574-g6e02a4d
+WARNING: shell and server versions do not match
+2019-09-03T02:15:37.526-0400 E QUERY    [thread1] Error: error doing query: failed: network error while attempting to run command 'shutdown' on host 'localhost:30200'  :
+DB.prototype.runCommand@src/mongo/shell/db.js:168:1
+DB.prototype.adminCommand@src/mongo/shell/db.js:186:16
+@(shell eval):1:1
+2019-09-03T02:15:37.528-0400 I NETWORK  [thread1] Marking host localhost:30200 as failed :: caused by :: Location40657: Last known master host cannot be reached
+2019-09-03T02:15:37.529-0400 I NETWORK  [thread1] Detected bad connection created at 1567491336729747 microSec, clearing pool for localhost:30200 of 0 connections
+2019-09-03T02:15:37.529-0400 I NETWORK  [thread1] Dropping all pooled connections to localhost:30200(with timeout of 5 seconds)
+2019-09-03T02:15:37.529-0400 I NETWORK  [thread1] Ending connection to host localhost:30200(with timeout of 5 seconds) due to bad connection status; 0 connections to that host remain open
+2019-09-03T02:15:37.530-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03 02:15:37 -0400 [+11]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:30200 OTHER replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+W, [2019-09-03T02:15:37.754775 #17680]  WARN -- : Retrying ismaster in monitor for localhost:30200 due to: Mongo::Error::SocketError EOFError: end of file reached (for 127.0.0.1:30200 (no TLS))
+2019-09-03T02:15:38.030-0400 W NETWORK  [thread1] Failed to connect to 127.0.0.1:30200, in(checking socket for error after poll), reason: Connection refused
+W, [2019-09-03T02:15:38.143599 #17680]  WARN -- : Read retry due to: Mongo::Error::OperationFailure not master and slaveOk=false (13435) (on localhost:30200, attempt 1) (on localhost:30200, attempt 1)
+2019-09-03 02:15:38 -0400 [+12]: 120 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000002] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:39 -0400 [+13]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000002] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:40 -0400 [+14]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000002] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:41 -0400 [+15]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000002] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:42 -0400 [+16]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000002] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:43 -0400 [+17]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000002] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:44 -0400 [+18]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000002] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:15:45 -0400 [+19]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000002] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+At 20, run {:sh=>"mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 --eval 'db.adminCommand({shutdown:1})' || true"}
+Run mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 --eval 'db.adminCommand({shutdown:1})' || true
+MongoDB shell version v3.6.9
+2019-09-03 02:15:46 -0400 [+20]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000002] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+connecting to: mongodb://localhost:30200,localhost:30201,localhost:30202/?replicaSet=ruby-driver-rs
+2019-09-03T02:15:46.730-0400 I NETWORK  [thread1] Starting new replica set monitor for ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202
+2019-09-03T02:15:46.730-0400 W NETWORK  [thread1] Failed to connect to 127.0.0.1:30200, in(checking socket for error after poll), reason: Connection refused
+2019-09-03T02:15:46.751-0400 I NETWORK  [ReplicaSetMonitor-TaskExecutor-0] Successfully connected to localhost:30201 (1 connections now open to localhost:30201 with a 5 second timeout)
+2019-09-03T02:15:46.751-0400 I NETWORK  [thread1] Successfully connected to localhost:30202 (1 connections now open to localhost:30202 with a 5 second timeout)
+Implicit session: session { "id" : UUID("8b12d180-70b4-47e3-96f0-51111cbec88f") }
+MongoDB server version: 4.3.0-574-g6e02a4d
+WARNING: shell and server versions do not match
+2019-09-03 02:15:47 -0400 [+21]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000002] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03T02:15:47.796-0400 E QUERY    [thread1] Error: error doing query: failed: network error while attempting to run command 'shutdown' on host 'localhost:30201'  :
+DB.prototype.runCommand@src/mongo/shell/db.js:168:1
+DB.prototype.adminCommand@src/mongo/shell/db.js:186:16
+@(shell eval):1:1
+2019-09-03T02:15:47.797-0400 I NETWORK  [thread1] Marking host localhost:30201 as failed :: caused by :: Location40657: Last known master host cannot be reached
+2019-09-03T02:15:47.798-0400 I NETWORK  [thread1] Detected bad connection created at 1567491346730730 microSec, clearing pool for localhost:30201 of 0 connections
+2019-09-03T02:15:47.798-0400 I NETWORK  [thread1] Dropping all pooled connections to localhost:30201(with timeout of 5 seconds)
+2019-09-03T02:15:47.798-0400 I NETWORK  [thread1] Ending connection to host localhost:30201(with timeout of 5 seconds) due to bad connection status; 0 connections to that host remain open
+2019-09-03T02:15:47.798-0400 W NETWORK  [thread1] Failed to connect to 127.0.0.1:30200, in(checking socket for error after poll), reason: Connection refused
+2019-09-03T02:15:47.798-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+W, [2019-09-03T02:15:48.274362 #17680]  WARN -- : Retrying ismaster in monitor for localhost:30201 due to: Mongo::Error::SocketError EOFError: end of file reached (for 127.0.0.1:30201 (no TLS))
+W, [2019-09-03T02:15:48.281223 #17680]  WARN -- : Read retry due to: Mongo::Error::OperationFailure not master and slaveOk=false (13435) (on localhost:30201, attempt 1) (on localhost:30201, attempt 1)
+2019-09-03T02:15:48.299-0400 W NETWORK  [thread1] Failed to connect to 127.0.0.1:30201, in(checking socket for error after poll), reason: Connection refused
+2019-09-03 02:15:48 -0400 [+22]: 144 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:15:49 -0400 [+23]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:15:50 -0400 [+24]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:15:51 -0400 [+25]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:15:52 -0400 [+26]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:15:53 -0400 [+27]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:15:54 -0400 [+28]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:15:55 -0400 [+29]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+At 30, run {:sh=>"mlaunch start --dir /mnt/zram/sandbox/rs-restart"}
+Run mlaunch start --dir /mnt/zram/sandbox/rs-restart
+2019-09-03 02:15:56 -0400 [+30]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:15:57 -0400 [+31]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+launching: "/usr/local/m/versions/4.4/mongod" on port 30200
+2019-09-03 02:15:58 -0400 [+32]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:15:59 -0400 [+33]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+launching: "/usr/local/m/versions/4.4/mongod" on port 30201
+2019-09-03 02:16:00 -0400 [+34]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:16:01 -0400 [+35]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:16:02 -0400 [+36]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:16:03 -0400 [+37]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:16:04 -0400 [+38]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03 02:16:05 -0400 [+39]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+At 40, run {:sh=>"mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 --eval 'db.adminCommand({shutdown:1})' || true"}
+Run mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 --eval 'db.adminCommand({shutdown:1})' || true
+MongoDB shell version v3.6.9
+2019-09-03 02:16:06 -0400 [+40]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+connecting to: mongodb://localhost:30200,localhost:30201,localhost:30202/?replicaSet=ruby-driver-rs
+2019-09-03T02:16:06.728-0400 I NETWORK  [thread1] Starting new replica set monitor for ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202
+2019-09-03T02:16:06.747-0400 I NETWORK  [thread1] Successfully connected to localhost:30200 (1 connections now open to localhost:30200 with a 5 second timeout)
+2019-09-03T02:16:06.747-0400 I NETWORK  [ReplicaSetMonitor-TaskExecutor-0] Successfully connected to localhost:30202 (1 connections now open to localhost:30202 with a 5 second timeout)
+2019-09-03T02:16:06.748-0400 I NETWORK  [thread1] Successfully connected to localhost:30201 (1 connections now open to localhost:30201 with a 5 second timeout)
+2019-09-03T02:16:06.748-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:16:06.749-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:16:07.250-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03 02:16:07 -0400 [+41]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03T02:16:07.752-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+Implicit session: session { "id" : UUID("d8a01c6c-2c7e-4cc6-8c2c-9c99eabe8b9a") }
+MongoDB server version: 4.3.0-574-g6e02a4d
+WARNING: shell and server versions do not match
+2019-09-03 02:16:08 -0400 [+42]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 OTHER replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>]>
+2019-09-03T02:16:08.884-0400 E QUERY    [thread1] Error: error doing query: failed: network error while attempting to run command 'shutdown' on host 'localhost:30202'  :
+DB.prototype.runCommand@src/mongo/shell/db.js:168:1
+DB.prototype.adminCommand@src/mongo/shell/db.js:186:16
+@(shell eval):1:1
+2019-09-03T02:16:08.886-0400 I NETWORK  [thread1] Marking host localhost:30202 as failed :: caused by :: Location40657: Last known master host cannot be reached
+W, [2019-09-03T02:16:08.935089 #17680]  WARN -- : Retrying ismaster in monitor for localhost:30202 due to: Mongo::Error::SocketError EOFError: end of file reached (for 127.0.0.1:30202 (no TLS))
+2019-09-03T02:16:09.387-0400 I NETWORK  [thread1] Detected bad connection created at 1567491366728655 microSec, clearing pool for localhost:30202 of 0 connections
+2019-09-03T02:16:09.387-0400 I NETWORK  [thread1] Dropping all pooled connections to localhost:30202(with timeout of 5 seconds)
+2019-09-03T02:16:09.387-0400 I NETWORK  [thread1] Ending connection to host localhost:30202(with timeout of 5 seconds) due to bad connection status; 0 connections to that host remain open
+2019-09-03T02:16:09.388-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03 02:16:09 -0400 [+43]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000003] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03T02:16:09.888-0400 W NETWORK  [thread1] Failed to connect to 127.0.0.1:30202, in(checking socket for error after poll), reason: Connection refused
+2019-09-03T02:16:09.889-0400 W NETWORK  [thread1] Unable to reach primary for set ruby-driver-rs
+2019-09-03T02:16:10.390-0400 W NETWORK  [thread1] Failed to connect to 127.0.0.1:30202, in(checking socket for error after poll), reason: Connection refused
+2019-09-03 02:16:10 -0400 [+44]: 0 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetNoPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000005] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30202 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+W, [2019-09-03T02:16:10.964676 #17680]  WARN -- : Read retry due to: Mongo::Error::OperationFailure not master and slaveOk=false (13435) (on localhost:30202, attempt 1) (on localhost:30202, attempt 1)
+W, [2019-09-03T02:16:10.967561 #17680]  WARN -- : Read retry due to: Mongo::Error::SocketError EOFError: end of file reached (for 127.0.0.1:30201 (no TLS)) (on localhost:30201, attempt 1) (on localhost:30201, attempt 1)
+2019-09-03 02:16:11 -0400 [+45]: 120 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000005] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:16:12 -0400 [+46]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000005] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:16:13 -0400 [+47]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000005] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:16:14 -0400 [+48]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000005] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+2019-09-03 02:16:15 -0400 [+49]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000005] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
+At 50, run {:exit=>true}
+Exiting
+2019-09-03 02:16:16 -0400 [+50]: 100 read ops, 21 alive threads, 0 exceptions
+#<Cluster topology=ReplicaSetWithPrimary[localhost:30200,localhost:30201,localhost:30202,name=ruby-driver-rs,v=1,e=7fffffff0000000000000005] servers=[#<Server address=localhost:30200 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:30201 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=5 (0-5) used=0 avail=5 pending=0>>,#<Server address=localhost:30202 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>]>
