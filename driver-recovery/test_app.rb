@@ -40,8 +40,8 @@ class Tester
           failed = true
         end
         body = resp.body
-        unless body.start_with?('ok')
-          puts "Operation failed: #{body}"
+        unless body['ok']
+          puts "Operation failed: #{body['error']}"
           failed = true
         end
         if failed

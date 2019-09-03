@@ -35,10 +35,9 @@ end
 get '/' do
   begin
     Model.count
-    'ok'
+    {ok: true, summary: Mongoid::Clients.default.cluster.summary}.to_json
   rescue => e
-    "error: #{e.class}: #{e}"
+    {error: "#{e.class}: #{e}",
+      summary: Mongoid::Clients.default.cluster.summary}.to_json
   end
-ensure
-  p Mongoid::Clients.default
 end
