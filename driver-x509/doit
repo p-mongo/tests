@@ -1,0 +1,63 @@
+#!/bin/sh
+
+set -x
+
+driver_root=/home/w/apps/ruby-driver
+mongo=/usr/local/m/versions/4.2/mongo
+
+rm -rf /mnt/zram/sandbox/x509
+sleep 1
+
+mkdir -p /mnt/zram/sandbox/x509
+
+/usr/local/m/versions/4.2/mongod \
+  --tlsMode requireTLS \
+  --tlsCertificateKeyFile $driver_root/spec/support/certificates/server.pem \
+  --tlsCAFile $driver_root/spec/support/certificates/ca.crt \
+  --dbpath /mnt/zram/sandbox/x509 --port 32101 &
+
+mongod_pid=$!
+
+sleep 1
+
+tmp=`mktemp`
+cat <<EOT >$tmp
+db.getSiblingDB("\$external").runCommand(
+  {
+    createUser: "C=US,ST=New York,L=New York City,O=MongoDB,OU=x509,CN=localhost",
+    roles: [
+         { role: "readWrite", db: "test" },
+         { role: "userAdminAnyDatabase", db: "admin" }
+    ],
+    writeConcern: { w: "majority" , wtimeout: 5000 }
+  }
+)
+
+EOT
+
+$mongo --tls \
+  --tlsCAFile $driver_root/spec/support/certificates/ca.crt \
+  --tlsCertificateKeyFile $driver_root/spec/support/certificates/client.pem \
+  --port 32101 --eval "$(cat $tmp)"
+
+kill $mongod_pid
+sleep 2
+
+/usr/local/m/versions/4.2/mongod \
+  --auth \
+  --tlsMode requireTLS \
+  --tlsCertificateKeyFile $driver_root/spec/support/certificates/server.pem \
+  --tlsCAFile $driver_root/spec/support/certificates/ca.crt \
+  --dbpath /mnt/zram/sandbox/x509 --port 32101 | tee server.log &
+
+
+rm -f "$tmp"
+
+#
+# Use as follows:
+#
+# a=Mongo::Client.new('mongodb://localhost:32101/test?tls=true&tlscafile=spec/support/certificates/ca.crt&tlscertificatekeyfile=spec/support/certificates/client-x509.pem&authMechanism=MONGODB-X509&authSource=$external')
+#
+# a.use('test')['foo'].insert_one(a:1)
+#
+# a.close
