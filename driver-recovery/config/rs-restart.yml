@@ -4,6 +4,7 @@ application_timeout: 20
 application_threads: 20
 target_ops: 5
 driver_log: /tmp/rs-restart-driver.log
+client_log: /tmp/rs-restart-client.log
 preexec:
   - sh: pgrep -f 30200 | grep -v $$ | xargs kill -9 2>/dev/null || true
   - sh: pgrep -f 30201 | grep -v $$ | xargs kill -9 2>/dev/null || true
