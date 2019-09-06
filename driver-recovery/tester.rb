@@ -11,7 +11,13 @@ ChildProcess.posix_spawn = true
 class TesterTimeoutError < StandardError; end
 
 class Tester
-  def initialize(options)
+  def initialize(options_or_path)
+    if options_or_path.is_a?(String)
+      options = YAML.load(File.read(options_or_path)).deep_symbolize_keys
+      @config_file_path = options_or_path
+    else
+      options = options_or_path
+    end
     @options = options
     @threads = []
     @read_ops = 0
@@ -22,6 +28,13 @@ class Tester
   attr_reader :options
   attr_reader :start_time
   attr_reader :exception_count
+
+  def config_file_path
+    unless @config_file_path
+      raise 'Config file path was not given'
+    end
+    @config_file_path
+  end
 
   def logger
     log_path = options[:client_log] || 'client.log'
@@ -158,7 +171,7 @@ class Tester
           yield
         rescue => e
           puts "Unhandled exception in thread #{thread_label}: #{e.class}: #{e}"
-          #puts e.backtrace.join("\n")
+          puts e.backtrace.join("\n")
           @lock.synchronize do
             @exception_count += 1
           end
@@ -199,5 +212,9 @@ class Tester
       puts "At #{time_delta}, run #{cmd}"
       execute(cmd)
     end
+  end
+
+  def server_log_path
+    options[:server_log] || 'server.log'
   end
 end

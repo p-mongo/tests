@@ -20,5 +20,4 @@ class ClientTester < Tester
 end
 
 config_path = ARGV.shift or raise 'need config file'
-config = YAML.load(File.read(config_path)).deep_symbolize_keys
-ClientTester.new(config).run
+ClientTester.new(config_path).run

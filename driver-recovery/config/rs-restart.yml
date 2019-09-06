@@ -34,3 +34,7 @@ exec:
       --eval 'db.adminCommand({shutdown:1})' || true"
   50:
     exit: true
+
+server_log: /tmp/rs-restart-server.log
+puma_workers: 3
+puma_threads: 0:3

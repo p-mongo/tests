@@ -1,18 +1,27 @@
+require 'yaml'
 require 'sinatra'
 require 'mongoid'
 
 Mongo::Logger.logger.level = Logger::WARN
 
-Mongoid.configure do |config|
-  config.clients.default = {
-    uri: ENV['MONGODB_URI'],
+if ENV['CONFIG_PATH']
+  config = YAML.load(File.read(ENV['CONFIG_PATH'])).deep_symbolize_keys
+end
+
+unless config
+  raise 'Missing config'
+end
+
+Mongoid.configure do |mc|
+  mc.clients.default = {
+    uri: config[:uri],
     database: 'my_db',
     max_pool_size: 1,
     server_selection_timeout: 3,
     socket_timeout: 5,
   }
 
-  config.log_level = :warn
+  mc.log_level = :warn
 end
 
 Thread.new do
