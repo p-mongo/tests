@@ -20,8 +20,10 @@ xpreexec:
     --port 30200"
   - sh: "mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 \
     --eval 'db.test.insertOne({foo:1})'"
+  - sh: chmod -R go+rX /mnt/zram/sandbox/rs-restart
 preexec:
   - sh: "mlaunch start --dir /mnt/zram/sandbox/rs-restart"
+  - sh: chmod -R go+rX /mnt/zram/sandbox/rs-restart
 exec:
   10:
     sh: "mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 \
@@ -31,6 +33,8 @@ exec:
       --eval 'db.adminCommand({shutdown:1})' || true"
   50:
     sh: "mlaunch start --dir /mnt/zram/sandbox/rs-restart"
+  51:
+    sh: chmod -R go+rX /mnt/zram/sandbox/rs-restart
   70:
     sh: "mongo --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 \
       --eval 'db.adminCommand({shutdown:1})' || true"
