@@ -1,19 +1,21 @@
 #!/usr/bin/env ruby
 
-#require 'active_support/core_ext/hash'
+require 'active_support/core_ext/hash'
 require 'fileutils'
-#require 'yaml'
+require 'yaml'
 
 if ARGV.empty?
   raise "Usage: run-app-server config-file"
 end
 
-#config = YAML.load(File.read(ARGV.shift)).deep_symbolize_keys
+config_path = ARGV.shift
+config = YAML.load(File.read(config_path)).deep_symbolize_keys
 
-#ENV['MONGODB_URI'] = config[:uri]
-
-ENV['CONFIG_PATH'] = ARGV.shift
+ENV['CONFIG_PATH'] = config_path
 
 FileUtils.rm_f('server.log')
 
-exec('puma config.puma.ru "$@" -w 3 -t 0:3 |tee server.log')
+exec("puma config.puma.ru \
+-w #{config[:puma_workers]} -t #{config[:puma_threads]} \
+-p #{config[:puma_port]} \
+|tee server.log")

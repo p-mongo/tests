@@ -3,6 +3,7 @@ require 'faraday'
 require_relative './tester'
 
 class AppTester < Tester
+=begin
   def prepare
     super
 
@@ -18,6 +19,7 @@ EOT
       raise "App process died with exit code #{@app_process.wait}, see logs in #{server_log_path}"
     end
   end
+=end
 
   def run_delegated
     reader_thread_count.times do |i|
@@ -53,7 +55,7 @@ EOT
   end
 
   def server_base_url
-    'http://localhost:9292'
+    "http://localhost:#{options[:puma_port]}"
   end
 
   def perform_operation
