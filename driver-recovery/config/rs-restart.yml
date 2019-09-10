@@ -45,3 +45,7 @@ server_log: /tmp/rs-restart-server.log
 puma_workers: 3
 puma_threads: 0:3
 puma_port: 9001
+
+client_stats: true
+client_stats_interval: 5
+client_stats_cluster_summary: false

@@ -182,8 +182,9 @@ class Tester
 
   def run_monitor
     prev_read_ops = @lock.synchronize { @read_ops }
+    interval = options[:client_stats_interval] || 1
     until @stop
-      sleep 1
+      sleep interval
       read_ops = @lock.synchronize do
         @read_ops
       end
@@ -193,13 +194,17 @@ class Tester
       exception_count = @lock.synchronize do
         self.exception_count
       end
-=begin
-      now = Time.now
-      puts "#{now} [+#{'%.0f' % (now - start_time)}]: #{read_ops - prev_read_ops} read ops, " +
-        "#{alive_threads_count} alive threads, #{exception_count} exceptions"
-      puts client.cluster.summary
-      prev_read_ops = read_ops
-=end
+
+      if options[:client_stats]
+        now = Time.now
+        puts "#{now} [+#{'%.0f' % (now - start_time)}]: #{(read_ops - prev_read_ops)/interval} read ops/sec, " +
+          "#{alive_threads_count} alive threads, #{exception_count} exceptions"
+        if options[:client_stats_cluster_summary]
+          puts client.cluster.summary
+        end
+        prev_read_ops = read_ops
+      end
+
     end
   end
 
