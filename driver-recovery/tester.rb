@@ -88,7 +88,7 @@ class Tester
     target_time = Time.now + 1
     ops = 0
     while Time.now < target_time
-      do_one_find
+      do_one_operation_wrapped
       ops += 1
       if ops >= target_ops
         break
@@ -100,20 +100,33 @@ class Tester
     end
   end
 
-  def do_one_find
+  def do_one_operation_wrapped
     if options[:application_timeout]
       Timeout.timeout(options[:application_timeout], TesterTimeoutError) do
-        do_find_itself
+        do_one_operation
       end
     else
-      do_find_itself
+      do_one_operation
     end
   end
 
-  def do_find_itself
+  def do_one_operation
     perform_operation
     @lock.synchronize do
       @read_ops += 1
+    end
+  end
+
+  def run_delegated
+    reader_thread_count.times do |i|
+      @threads << run_thread_loop("reader-#{i}") do
+        begin
+          do_run_loop_iteration
+        rescue TesterTimeoutError => e
+          raise "Find operation timed out by the application: #{e.class}: #{e}"
+        end
+        sleep 0.01
+      end
     end
   end
 
