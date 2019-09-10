@@ -18,4 +18,5 @@ FileUtils.rm_f('server.log')
 exec("puma config.puma.ru \
 -w #{config[:puma_workers]} -t #{config[:puma_threads]} \
 -p #{config[:puma_port]} \
+-q \
 |tee server.log")

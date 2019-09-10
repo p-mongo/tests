@@ -26,7 +26,7 @@ end
 
 Thread.new do
   loop do
-    puts "pid=#{$$}: #{Mongoid::Clients.default.cluster.summary}"
+    #puts "pid=#{$$}: #{Mongoid::Clients.default.cluster.summary}"
     sleep 1
   end
 end

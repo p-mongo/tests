@@ -22,7 +22,7 @@ xpreexec:
     --eval 'db.test.insertOne({foo:1})'"
   - sh: chmod -R go+rX /mnt/zram/sandbox/rs-restart
 preexec:
-  - sh: "mlaunch start --dir /mnt/zram/sandbox/rs-restart"
+  - sh: "mlaunch start --dir /mnt/zram/sandbox/rs-restart || true"
   - sh: chmod -R go+rX /mnt/zram/sandbox/rs-restart
 exec:
   10:

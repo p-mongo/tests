@@ -24,7 +24,7 @@ EOT
   def run_delegated
     reader_thread_count.times do |i|
       client = Faraday.new(:url => server_base_url) do |faraday|
-        faraday.request  :url_encoded             # form-encode POST params
+        #faraday.request  :url_encoded             # form-encode POST params
         #faraday.response :logger                  # log requests to $stdout
         faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
       end
@@ -59,7 +59,7 @@ EOT
   end
 
   def perform_operation
-    collection.find(a: 1).to_a
+    raise NotImplemented
   end
 end
 

@@ -193,11 +193,13 @@ class Tester
       exception_count = @lock.synchronize do
         self.exception_count
       end
+=begin
       now = Time.now
       puts "#{now} [+#{'%.0f' % (now - start_time)}]: #{read_ops - prev_read_ops} read ops, " +
         "#{alive_threads_count} alive threads, #{exception_count} exceptions"
       puts client.cluster.summary
       prev_read_ops = read_ops
+=end
     end
   end
 
