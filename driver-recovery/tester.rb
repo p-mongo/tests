@@ -154,6 +154,7 @@ class Tester
     Signal.trap('INT') do
       puts 'Stopping'
       @stop = true
+      exit(0)
     end
 
     until @stop
