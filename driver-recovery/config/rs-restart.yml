@@ -26,18 +26,21 @@ preexec:
   - sh: chmod -R go+rX /mnt/zram/sandbox/rs-restart
 exec:
   10:
-    sh: "mongo --quiet --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 \
-      --eval 'db.adminCommand({shutdown:1})' || true"
+    dbcmd:
+      shutdown: 1
+    allow_fail: true
   30:
-    sh: "mongo --quiet --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 \
-      --eval 'db.adminCommand({shutdown:1})' || true"
+    dbcmd:
+      shutdown: 1
+    allow_fail: true
   50:
     sh: "mlaunch start --dir /mnt/zram/sandbox/rs-restart"
   51:
     sh: chmod -R go+rX /mnt/zram/sandbox/rs-restart
   90:
-    sh: "mongo --quiet --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 \
-      --eval 'db.adminCommand({shutdown:1})' || true"
+    dbcmd:
+      shutdown: 1
+    allow_fail: true
   110:
     exit: true
 

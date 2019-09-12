@@ -75,6 +75,19 @@ class Tester
     elsif cmd[:exit]
       puts "Exiting"
       @stop = true
+    elsif do_cmd = cmd[:dbcmd]
+      puts "Admin command: #{do_cmd}"
+      logger = Logger.new(STDERR, level: Logger::WARN)
+      client = Mongo::Client.new(options[:uri], logger: logger)
+      if cmd[:allow_fail]
+        begin
+          client.database.command(do_cmd)
+        rescue Mongo::Error => e
+          puts "Rescued #{e.class}: #{e}"
+        end
+      else
+        client.database.command(do_cmd)
+      end
     else
       raise "Don't know what to do with #{cmd}"
     end
