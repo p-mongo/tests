@@ -8,6 +8,7 @@ require_relative './base'
 ChildProcess.posix_spawn = true
 
 class TesterTimeoutError < StandardError; end
+class OperationFailed < StandardError; end
 
 class Tester < Base
   def initialize(options_or_path)

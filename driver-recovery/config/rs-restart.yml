@@ -1,4 +1,4 @@
-uri: mongodb://localhost:30200,localhost:30201,localhost:30202
+uri: mongodb://localhost:30200,localhost:30201,localhost:30202,localhost:30203,localhost:30204
 client_options:
 application_timeout: 20
 application_threads: 20
@@ -9,8 +9,11 @@ xpreexec:
   - sh: pgrep -f 30200 | grep -v $$ | xargs kill -9 2>/dev/null || true
   - sh: pgrep -f 30201 | grep -v $$ | xargs kill -9 2>/dev/null || true
   - sh: pgrep -f 30202 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30203 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30204 | grep -v $$ | xargs kill -9 2>/dev/null || true
   - sh: rm -rf /mnt/zram/sandbox/rs-restart
-  - sh: "mlaunch --replicaset --name ruby-driver-rs \
+  - sh: mkdir -p /mnt/zram/sandbox/rs-restart
+  - sh: "mlaunch --replicaset --name ruby-driver-rs --nodes 5 \
     --dir /mnt/zram/sandbox/rs-restart \
     --setParameter diagnosticDataCollectionEnabled=false \
     --wiredTigerCacheSizeGB 0.25 \

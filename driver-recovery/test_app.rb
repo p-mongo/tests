@@ -36,7 +36,7 @@ EOT
       puts "Bad status in reader-#{i}: #{resp.status}"
       failed = true
     end
-    body = resp.body
+    body = JSON.parse(resp.body)
     unless body['ok']
       puts "Operation failed: #{body['error']}"
       failed = true
