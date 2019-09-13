@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 type = ARGV.shift
-unless %w(server test monitor).include?(type)
+unless %w(server test multi monitor).include?(type)
   raise "Bogus type #{type}"
 end
 
@@ -35,6 +35,13 @@ when 'test'
 
   config_path = ARGV.shift or raise 'need config file'
   AppTester.new(config_path).run
+
+when 'multi'
+
+  require_relative './test_app_multi'
+
+  config_path = ARGV.shift or raise 'need config file'
+  MultiAppTester.new(config_path).run
 
 when 'monitor'
 
