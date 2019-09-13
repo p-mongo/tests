@@ -1,5 +1,5 @@
 require 'mongoid'
-require 'faraday'
+autoload :Faraday, 'faraday'
 require_relative './tester'
 
 class AppTester < Tester
@@ -50,6 +50,3 @@ EOT
     "http://localhost:#{options[:puma_port]}"
   end
 end
-
-config_path = ARGV.shift or raise 'need config file'
-AppTester.new(config_path).run

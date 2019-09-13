@@ -31,7 +31,10 @@ when 'server'
 
 when 'test'
 
-  load './test_app'
+  require_relative './test_app'
+
+  config_path = ARGV.shift or raise 'need config file'
+  AppTester.new(config_path).run
 
 when 'monitor'
 
