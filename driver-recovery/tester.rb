@@ -3,29 +3,21 @@ begin
   require 'byebug'
 rescue LoadError
 end
-require 'mongo'
-require 'active_support/core_ext/hash'
+require_relative './base'
 
 ChildProcess.posix_spawn = true
 
 class TesterTimeoutError < StandardError; end
 
-class Tester
+class Tester < Base
   def initialize(options_or_path)
-    if options_or_path.is_a?(String)
-      options = YAML.load(File.read(options_or_path)).deep_symbolize_keys
-      @config_file_path = options_or_path
-    else
-      options = options_or_path
-    end
-    @options = options
+    super
     @threads = []
     @read_ops = 0
     @exception_count = 0
     @lock = Mutex.new
   end
 
-  attr_reader :options
   attr_reader :start_time
   attr_reader :exception_count
 
@@ -36,15 +28,10 @@ class Tester
     @config_file_path
   end
 
-  def logger
-    log_path = options[:client_log] || 'client.log'
-    @logger ||= Logger.new(File.open(log_path, 'w'))
+  def log_path
+    options[:client_log] || 'client.log'
   end
 
-  def client
-    @client ||= Mongo::Client.new(options[:uri], logger: logger,
-      **options[:client_options] || {})
-  end
 
   def collection
     @collection ||= client['test-collection'].with(options[:collection_options] || {})
