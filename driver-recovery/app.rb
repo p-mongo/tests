@@ -16,9 +16,11 @@ Mongoid.configure do |mc|
   mc.clients.default = {
     uri: config[:uri],
     database: 'my_db',
-    max_pool_size: 1,
-    server_selection_timeout: 3,
-    socket_timeout: 5,
+    options: {
+      max_pool_size: 1,
+      server_selection_timeout: 3,
+      socket_timeout: 5,
+    }.update(config[:client_options] || {}),
   }
 
   mc.log_level = :warn
