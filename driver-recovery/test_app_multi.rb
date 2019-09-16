@@ -11,6 +11,11 @@ class MultiAppTester < AppTester
       hydra.queue(req)
     end
     hydra.run
+
+    @lock.synchronize do
+      @read_ops += options[:target_ops]
+    end
+
     delta = target_time - Time.now
     if delta > 0
       sleep(delta)

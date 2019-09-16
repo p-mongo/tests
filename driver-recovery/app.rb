@@ -45,7 +45,13 @@ end
 
 get '/' do
   begin
-    Model.count
+    if config[:app_timeout]
+      Timeout.timeout(config[:app_timeout]) do
+        Model.count
+      end
+    else
+      Model.count
+    end
     {ok: true, summary: Mongoid::Clients.default.cluster.summary}.to_json
   rescue => e
     {error: "#{e.class}: #{e}",

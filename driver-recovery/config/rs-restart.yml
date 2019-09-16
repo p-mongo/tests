@@ -3,12 +3,12 @@ client_options:
   read:
     mode: secondary
 application_timeout: 20
-application_threads: 20
+application_threads: 10
 # # of operations to perform per client/application thread per second
-target_ops: 30
+target_ops: 80
 driver_log: /tmp/rs-restart-driver.log
 client_log: /tmp/rs-restart-client.log
-xpreexec:
+preexec:
   - sh: pgrep -f 30200 | grep -v $$ | xargs kill -9 2>/dev/null || true
   - sh: pgrep -f 30201 | grep -v $$ | xargs kill -9 2>/dev/null || true
   - sh: pgrep -f 30202 | grep -v $$ | xargs kill -9 2>/dev/null || true
@@ -27,7 +27,7 @@ xpreexec:
   - sh: "mongo --quiet --host ruby-driver-rs/localhost:30200,localhost:30201,localhost:30202 \
     --eval 'db.test.insertOne({foo:1})'"
   - sh: chmod -R go+rX /mnt/zram/sandbox/rs-restart
-preexec:
+xpreexec:
   - sh: "mlaunch start --dir /mnt/zram/sandbox/rs-restart || true"
   - sh: chmod -R go+rX /mnt/zram/sandbox/rs-restart
 exec:
@@ -51,9 +51,10 @@ exec:
     exit: true
 
 server_log: /tmp/rs-restart-server.log
-puma_workers: 4
+puma_workers: 10
 puma_threads: 0:3
 puma_port: 9001
+app_timeout: 10
 
 client_stats: true
 client_stats_interval: 5
