@@ -3,5 +3,5 @@ class Engine
 
   embedded_in :car
 
-  field :size, type: Integer
+  field :displacement, type: Integer
 end
