@@ -1,4 +1,4 @@
-development:
+adevelopment:
   clients:
     default:
       database: mongoid
@@ -23,3 +23,25 @@ xdevelopment:
   options:
     log_level: :debug
 
+
+
+development:
+  clients:
+    default:
+      database: databasename
+      hosts:
+        - localhost:27741
+      options:
+        user: 'admin'
+        password: 'some-password'
+        auth_mech: :scram
+        auth_source: admin
+        connect: :replica_set
+        replica_set: replset
+        ssl: true
+        #ssl_ca_cert: ./some-certificate.pem
+        ssl_verify: true
+        server_selection_timeout: 1
+  options:
+    log_level: :debug
+    
