@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Requires Rails 6.
 
-Things you may want to cover:
+Generate the app:
 
-* Ruby version
+    rails new --api spring-ar-sqlite-6
+    cd spring-ar-sqlite
 
-* System dependencies
+Edit `Gemfile`, removing reference to `sqlite`.
 
-* Configuration
+Edit `config/application.rb`, commenting out ActiveRecord and ActiveStorage:
 
-* Database creation
+    #require "active_record/railtie"
+    #require "active_storage/engine"
 
-* Database initialization
+Run:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    rails g controller foo
