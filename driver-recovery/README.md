@@ -9,7 +9,7 @@ This test uses a client instance from many threads concurrently, performing
 concurrent reads.
 
     bundle install
-    ./test-client path-to-config-file
+    bundle exec ./test-client path-to-config-file
 
 The URI can be to a replica set or sharded custer deployment with a minimum of
 two nodes.
