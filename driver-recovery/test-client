@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+$: << 'lib'
+
+require 'client_tester'
+
+config_path = ARGV.shift or raise 'need config file'
+ClientTester.new(config_path).run
