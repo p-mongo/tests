@@ -53,7 +53,17 @@ class Tester < Base
   def execute(cmd)
     if sh_cmd = cmd[:sh]
       puts "Run #{sh_cmd}"
-      proc = ChildProcess.new('sh', '-c', sh_cmd)
+
+      prefix = []
+      if options[:user]
+        wanted_uid = Process::UID.from_name(options[:user])
+        our_uid = Process::UID.eid
+        if our_uid != wanted_uid
+          prefix = ['sudo', '-u', options[:user]]
+        end
+      end
+
+      proc = ChildProcess.new(*prefix + ['zsh', '-c', sh_cmd])
       proc.io.inherit!
       proc.start
       proc.wait

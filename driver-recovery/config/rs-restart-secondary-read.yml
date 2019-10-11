@@ -36,3 +36,5 @@ exec:
       --eval 'db.adminCommand({shutdown:1})' || true"
   50:
     exit: true
+
+user: sandbox
