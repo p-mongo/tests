@@ -21,7 +21,14 @@ class Base
 
   def client
     @client ||= Mongo::Client.new(options[:uri], logger: logger,
-      **default_client_options.merge(**options[:client_options] || {}))
+      **default_client_options.merge(**options[:client_options] || {})
+    ).tap do |client|
+      if options[:log_cmap]
+        client.subscribe(
+          Mongo::Monitoring::CONNECTION_POOL,
+          Mongo::Monitoring::CmapLogSubscriber.new(logger: logger))
+      end
+    end
   end
 
   def logger
