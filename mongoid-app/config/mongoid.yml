@@ -1,4 +1,4 @@
-adevelopment:
+development:
   clients:
     default:
       database: mongoid
@@ -25,7 +25,7 @@ xdevelopment:
 
 
 
-development:
+xdevelopment:
   clients:
     default:
       database: databasename
