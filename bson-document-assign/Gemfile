@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+gem 'bson', path: '../../bson-ruby'
+gem 'byebug'

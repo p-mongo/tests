@@ -1,0 +1,19 @@
+PATH
+  remote: ../../bson-ruby
+  specs:
+    bson (4.5.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    byebug (11.0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bson!
+  byebug
+
+BUNDLED WITH
+   1.17.2
