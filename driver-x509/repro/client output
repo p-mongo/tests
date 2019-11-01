@@ -1,0 +1,8 @@
+D, [2019-08-01T17:04:51.416344 #58549] DEBUG -- : MONGODB | EVENT: #<TopologyOpening topology=Unknown[]>
+D, [2019-08-01T17:04:51.416422 #58549] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+D, [2019-08-01T17:04:51.416566 #58549] DEBUG -- : MONGODB | EVENT: #<TopologyChanged prev=Unknown[] new=Unknown[localmongo1:27017]>
+D, [2019-08-01T17:04:51.416597 #58549] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'Unknown'.
+D, [2019-08-01T17:04:51.416628 #58549] DEBUG -- : MONGODB | EVENT: #<ServerOpening address=localmongo1:27017 topology=Unknown[localmongo1:27017]>
+D, [2019-08-01T17:04:51.416646 #58549] DEBUG -- : MONGODB | Server localmongo1:27017 initializing.
+D, [2019-08-01T17:04:51.489987 #58549] DEBUG -- : MONGODB | Error running ismaster on localmongo1:27017: OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate signature failure) (for 127.0.0.1:27017 (localmongo1:27017, TLS)) (MongoDB may not be configured with SSL support)
+D, [2019-08-01T17:04:52.004849 #58549] DEBUG -- : MONGODB | Error running ismaster on localmongo1:27017: OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=error: certificate verify failed (certificate signature failure) (for 127.0.0.1:27017 (localmongo1:27017, TLS)) (MongoDB may not be configured with SSL support)

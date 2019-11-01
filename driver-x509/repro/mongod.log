@@ -1,0 +1,16 @@
+...
+
+2019-08-01T16:57:34.773-0400 I NETWORK  [listener] connection accepted from 127.0.0.1:50996 #496 (1 connection now open)
+2019-08-01T16:57:34.857-0400 I NETWORK  [conn496] end connection 127.0.0.1:50996 (0 connections now open)
+2019-08-01T17:00:58.906-0400 I NETWORK  [listener] connection accepted from 127.0.0.1:51040 #497 (1 connection now open)
+2019-08-01T17:00:58.985-0400 I NETWORK  [conn497] end connection 127.0.0.1:51040 (0 connections now open)
+2019-08-01T17:00:59.409-0400 I NETWORK  [listener] connection accepted from 127.0.0.1:51041 #498 (1 connection now open)
+2019-08-01T17:00:59.490-0400 I NETWORK  [conn498] end connection 127.0.0.1:51041 (0 connections now open)
+2019-08-01T17:00:59.914-0400 I NETWORK  [listener] connection accepted from 127.0.0.1:51042 #499 (1 connection now open)
+2019-08-01T17:00:59.996-0400 I NETWORK  [conn499] end connection 127.0.0.1:51042 (0 connections now open)
+2019-08-01T17:04:51.418-0400 I NETWORK  [listener] connection accepted from 127.0.0.1:51099 #500 (1 connection now open)
+2019-08-01T17:04:51.489-0400 I NETWORK  [conn500] end connection 127.0.0.1:51099 (0 connections now open)
+2019-08-01T17:04:51.922-0400 I NETWORK  [listener] connection accepted from 127.0.0.1:51100 #501 (1 connection now open)
+2019-08-01T17:04:52.004-0400 I NETWORK  [conn501] end connection 127.0.0.1:51100 (0 connections now open)
+
+...

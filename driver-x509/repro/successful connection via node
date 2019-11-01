@@ -1,0 +1,3 @@
+ 609 2019-08-01T15:29:27.119-0400 I NETWORK  [conn291] received client metadata from 127.0.0.1:65205 conn291: { driver: { name: "nodejs", version: "3.3.0-beta2" }, os: { type: "Darwin", name: "darwin", archite     cture: "x64", version: "18.7.0" }, platform: "Node.js v12.5.0, LE, mongodb-core: 3.3.0-beta2" }
+ 610 2019-08-01T15:29:27.125-0400 I ACCESS   [conn291]  authenticate db: $external { authenticate: 1, mechanism: "MONGODB-X509", $db: "$external" }
+ 611 2019-08-01T15:29:27.137-0400 I ACCESS   [conn291] Successfully authenticated as principal CN=Chris,OU=TestClientCertificateOrgUnit,O=EducationClientCertificate,L=TestClientCertificateLocality,ST=TestClien     tCertificateState,C=US on $external from client 127.0.0.1:65205
