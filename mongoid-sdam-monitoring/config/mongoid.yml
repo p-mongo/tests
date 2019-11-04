@@ -3,4 +3,6 @@ development:
     default:
       database: mongoid
       hosts:
-        - localhost:27100
+        - localhost:14420
+      options:
+        log_level: debug
