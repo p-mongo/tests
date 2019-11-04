@@ -5,4 +5,6 @@ class Band
   field :description, type: String
 
   index description: 'text'
+
+  embeds_many :cities
 end

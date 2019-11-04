@@ -9,7 +9,7 @@ development:
         #log_level: :warn
   options:
     #log_level: :warn
-    log_level: :debug
+    #log_level: :debug
 
 
 xdevelopment:
