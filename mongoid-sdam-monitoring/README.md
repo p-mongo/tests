@@ -12,8 +12,8 @@ development:
       database: mongoid
       hosts:
         - localhost:14420
-      options:
-        log_level: debug
+  options:
+    log_level: info
 </pre>
 
 Then, running `rails c` produces the following output in the console:
