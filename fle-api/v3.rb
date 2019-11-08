@@ -5,6 +5,8 @@ client_encryption_options = {
     local: { key: "ruby" * 24 }
   },
   key_vault_namespace: 'keys.keys',
+  # Defaults for data key id & encryption mode
+  # Key is accepted as a string
   data_key_id: ENV['DATA_KEY_ID'],
   deterministic: false,
 }
@@ -19,6 +21,7 @@ client.crypt(client_encryption_options) do |client_encryption|
   # Deterministic
   encrypted = client_encryption.encrypt(
     'Hello, world!',
+    # Key & encryption mode can be overridden
     deterministic: true,
   )
 

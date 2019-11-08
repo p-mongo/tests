@@ -7,6 +7,7 @@ client_encryption_options = {
   key_vault_namespace: 'keys.keys',
 }
 
+# Create client encryption object from client
 client.crypt(client_encryption_options) do |client_encryption|
 
   data_key_id = BSON::Binary.new(ENV['DATA_KEY_ID'])
@@ -14,6 +15,7 @@ client.crypt(client_encryption_options) do |client_encryption|
   encrypted = client_encryption.encrypt(
     'Hello, world!',
     data_key_id: data_key_id,
+    # Specify encryption mode as a boolean
     deterministic: true,
   )
 
