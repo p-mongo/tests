@@ -6,3 +6,12 @@ development:
         - localhost:14420
   options:
     log_level: warn
+
+production:
+  clients:
+    default:
+      database: mongoid
+      hosts:
+        - localhost:14420
+  options:
+    log_level: warn
