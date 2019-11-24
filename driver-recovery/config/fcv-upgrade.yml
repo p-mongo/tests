@@ -44,10 +44,7 @@ exec:
   15:
     sh: "mlaunch start --dir /mnt/zram/sandbox/fcv-upgrade"
   35:
-    sh: "mongo --quiet --host localhost:30225,localhost:30226,localhost:30227 \
-    --eval 'db.adminCommand( { setFeatureCompatibilityVersion: \"4.0\" } )'"
-  36:
-    sh: "mongo --quiet --host localhost:30228,localhost:30229,localhost:30230 \
+    sh: "mongo --quiet --host localhost:30220,localhost:30221,localhost:30222,localhost:30223,localhost:30224 \
     --eval 'db.adminCommand( { setFeatureCompatibilityVersion: \"4.0\" } )'"
   45:
     exit: true
