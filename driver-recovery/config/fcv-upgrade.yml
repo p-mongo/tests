@@ -1,0 +1,53 @@
+uri: mongodb://localhost:30220,localhost:30221,localhost:30222,localhost:30223,localhost:30224
+client_options:
+  server_selection_timeout: 10
+# # of operations to perform per client/application thread per second
+target_ops: 80
+driver_log: /tmp/fcv-upgrade-driver.log
+client_log: /tmp/fcv-upgrade-client.log
+preexec:
+  - sh: pgrep -f 30220 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30221 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30222 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30223 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30224 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30225 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30226 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30227 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30228 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30229 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30230 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: rm -rf /mnt/zram/sandbox/fcv-upgrade
+  - sh: mkdir -p /mnt/zram/sandbox/fcv-upgrade
+  - sh: "mlaunch --sharded 2 --replicaset --name ruby-driver-rs --mongos 5 \
+    --dir /mnt/zram/sandbox/fcv-upgrade \
+    --setParameter diagnosticDataCollectionEnabled=false \
+    --wiredTigerCacheSizeGB 0.25 \
+    --setParameter enableTestCommands=1 \
+    --filePermissions 0666 \
+    --binarypath /usr/local/m/versions/3.6.7/bin \
+    --port 30220"
+  - sh: "mongo --quiet --host localhost:30220,localhost:30221,localhost:30222,localhost:30223,localhost:30224 \
+    --eval 'db.test.insertOne({foo:1})'"
+  - sh: chmod -R go+rX /mnt/zram/sandbox/fcv-upgrade
+xpreexec:
+  - sh: "mlaunch start --dir /mnt/zram/sandbox/fcv-upgrade || true"
+  - sh: chmod -R go+rX /mnt/zram/sandbox/fcv-upgrade
+
+exec:
+  10:
+    sh: "mlaunch stop --dir /mnt/zram/sandbox/fcv-upgrade"
+  12:
+    sh: "sed -i -e s,/usr/local/m/versions/3.6.7/bin,/usr/local/m/versions/4.0.2/bin,g /mnt/zram/sandbox/fcv-upgrade/.mlaunch_startup"
+  15:
+    sh: "mlaunch start --dir /mnt/zram/sandbox/fcv-upgrade"
+
+server_log: /tmp/fcv-upgrade-server.log
+puma_workers: 10
+puma_threads: 0:3
+puma_port: 9001
+app_timeout: 10
+
+client_stats: true
+client_stats_interval: 5
+client_stats_cluster_summary: false
