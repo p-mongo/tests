@@ -226,7 +226,7 @@ class Tester < Base
 
       if options[:client_stats]
         now = Time.now
-        puts "#{now} [+#{'%.0f' % (now - start_time)}]: #{(read_ops - prev_read_ops)/interval} read ops/sec, " +
+        puts "#{now} [+#{@now}]: #{(read_ops - prev_read_ops)/interval} read ops/sec, " +
           "#{alive_threads_count} alive threads, #{exception_count} exceptions"
         if options[:client_stats_cluster_summary]
           puts client.cluster.summary
@@ -238,15 +238,18 @@ class Tester < Base
   end
 
   def do_exec
-    options[:exec].each do |time_delta, cmd|
-      target_time = @start_time + time_delta
-      wait_delta = target_time - Time.now
-      if wait_delta > 0
-        sleep(wait_delta)
+    @now = 0
+    ops = options[:exec].to_a
+    until ops.empty?
+      time_delta, cmd = ops.first
+      if @now >= time_delta
+        puts "At #{time_delta}, run #{cmd}"
+        execute(cmd)
+        ops.shift
+      else
+        @now += 1
+        sleep 1
       end
-
-      puts "At #{time_delta}, run #{cmd}"
-      execute(cmd)
     end
   end
 
