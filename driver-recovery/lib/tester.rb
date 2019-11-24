@@ -181,7 +181,9 @@ class Tester < Base
         yield
       rescue => e
         puts "Unhandled exception in thread #{thread_label}: #{e.class}: #{e}"
-        #puts e.backtrace.join("\n")
+        if options[:show_exception_traces]
+          puts e.backtrace.join("\n")
+        end
         @lock.synchronize do
           @exception_count += 1
         end
@@ -196,7 +198,9 @@ class Tester < Base
           yield
         rescue => e
           puts "Unhandled exception in thread #{thread_label}: #{e.class}: #{e}"
-          puts e.backtrace.join("\n")
+          if options[:show_exception_traces]
+            puts e.backtrace.join("\n")
+          end
           @lock.synchronize do
             @exception_count += 1
           end
