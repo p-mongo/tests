@@ -1,0 +1,78 @@
+uri: mongodb://localhost:30240,localhost:30241,localhost:30242,localhost:30243,localhost:30244
+client_options:
+  server_selection_timeout: 5
+  socket_timeout: 5
+# # of operations to perform per client/application thread per second
+target_ops: 80
+driver_log: /tmp/mongos-restart-driver.log
+client_log: /tmp/mongos-restart-client.log
+preexec:
+  # mongos
+  - sh: pgrep -f 30240 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30241 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30242 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30243 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30244 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  # mongod
+  - sh: pgrep -f 30245 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30246 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30247 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30248 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30249 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: pgrep -f 30250 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  # config server
+  - sh: pgrep -f 30251 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  - sh: rm -rf /mnt/zram/sandbox/mongos-restart
+  - sh: mkdir -p /mnt/zram/sandbox/mongos-restart
+  - sh: "mlaunch --sharded 2 --replicaset --name ruby-driver-rs --mongos 5 \
+    --dir /mnt/zram/sandbox/mongos-restart \
+    --setParameter diagnosticDataCollectionEnabled=false \
+    --wiredTigerCacheSizeGB 0.25 \
+    --setParameter enableTestCommands=1 \
+    --filePermissions 0666 \
+    --binarypath /usr/local/m/versions/4.0 \
+    --port 30240"
+  - sh: "mongo --quiet --host localhost:30240,localhost:30241,localhost:30242,localhost:30243,localhost:30244 \
+    --eval 'db.test.insertOne({foo:1})'"
+  - sh: chmod -R go+rX /mnt/zram/sandbox/mongos-restart
+xpreexec:
+  - sh: "mlaunch start --dir /mnt/zram/sandbox/mongos-restart || true"
+  - sh: chmod -R go+rX /mnt/zram/sandbox/mongos-restart
+
+exec:
+  10:
+    sh: pgrep -f 30240 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  15:
+    sh: "mlaunch start --dir /mnt/zram/sandbox/mongos-restart"
+  20:
+    sh: pgrep -f 30241 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  25:
+    sh: "mlaunch start --dir /mnt/zram/sandbox/mongos-restart"
+  30:
+    sh: pgrep -f 30242 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  35:
+    sh: "mlaunch start --dir /mnt/zram/sandbox/mongos-restart"
+  40:
+    sh: pgrep -f 30243 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  45:
+    sh: "mlaunch start --dir /mnt/zram/sandbox/mongos-restart"
+  50:
+    sh: pgrep -f 30244 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  55:
+    sh: "mlaunch start --dir /mnt/zram/sandbox/mongos-restart"
+  60:
+    sh: pgrep -f 30240 | grep -v $$ | xargs kill -9 2>/dev/null || true
+  65:
+    sh: "mlaunch start --dir /mnt/zram/sandbox/mongos-restart"
+  75:
+    exit: true
+
+server_log: /tmp/mongos-restart-server.log
+puma_workers: 10
+puma_threads: 0:3
+puma_port: 9001
+app_timeout: 10
+
+client_stats: true
+client_stats_interval: 5
+client_stats_cluster_summary: false
