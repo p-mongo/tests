@@ -1,14 +1,17 @@
 development:
   clients:
     default:
-      uri: mongodb://test:test11@ds245138-a0.mlab.com:45138,ds245138-a1.mlab.com:45138/test?replicaSet=rs-ds245138
+      uri: mongodb://test:test11@ds349608-a0.mlab.com:49608,ds349608-a1.mlab.com:49608/test?replicaSet=rs-ds349608
       options:
         server_selection_timeout: 5
+        connect_timeout: 2
+        socket_timeout: 2
 
 production:
   clients:
     default:
-      uri: mongodb://test:test11@ds245138-a0.mlab.com:45138,ds245138-a1.mlab.com:45138/test?replicaSet=rs-ds245138
+      uri: mongodb://test:test11@ds349608-a0.mlab.com:49608,ds349608-a1.mlab.com:49608/test?replicaSet=rs-ds349608
       options:
         server_selection_timeout: 5
-
+        connect_timeout: 2
+        socket_timeout: 2
