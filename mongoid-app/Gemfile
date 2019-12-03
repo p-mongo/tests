@@ -53,7 +53,12 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'mongoid'
+if ENV['mongoid_master']
+  gem 'mongoid', path: '../../mongoid'
+else
+  gem 'mongoid'
+end
 
-#gem 'mongoid', path: '../../mongoid'
-#gem 'mongo', path: '../../ruby-driver'
+if ENV['driver_master']
+  gem 'mongo', path: '../../ruby-driver'
+end
