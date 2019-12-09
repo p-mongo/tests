@@ -67,5 +67,11 @@ module MongoidExplicitId
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
+
+    config.i18n.fallbacks = true
+    config.after_initialize do
+      I18n.fallbacks[:de] = [ :en ]
+    end
+    #config.i18n.fallbacks[:en] = [:de]
   end
 end
