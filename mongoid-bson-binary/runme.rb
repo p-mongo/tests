@@ -16,14 +16,14 @@ parsed_settings = YAML.safe_load(settings, [], [], true)
 Mongoid::Config.load_configuration(parsed_settings)
 
 data = File.read("example.jpg")
-data.force_encoding('ASCII-8BIT') # Removing this doesn't change the result
+data.force_encoding('ASCII-8BIT')
 my_model = MyModel.new
 my_model.data = BSON::Binary.new(data)
 my_model.save!
 
 
 data = File.read("example.jpg")
-data.force_encoding('ASCII-8BIT') # Removing this doesn't change the result
+data.force_encoding('ASCII-8BIT')
 data.freeze
 my_model = MyModel.new
 my_model.data = BSON::Binary.new(data.dup)
