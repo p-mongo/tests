@@ -1,0 +1,17 @@
+---
+clients:
+  default:
+    database: 'bson_binary_test'
+    hosts:
+    - localhost:14420
+    options:
+      ssl: false
+options:
+  use_utc: true
+  use_activesupport_time_zone: false
+  log_level: info
+  background_indexing: true
+  preload_models: true
+  include_root_in_json: false
+  include_type_for_serialization: false
+  scope_overwrite_exception: false
