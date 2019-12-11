@@ -21,3 +21,11 @@ my_model = MyModel.new
 my_model.data = BSON::Binary.new(data)
 my_model.save!
 
+
+data = File.read("example.jpg")
+data.force_encoding('ASCII-8BIT') # Removing this doesn't change the result
+data.freeze
+my_model = MyModel.new
+my_model.data = BSON::Binary.new(data.dup)
+my_model.save!
+

@@ -1,5 +1,5 @@
 PATH
-  remote: ../../apps/mongo/mongoid
+  remote: ../../mongoid
   specs:
     mongoid (7.1.0)
       activemodel (>= 5.1, < 6.1)
