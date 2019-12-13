@@ -6,7 +6,6 @@ require 'mongoid'
 
 class MyModel
   include Mongoid::Document
-  include Mongoid::Timestamps # adds created_at and updated_at fields
 
   field :data,      type: BSON::Binary
 end
@@ -29,3 +28,5 @@ my_model = MyModel.new
 my_model.data = BSON::Binary.new(data.dup)
 my_model.save!
 
+
+m = MyModel.new(data: 'test')
