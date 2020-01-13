@@ -98,7 +98,7 @@ puts "test #{mod}"
   # check the emails array
 
   p c.emails
-  byebug
+  #byebug
 
   if c.emails.size == 1
 

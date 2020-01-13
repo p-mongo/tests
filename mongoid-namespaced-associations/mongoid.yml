@@ -8,5 +8,5 @@ development:
         server_selection_timeout: 1
         log_level: :debug
   options:
-    #log_level: :warn
-    log_level: :debug
+    log_level: :warn
+    #log_level: :debug
