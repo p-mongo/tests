@@ -1,3 +1,4 @@
+require 'byebug'
 require "mongoid"
 
 
@@ -76,6 +77,8 @@ end
 
 def test(mod)
 
+puts "test #{mod}"
+
   # setup
 
   c = eval("#{mod}::Company.create")
@@ -94,7 +97,8 @@ def test(mod)
 
   # check the emails array
 
-  puts c.emails
+  p c.emails
+  byebug
 
   if c.emails.size == 1
 

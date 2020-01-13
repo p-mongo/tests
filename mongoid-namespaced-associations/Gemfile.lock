@@ -17,6 +17,7 @@ GEM
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2)
     bson (4.7.0)
+    byebug (11.0.1)
     concurrent-ruby (1.1.5)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
@@ -32,6 +33,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug
   mongoid!
 
 BUNDLED WITH
