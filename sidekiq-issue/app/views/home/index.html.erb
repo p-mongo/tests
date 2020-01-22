@@ -1,0 +1,8 @@
+<%= link_to "Checkout sidekiq", sidekiq_web_path if current_admin %><br />
+
+<%= link_to "Logout", destroy_admin_session_path, method: :delete if current_admin %>
+
+<% unless current_admin %>
+Login with username test@test.com / password
+<%= link_to "Login", new_admin_session_path %>
+<% end %>
