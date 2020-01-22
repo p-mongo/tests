@@ -1,24 +1,12 @@
-# README
+Steps for the repo:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ 
 
-Things you may want to cover:
+bundle install
 
-* Ruby version
+bundle exec rake db:create db:migrate
 
-* System dependencies
+bundle exec rails s
 
-* Configuration
+Then visit - http://localhost:3000/ - the index page has a login link along with the default admin user created, and then the homepage updates with a link to the sidekiq UI after logging in.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
