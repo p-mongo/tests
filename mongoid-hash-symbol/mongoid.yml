@@ -1,0 +1,12 @@
+development:
+  clients:
+    default:
+      database: junk1
+      hosts:
+        - localhost:14420
+      options:
+        server_selection_timeout: 1
+        log_level: :debug
+  options:
+    log_level: :warn
+    #log_level: :debug
