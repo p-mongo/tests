@@ -6,4 +6,5 @@ gem 'byebug'
 
 gem 'mongoid', '7.0.5'
 
-gem 'mongo', path: '../../ruby-driver'
+#gem 'mongo', path: '../../ruby-driver'
+gem 'bson', path: '../../bson-ruby'

@@ -11,17 +11,13 @@ end
 
 Model.delete_all
 
-=begin
 m = Model.create!(stuff: {a: :b})
 p m
 m = Model.find(m.id)
 p m
-=end
 
 puts '-------------'
 
-d = Model.collection.insert_one(stuff: {a: :b})
-p d.documents.first
-d = Model.find(d['id'])
+d = Model.collection.insert_one(stuff: {a: :b}, _id: 123)
+d = Model.find(123)
 p d
-d
