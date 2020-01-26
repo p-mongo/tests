@@ -1,0 +1,343 @@
+test-ffi.rb:12: [BUG] Segmentation fault at 0xfffffffffffffff0
+ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-linux]
+
+-- Control frame information -----------------------------------------------
+c:0003 p:---- s:0010 e:000009 CFUNC  :foo
+c:0002 p:0025 s:0006 e:000005 EVAL   test-ffi.rb:12 [FINISH]
+c:0001 p:0000 s:0003 E:000c50 (none) [FINISH]
+
+-- Ruby level backtrace information ----------------------------------------
+test-ffi.rb:12:in `<main>'
+test-ffi.rb:12:in `foo'
+
+-- Machine register context ------------------------------------------------
+ RIP: 0x00007f1981874124 RBP: 0x00007ffc541a2f70 RSP: 0x00007ffc541a2f68
+ RAX: 0xffffffffffffffff RBX: 0x000056125f56b8b8 RCX: 0x000000000000000e
+ RDX: 0x00007f19819948c0 RDI: 0xffffffffffffffff RSI: 0xfffffffffffffff0
+  R8: 0x00007f19817d4740  R9: 0x0000000000000000 R10: 0xfffffffffffff3ca
+ R11: 0x00007f1981874100 R12: 0x00007ffc541a3090 R13: 0x00007ffc541a3090
+ R14: 0x00007f197f636115 R15: 0x00007ffc541a30c0 EFL: 0x0000000000010202
+
+-- C level backtrace information -------------------------------------------
+/home/me/.rbenv/versions/2.6.5/bin/ruby(rb_vm_bugreport+0x554) [0x56125e6d0804] vm_dump.c:715
+[0x56125e6c6808]
+/home/me/.rbenv/versions/2.6.5/bin/ruby(sigsegv+0x42) [0x56125e5abba2] signal.c:998
+/lib/x86_64-linux-gnu/libpthread.so.0(__restore_rt+0x0) [0x7f1981bfb730]
+/lib/x86_64-linux-gnu/libc.so.6(0x7f1981874124) [0x7f1981874124]
+shlib/lib.so(foo+0x23) [0x7f197f636138] lib.c:6
+shlib/lib.so(foo) (null):0
+/usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call_unix64+0x4c) [0x7f197f6178ee]
+/usr/lib/x86_64-linux-gnu/libffi.so.6(ffi_call+0x22f) [0x7f197f6172bf]
+/home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi_c.so(rbffi_CallFunction+0xd6) [0x7f197f649ac6] Call.c:412
+/home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi_c.so(rbffi_CallFunction) (null):0
+/home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi_c.so(custom_trampoline+0x24) [0x7f197f64d124] MethodHandle.c:232
+[0x56125e61c1fb]
+[0x56125e625a0c]
+/home/me/.rbenv/versions/2.6.5/bin/ruby(vm_call_method+0x55) [0x56125e6260f5] vm_insnhelper.c:2372
+[0x56125e62c983]
+[0x56125e6247f8]
+/home/me/.rbenv/versions/2.6.5/bin/ruby(ruby_exec_internal+0xd3) [0x56125e49ef83] eval.c:262
+/home/me/.rbenv/versions/2.6.5/bin/ruby(ruby_exec_node+0x11) [0x56125e4a2d2b] eval.c:326
+/home/me/.rbenv/versions/2.6.5/bin/ruby(ruby_run_node) eval.c:318
+/home/me/.rbenv/versions/2.6.5/bin/ruby(main+0x5b) [0x56125e49ecab] error.c:2695
+
+-- Other runtime information -----------------------------------------------
+
+* Loaded script: test-ffi.rb
+
+* Loaded features:
+
+    0 enumerator.so
+    1 thread.rb
+    2 rational.so
+    3 complex.so
+    4 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/enc/encdb.so
+    5 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/enc/trans/transdb.so
+    6 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/rbconfig.rb
+    7 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/compatibility.rb
+    8 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/defaults.rb
+    9 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/deprecate.rb
+   10 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/errors.rb
+   11 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/version.rb
+   12 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/requirement.rb
+   13 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/platform.rb
+   14 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/basic_specification.rb
+   15 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/stub_specification.rb
+   16 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/delegate.rb
+   17 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/uri/rfc2396_parser.rb
+   18 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/uri/rfc3986_parser.rb
+   19 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/uri/common.rb
+   20 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/uri/generic.rb
+   21 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/uri/file.rb
+   22 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/uri/ftp.rb
+   23 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/uri/http.rb
+   24 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/uri/https.rb
+   25 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/uri/ldap.rb
+   26 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/uri/ldaps.rb
+   27 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/uri/mailto.rb
+   28 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/uri.rb
+   29 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/specification_policy.rb
+   30 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/util/list.rb
+   31 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/stringio.so
+   32 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/specification.rb
+   33 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/exceptions.rb
+   34 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/util.rb
+   35 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/bundler_version_finder.rb
+   36 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/dependency.rb
+   37 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/core_ext/kernel_gem.rb
+   38 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/monitor.rb
+   39 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/core_ext/kernel_require.rb
+   40 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/core_ext/kernel_warn.rb
+   41 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems.rb
+   42 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/path_support.rb
+   43 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/version.rb
+   44 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/core_ext/name_error.rb
+   45 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/levenshtein.rb
+   46 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/jaro_winkler.rb
+   47 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/spell_checker.rb
+   48 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/spell_checkers/name_error_checkers/class_name_checker.rb
+   49 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/spell_checkers/name_error_checkers/variable_name_checker.rb
+   50 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/spell_checkers/name_error_checkers.rb
+   51 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/spell_checkers/method_name_checker.rb
+   52 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/spell_checkers/key_error_checker.rb
+   53 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/spell_checkers/null_checker.rb
+   54 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean/formatters/plain_formatter.rb
+   55 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/did_you_mean-1.3.0/lib/did_you_mean.rb
+   56 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/version.rb
+   57 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/compatibility_guard.rb
+   58 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/pathname.so
+   59 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/pathname.rb
+   60 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/constants.rb
+   61 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/text.rb
+   62 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/user_interaction.rb
+   63 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/etc.so
+   64 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/config_file.rb
+   65 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/rubygems_integration.rb
+   66 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/current_ruby.rb
+   67 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/shared_helpers.rb
+   68 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/fileutils/lib/fileutils.rb
+   69 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendored_fileutils.rb
+   70 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/errors.rb
+   71 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/environment_preserver.rb
+   72 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/plugin/api.rb
+   73 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/plugin.rb
+   74 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/source/git.rb
+   75 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/source/installed.rb
+   76 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/source/specific_file.rb
+   77 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/source/local.rb
+   78 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/source/lock.rb
+   79 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/source/vendor.rb
+   80 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/source.rb
+   81 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/gem_helpers.rb
+   82 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/match_platform.rb
+   83 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/rubygems_ext.rb
+   84 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/build_metadata.rb
+   85 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler.rb
+   86 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/settings.rb
+   87 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/rubygems/ext/builder.rb
+   88 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/yaml_serializer.rb
+   89 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/feature_flag.rb
+   90 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/source.rb
+   91 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/source/path.rb
+   92 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/source/git.rb
+   93 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/source/rubygems.rb
+   94 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/lockfile_parser.rb
+   95 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/set.rb
+   96 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/definition.rb
+   97 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/dependency.rb
+   98 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/ruby_dsl.rb
+   99 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/dsl.rb
+  100 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/source_list.rb
+  101 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/source/metadata.rb
+  102 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/lazy_specification.rb
+  103 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/tsort.rb
+  104 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/forwardable/impl.rb
+  105 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/forwardable.rb
+  106 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/spec_set.rb
+  107 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/compatibility.rb
+  108 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/gem_metadata.rb
+  109 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/delegates/specification_provider.rb
+  110 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/errors.rb
+  111 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/dependency_graph/action.rb
+  112 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/dependency_graph/add_edge_no_circular.rb
+  113 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/dependency_graph/add_vertex.rb
+  114 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/dependency_graph/delete_edge.rb
+  115 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/dependency_graph/detach_vertex_named.rb
+  116 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/dependency_graph/set_payload.rb
+  117 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/dependency_graph/tag.rb
+  118 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/dependency_graph/log.rb
+  119 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/dependency_graph/vertex.rb
+  120 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/dependency_graph.rb
+  121 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/state.rb
+  122 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/modules/specification_provider.rb
+  123 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/delegates/resolution_state.rb
+  124 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/resolution.rb
+  125 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/resolver.rb
+  126 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo/modules/ui.rb
+  127 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendor/molinillo/lib/molinillo.rb
+  128 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/vendored_molinillo.rb
+  129 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/resolver/spec_group.rb
+  130 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/resolver.rb
+  131 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/index.rb
+  132 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/source/gemspec.rb
+  133 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/runtime.rb
+  134 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/dep_proxy.rb
+  135 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/ui.rb
+  136 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/ui/silent.rb
+  137 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/ui/rg_proxy.rb
+  138 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/remote_specification.rb
+  139 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/stub_specification.rb
+  140 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/endpoint_specification.rb
+  141 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/ruby_version.rb
+  142 /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/bundler/setup.rb
+  143 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi_c.so
+  144 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/platform.rb
+  145 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/data_converter.rb
+  146 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/types.rb
+  147 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/library.rb
+  148 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/errno.rb
+  149 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/pointer.rb
+  150 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/memorypointer.rb
+  151 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/struct_layout.rb
+  152 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/struct_layout_builder.rb
+  153 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/struct_by_reference.rb
+  154 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/struct.rb
+  155 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/union.rb
+  156 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/managedstruct.rb
+  157 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/callback.rb
+  158 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/io.rb
+  159 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/autopointer.rb
+  160 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/variadic.rb
+  161 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/enum.rb
+  162 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/version.rb
+  163 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi/ffi.rb
+  164 /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi.rb
+
+* Process memory map:
+
+56125e477000-56125e49b000 r--p 00000000 fd:01 9183584                    /home/me/.rbenv/versions/2.6.5/bin/ruby
+56125e49b000-56125e6d8000 r-xp 00024000 fd:01 9183584                    /home/me/.rbenv/versions/2.6.5/bin/ruby
+56125e6d8000-56125e7c0000 r--p 00261000 fd:01 9183584                    /home/me/.rbenv/versions/2.6.5/bin/ruby
+56125e7c1000-56125e7c6000 r--p 00349000 fd:01 9183584                    /home/me/.rbenv/versions/2.6.5/bin/ruby
+56125e7c6000-56125e7c7000 rw-p 0034e000 fd:01 9183584                    /home/me/.rbenv/versions/2.6.5/bin/ruby
+56125e7c7000-56125e7d8000 rw-p 00000000 00:00 0 
+56125ec9d000-56125f5f3000 rw-p 00000000 00:00 0                          [heap]
+7f197dea5000-7f197e063000 r--s 00000000 fd:01 13894922                   /lib/x86_64-linux-gnu/libc-2.28.so
+7f197e063000-7f197e087000 r--s 00000000 fd:01 13894940                   /lib/x86_64-linux-gnu/libpthread-2.28.so
+7f197e087000-7f197f5d8000 r--s 00000000 fd:01 9183584                    /home/me/.rbenv/versions/2.6.5/bin/ruby
+7f197f5d8000-7f197f5db000 r--p 00000000 fd:01 13894914                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f197f5db000-7f197f5ec000 r-xp 00003000 fd:01 13894914                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f197f5ec000-7f197f5ef000 r--p 00014000 fd:01 13894914                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f197f5ef000-7f197f5f0000 ---p 00017000 fd:01 13894914                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f197f5f0000-7f197f5f1000 r--p 00017000 fd:01 13894914                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f197f5f1000-7f197f5f2000 rw-p 00018000 fd:01 13894914                   /lib/x86_64-linux-gnu/libgcc_s.so.1
+7f197f611000-7f197f613000 r--p 00000000 fd:01 12724744                   /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f197f613000-7f197f618000 r-xp 00002000 fd:01 12724744                   /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f197f618000-7f197f619000 r--p 00007000 fd:01 12724744                   /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f197f619000-7f197f61a000 r--p 00007000 fd:01 12724744                   /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f197f61a000-7f197f61b000 rw-p 00008000 fd:01 12724744                   /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f197f626000-7f197f62f000 r--s 00000000 fd:01 12724744                   /usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f197f62f000-7f197f634000 r--s 00000000 fd:01 4674853                    /home/me/apps/mongo/tests/ruby-ext-stack-trace/shlib/lib.so
+7f197f634000-7f197f635000 r-xp 00000000 00:00 0 
+7f197f635000-7f197f636000 r--p 00000000 fd:01 4674853                    /home/me/apps/mongo/tests/ruby-ext-stack-trace/shlib/lib.so
+7f197f636000-7f197f637000 r-xp 00001000 fd:01 4674853                    /home/me/apps/mongo/tests/ruby-ext-stack-trace/shlib/lib.so
+7f197f637000-7f197f638000 r--p 00002000 fd:01 4674853                    /home/me/apps/mongo/tests/ruby-ext-stack-trace/shlib/lib.so
+7f197f638000-7f197f639000 r--p 00002000 fd:01 4674853                    /home/me/apps/mongo/tests/ruby-ext-stack-trace/shlib/lib.so
+7f197f639000-7f197f63a000 rw-p 00003000 fd:01 4674853                    /home/me/apps/mongo/tests/ruby-ext-stack-trace/shlib/lib.so
+7f197f63a000-7f197f63f000 r--p 00000000 fd:01 9731105                    /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi_c.so
+7f197f63f000-7f197f654000 r-xp 00005000 fd:01 9731105                    /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi_c.so
+7f197f654000-7f197f65b000 r--p 0001a000 fd:01 9731105                    /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi_c.so
+7f197f65b000-7f197f65c000 ---p 00021000 fd:01 9731105                    /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi_c.so
+7f197f65c000-7f197f65d000 r--p 00021000 fd:01 9731105                    /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi_c.so
+7f197f65d000-7f197f65e000 rw-p 00022000 fd:01 9731105                    /home/me/.rbenv/versions/2.6.5/lib/ruby/gems/2.6.0/gems/ffi-1.12.1/lib/ffi_c.so
+7f197f65e000-7f197f6bf000 rw-p 00000000 00:00 0 
+7f197f6bf000-7f197f6c1000 r--p 00000000 fd:01 9183753                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/pathname.so
+7f197f6c1000-7f197f6c6000 r-xp 00002000 fd:01 9183753                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/pathname.so
+7f197f6c6000-7f197f6c8000 r--p 00007000 fd:01 9183753                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/pathname.so
+7f197f6c8000-7f197f6c9000 r--p 00008000 fd:01 9183753                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/pathname.so
+7f197f6c9000-7f197f6ca000 rw-p 00009000 fd:01 9183753                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/pathname.so
+7f197f6ca000-7f19817d7000 rw-p 00000000 00:00 0 
+7f19817d7000-7f19817f9000 r--p 00000000 fd:01 13894922                   /lib/x86_64-linux-gnu/libc-2.28.so
+7f19817f9000-7f1981941000 r-xp 00022000 fd:01 13894922                   /lib/x86_64-linux-gnu/libc-2.28.so
+7f1981941000-7f198198d000 r--p 0016a000 fd:01 13894922                   /lib/x86_64-linux-gnu/libc-2.28.so
+7f198198d000-7f198198e000 ---p 001b6000 fd:01 13894922                   /lib/x86_64-linux-gnu/libc-2.28.so
+7f198198e000-7f1981992000 r--p 001b6000 fd:01 13894922                   /lib/x86_64-linux-gnu/libc-2.28.so
+7f1981992000-7f1981994000 rw-p 001ba000 fd:01 13894922                   /lib/x86_64-linux-gnu/libc-2.28.so
+7f1981994000-7f1981998000 rw-p 00000000 00:00 0 
+7f1981998000-7f19819a5000 r--p 00000000 fd:01 13894929                   /lib/x86_64-linux-gnu/libm-2.28.so
+7f19819a5000-7f1981a44000 r-xp 0000d000 fd:01 13894929                   /lib/x86_64-linux-gnu/libm-2.28.so
+7f1981a44000-7f1981b19000 r--p 000ac000 fd:01 13894929                   /lib/x86_64-linux-gnu/libm-2.28.so
+7f1981b19000-7f1981b1a000 r--p 00180000 fd:01 13894929                   /lib/x86_64-linux-gnu/libm-2.28.so
+7f1981b1a000-7f1981b1b000 rw-p 00181000 fd:01 13894929                   /lib/x86_64-linux-gnu/libm-2.28.so
+7f1981b1b000-7f1981b1d000 rw-p 00000000 00:00 0 
+7f1981b1d000-7f1981b1e000 r--p 00000000 fd:01 13894924                   /lib/x86_64-linux-gnu/libcrypt-2.28.so
+7f1981b1e000-7f1981b24000 r-xp 00001000 fd:01 13894924                   /lib/x86_64-linux-gnu/libcrypt-2.28.so
+7f1981b24000-7f1981b26000 r--p 00007000 fd:01 13894924                   /lib/x86_64-linux-gnu/libcrypt-2.28.so
+7f1981b26000-7f1981b27000 ---p 00009000 fd:01 13894924                   /lib/x86_64-linux-gnu/libcrypt-2.28.so
+7f1981b27000-7f1981b28000 r--p 00009000 fd:01 13894924                   /lib/x86_64-linux-gnu/libcrypt-2.28.so
+7f1981b28000-7f1981b29000 rw-p 0000a000 fd:01 13894924                   /lib/x86_64-linux-gnu/libcrypt-2.28.so
+7f1981b29000-7f1981b57000 rw-p 00000000 00:00 0 
+7f1981b57000-7f1981b58000 r--p 00000000 fd:01 13894925                   /lib/x86_64-linux-gnu/libdl-2.28.so
+7f1981b58000-7f1981b59000 r-xp 00001000 fd:01 13894925                   /lib/x86_64-linux-gnu/libdl-2.28.so
+7f1981b59000-7f1981b5a000 r--p 00002000 fd:01 13894925                   /lib/x86_64-linux-gnu/libdl-2.28.so
+7f1981b5a000-7f1981b5b000 r--p 00002000 fd:01 13894925                   /lib/x86_64-linux-gnu/libdl-2.28.so
+7f1981b5b000-7f1981b5c000 rw-p 00003000 fd:01 13894925                   /lib/x86_64-linux-gnu/libdl-2.28.so
+7f1981b5c000-7f1981b67000 r--p 00000000 fd:01 12718539                   /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+7f1981b67000-7f1981bc5000 r-xp 0000b000 fd:01 12718539                   /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+7f1981bc5000-7f1981bdc000 r--p 00069000 fd:01 12718539                   /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+7f1981bdc000-7f1981bdd000 ---p 00080000 fd:01 12718539                   /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+7f1981bdd000-7f1981bde000 r--p 00080000 fd:01 12718539                   /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+7f1981bde000-7f1981bdf000 rw-p 00081000 fd:01 12718539                   /usr/lib/x86_64-linux-gnu/libgmp.so.10.3.2
+7f1981bdf000-7f1981be1000 r--p 00000000 fd:01 13895075                   /lib/x86_64-linux-gnu/librt-2.28.so
+7f1981be1000-7f1981be5000 r-xp 00002000 fd:01 13895075                   /lib/x86_64-linux-gnu/librt-2.28.so
+7f1981be5000-7f1981be7000 r--p 00006000 fd:01 13895075                   /lib/x86_64-linux-gnu/librt-2.28.so
+7f1981be7000-7f1981be8000 r--p 00007000 fd:01 13895075                   /lib/x86_64-linux-gnu/librt-2.28.so
+7f1981be8000-7f1981be9000 rw-p 00008000 fd:01 13895075                   /lib/x86_64-linux-gnu/librt-2.28.so
+7f1981be9000-7f1981bef000 r--p 00000000 fd:01 13894940                   /lib/x86_64-linux-gnu/libpthread-2.28.so
+7f1981bef000-7f1981bfe000 r-xp 00006000 fd:01 13894940                   /lib/x86_64-linux-gnu/libpthread-2.28.so
+7f1981bfe000-7f1981c04000 r--p 00015000 fd:01 13894940                   /lib/x86_64-linux-gnu/libpthread-2.28.so
+7f1981c04000-7f1981c05000 r--p 0001a000 fd:01 13894940                   /lib/x86_64-linux-gnu/libpthread-2.28.so
+7f1981c05000-7f1981c06000 rw-p 0001b000 fd:01 13894940                   /lib/x86_64-linux-gnu/libpthread-2.28.so
+7f1981c06000-7f1981c0a000 rw-p 00000000 00:00 0 
+7f1981c0a000-7f1981c26000 r-xp 00000000 fd:01 13895366                   /lib/x86_64-linux-gnu/libz.so.1.2.11
+7f1981c26000-7f1981e26000 ---p 0001c000 fd:01 13895366                   /lib/x86_64-linux-gnu/libz.so.1.2.11
+7f1981e26000-7f1981e27000 r--p 0001c000 fd:01 13895366                   /lib/x86_64-linux-gnu/libz.so.1.2.11
+7f1981e27000-7f1981e28000 rw-p 0001d000 fd:01 13895366                   /lib/x86_64-linux-gnu/libz.so.1.2.11
+7f1981e28000-7f1981e2a000 rw-p 00000000 00:00 0 
+7f1981e2a000-7f1981e2c000 r--p 00000000 fd:01 9183740                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/etc.so
+7f1981e2c000-7f1981e2f000 r-xp 00002000 fd:01 9183740                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/etc.so
+7f1981e2f000-7f1981e31000 r--p 00005000 fd:01 9183740                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/etc.so
+7f1981e31000-7f1981e32000 r--p 00006000 fd:01 9183740                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/etc.so
+7f1981e32000-7f1981e33000 rw-p 00007000 fd:01 9183740                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/etc.so
+7f1981e33000-7f1981e35000 r--p 00000000 fd:01 9183734                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/stringio.so
+7f1981e35000-7f1981e3a000 r-xp 00002000 fd:01 9183734                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/stringio.so
+7f1981e3a000-7f1981e3c000 r--p 00007000 fd:01 9183734                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/stringio.so
+7f1981e3c000-7f1981e3d000 r--p 00008000 fd:01 9183734                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/stringio.so
+7f1981e3d000-7f1981e3e000 rw-p 00009000 fd:01 9183734                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/stringio.so
+7f1981e3e000-7f1981e3f000 r--p 00000000 fd:01 9596227                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/enc/trans/transdb.so
+7f1981e3f000-7f1981e41000 r-xp 00001000 fd:01 9596227                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/enc/trans/transdb.so
+7f1981e41000-7f1981e42000 r--p 00003000 fd:01 9596227                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/enc/trans/transdb.so
+7f1981e42000-7f1981e43000 r--p 00003000 fd:01 9596227                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/enc/trans/transdb.so
+7f1981e43000-7f1981e44000 rw-p 00004000 fd:01 9596227                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/enc/trans/transdb.so
+7f1981e44000-7f1981e45000 r--p 00000000 fd:01 9596249                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/enc/encdb.so
+7f1981e45000-7f1981e46000 r-xp 00001000 fd:01 9596249                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/enc/encdb.so
+7f1981e46000-7f1981e47000 r--p 00002000 fd:01 9596249                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/enc/encdb.so
+7f1981e47000-7f1981e48000 r--p 00002000 fd:01 9596249                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/enc/encdb.so
+7f1981e48000-7f1981e49000 rw-p 00003000 fd:01 9596249                    /home/me/.rbenv/versions/2.6.5/lib/ruby/2.6.0/x86_64-linux/enc/encdb.so
+7f1981e49000-7f1981e4a000 r--p 00000000 fd:01 13894915                   /lib/x86_64-linux-gnu/ld-2.28.so
+7f1981e4a000-7f1981e68000 r-xp 00001000 fd:01 13894915                   /lib/x86_64-linux-gnu/ld-2.28.so
+7f1981e68000-7f1981e70000 r--p 0001f000 fd:01 13894915                   /lib/x86_64-linux-gnu/ld-2.28.so
+7f1981e70000-7f1981e71000 r--p 00026000 fd:01 13894915                   /lib/x86_64-linux-gnu/ld-2.28.so
+7f1981e71000-7f1981e72000 rw-p 00027000 fd:01 13894915                   /lib/x86_64-linux-gnu/ld-2.28.so
+7f1981e72000-7f1981e73000 rw-p 00000000 00:00 0 
+7ffc539a7000-7ffc541a6000 rw-p 00000000 00:00 0                          [stack]
+7ffc541ec000-7ffc541ef000 r--p 00000000 00:00 0                          [vvar]
+7ffc541ef000-7ffc541f1000 r-xp 00000000 00:00 0                          [vdso]
+
+
+[NOTE]
+You may have encountered a bug in the Ruby interpreter or extension libraries.
+Bug reports are welcome.
+For details: https://www.ruby-lang.org/bugreport.html
+
+Aborted
