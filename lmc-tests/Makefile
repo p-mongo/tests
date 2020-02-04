@@ -1,7 +1,9 @@
-all: test-empty-bson test-handle-not-inited
+all: bin/test-empty-bson bin/test-handle-not-inited
 
-test-empty-bson: test-empty-bson.c
-	gcc -Idebian92/nocrypto/include/mongocrypt -Ldebian92/nocrypto/lib -otest-empty-bson test-empty-bson.c -lmongocrypt
+bin/test-empty-bson: src/test-empty-bson.c
+	mkdir -p bin
+	gcc -Ilmc/include -Llmc/lib -obin/test-empty-bson src/test-empty-bson.c -lmongocrypt
 
-test-handle-not-inited: test-handle-not-inited.c
-	gcc -Idebian92/nocrypto/include/mongocrypt -Ldebian92/nocrypto/lib -otest-handle-not-inited test-handle-not-inited.c -lmongocrypt
+bin/test-handle-not-inited: src/test-handle-not-inited.c
+	mkdir -p bin
+	gcc -Ilmc/include -Llmc/lib -obin/test-handle-not-inited src/test-handle-not-inited.c -lmongocrypt
