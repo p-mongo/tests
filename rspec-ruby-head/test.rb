@@ -1,3 +1,6 @@
+#require 'rspec/mocks'
+autoload :Byebug, 'byebug'
+
 class Foo
   def m(a, b: nil)
     p [a, b]

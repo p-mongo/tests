@@ -1,3 +1,20 @@
 source 'https://rubygems.org'
 
-gem 'rspec', '~> 3.0'
+mode = :local
+
+case mode
+when :upstream
+  gem 'rspec-core', git: 'https://github.com/rspec/rspec-core'
+  gem 'rspec-expectations', git: 'https://github.com/rspec/rspec-expectations'
+  gem 'rspec-support', git: 'https://github.com/rspec/rspec-support'
+  gem 'rspec-mocks', git: 'https://github.com/rspec/rspec-mocks'
+when :local
+  gem 'rspec-core', path: '../../../exp/rspec-core'
+  gem 'rspec-expectations', path: '../../../exp/rspec-expectations'
+  gem 'rspec-support', path: '../../../exp/rspec-support'
+  gem 'rspec-mocks', path: '../../../exp/rspec-mocks'
+else
+  gem 'rspec'
+end
+
+gem 'byebug'
