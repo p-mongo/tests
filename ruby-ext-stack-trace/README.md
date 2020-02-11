@@ -5,3 +5,5 @@ To test Ruby C extension path:
 To test FFI path:
 
 ./test-ffi.sh
+
+ffi ticket: https://github.com/ffi/ffi/issues/737
