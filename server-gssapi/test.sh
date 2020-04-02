@@ -21,7 +21,7 @@ export PATH=/opt/mongodb/bin:$PATH
 hostname
 
 (echo hostp; echo hostp) |kadmin.local addprinc mongodb/`hostname`@LOCALKRB
-echo ktadd mongodb/`hostname` |kadmin.local
+kadmin.local ktadd test/test
 
 klist
 
