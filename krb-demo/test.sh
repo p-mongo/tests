@@ -11,12 +11,16 @@ export PATH=/opt/mongodb/bin:$PATH
 
   (echo masterp; echo masterp) |kdb5_util create -s
   (echo testp; echo testp) |kadmin.local addprinc rubytest/yay@LOCALKRB
+  (echo testp; echo testp) |kadmin.local addprinc rubytest@LOCALKRB
   
   krb5kdc
   kadmind
   
   echo 127.0.0.1 krb.local |tee -a /etc/hosts
+  
+  # The kinit call needs to match the user that the driver is authenticating with
   echo testp |kinit rubytest/yay@LOCALKRB
+  #echo testp |kinit rubytest@LOCALKRB
 
 hostname
 
@@ -44,6 +48,22 @@ EOT
   `"
 
   mongo --eval "$create_user_cmd"
+  
+  create_user_cmd="`cat <<'EOT'
+    db.getSiblingDB("$external").runCommand(
+      {
+        createUser: "rubytest@LOCALKRB",
+        roles: [
+             { role: "root", db: "admin" },
+        ],
+        writeConcern: { w: "majority" , wtimeout: 5000 },
+      }
+    )
+EOT
+  `"
+
+  mongo --eval "$create_user_cmd"
+  
   mongo --eval 'db.getSiblingDB("kerberos").test.insert({kerberos: true, authenticated: "yeah"})'
   pkill mongod
   sleep 1
