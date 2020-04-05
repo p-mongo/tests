@@ -31,6 +31,15 @@ prefix = Time.now.to_i
 
   p service
 
+  client.wait_until(
+    :services_stable, {
+      cluster: cluster_name,
+      services: [service_name],
+    },
+    delay: 5,
+    max_attempts: 10,
+  )
+
   service = client.describe_services(
     cluster: cluster_name,
     services: [service_name],
