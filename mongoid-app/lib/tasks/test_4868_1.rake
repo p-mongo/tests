@@ -59,4 +59,16 @@ p contract.collection.find(_id: contract.id).first
 # => {"_id"=>BSON::ObjectId('5e8bd105e1b8321982e6f1fe'), "special_conditions"=>[]}
 
 
+
+contract = Contract.new
+
+contract.special_conditions = [Condition.new]
+contract.special_conditions = []
+
+contract.save!
+
+p contract.collection.find(_id: contract.id).first
+
+# => {"_id"=>BSON::ObjectId('5e8bd202e1b83219f9582225')}
+
 end
