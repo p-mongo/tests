@@ -1,7 +1,6 @@
-# test_4868_2 is a simplified test without the class name override
+# Same as test_4868_1 but without the class name override
 
-
-task :test_4868_1 => :environment do
+task :test_4868_2 => :environment do
 
 class Contract
 
@@ -9,7 +8,7 @@ class Contract
 
 
 
-   embeds_many :special_conditions, :class_name => 'Condition'
+   embeds_many :conditions
 
 end
 
@@ -35,7 +34,7 @@ end
 
 contract = Contract.new
 
-contract.special_conditions = []
+contract.conditions = []
 
 contract.save!
 
@@ -44,29 +43,29 @@ p contract.collection.find(_id: contract.id).first
 # => {"_id"=>BSON::ObjectId('5e8bd0d8e1b8321958afa605')}
 
 
-contract.special_conditions = [Condition.new]
+contract.conditions = [Condition.new]
 
 contract.save!
 
 p contract.collection.find(_id: contract.id).first
 
-# => {"_id"=>BSON::ObjectId('5e8bd105e1b8321982e6f1fe'), "special_conditions"=>[{"_id"=>BSON::ObjectId('5e8bd105e1b8321982e6f1ff')}]}
+# => {"_id"=>BSON::ObjectId('5e8bd105e1b8321982e6f1fe'), "conditions"=>[{"_id"=>BSON::ObjectId('5e8bd105e1b8321982e6f1ff')}]}
 
 
-contract.special_conditions = []
+contract.conditions = []
 
 contract.save!
 
 p contract.collection.find(_id: contract.id).first
 
-# => {"_id"=>BSON::ObjectId('5e8bd105e1b8321982e6f1fe'), "special_conditions"=>[]}
+# => {"_id"=>BSON::ObjectId('5e8bd105e1b8321982e6f1fe'), "conditions"=>[]}
 
 
 
 contract = Contract.new
 
-contract.special_conditions = [Condition.new]
-contract.special_conditions = []
+contract.conditions = [Condition.new]
+contract.conditions = []
 
 contract.save!
 
