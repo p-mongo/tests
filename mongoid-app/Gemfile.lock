@@ -180,7 +180,7 @@ DEPENDENCIES
   byebug
   capybara (~> 2.13)
   listen (>= 3.0.5, < 3.2)
-  mongoid (~> 7.1.0)
+  mongoid
   puma (~> 3.7)
   rails (~> 6.0.0)
   selenium-webdriver
