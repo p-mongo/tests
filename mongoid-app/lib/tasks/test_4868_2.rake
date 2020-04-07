@@ -73,4 +73,9 @@ p contract.collection.find(_id: contract.id).first
 
 # => {"_id"=>BSON::ObjectId('5e8bd202e1b83219f9582225')}
 
+
+
+contract = Contract.find(contract.id)
+p contract.conditions
+
 end
