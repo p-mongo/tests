@@ -38,8 +38,13 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-if ENV['mongoid_master']
+case ENV['mongoid']
+when 'master'
   gem 'mongoid', path: '../../mongoid'
+when '7.1'
+  gem 'mongoid', '~> 7.1.0'
+when '7.0'
+  gem 'mongoid', '~> 7.0.0'
 else
   gem 'mongoid'
 end
