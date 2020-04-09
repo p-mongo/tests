@@ -21,6 +21,7 @@ run apt-get -y install procps
 
 run git clone https://github.com/p-mongo/mongo-manager && \
   cd mongo-manager && \
+  git checkout shard-rs && \
   gem build *.gemspec && \
   gem install *.gem
 
