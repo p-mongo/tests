@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 mongo-manager --dir /db init --mongos 3 --replica-set shrs --nodes 3
 
@@ -13,5 +13,10 @@ echo -------------------------------
 echo
 
 ps awwxu
+
+echo
+echo
+
+ruby work.rb
 
 exec "$@"

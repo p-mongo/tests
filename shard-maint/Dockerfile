@@ -25,5 +25,8 @@ run git clone https://github.com/p-mongo/mongo-manager && \
   gem build *.gemspec && \
   gem install *.gem
 
+copy Gemfile .
+run gem install bundler && bundle install
+
 COPY . .
 ENTRYPOINT ["./entrypoint.sh"]
