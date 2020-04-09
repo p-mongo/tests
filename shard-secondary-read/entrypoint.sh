@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -e
 
 mongo-manager --dir /db init --mongos 1 --replica-set shrs --nodes 3
 
