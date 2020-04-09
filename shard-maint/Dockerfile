@@ -6,3 +6,5 @@ FROM debian:10
     apt-get update && \
     apt-get install -y curl zsh ruby
 
+COPY . .
+ENTRYPOINT ["./entrypoint.sh"]
