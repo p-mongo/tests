@@ -6,5 +6,14 @@ FROM debian:10
     apt-get update && \
     apt-get install -y curl zsh ruby
 
+# https://docs.mongodb.com/manual/tutorial/install-mongodb-on-debian/
+
+run  apt-get -y install gnupg
+
+RUN curl -sfL https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add - && \
+  echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/4.2 main" | tee /etc/apt/sources.list.d/mongodb-org-4.2.list && \
+  apt-get update && \
+  apt-get -y install mongodb-org-server mongodb-org-mongos
+
 COPY . .
 ENTRYPOINT ["./entrypoint.sh"]
