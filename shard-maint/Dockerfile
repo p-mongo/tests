@@ -15,5 +15,12 @@ RUN curl -sfL https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add - 
   apt-get update && \
   apt-get -y install mongodb-org-server mongodb-org-mongos
 
+run apt-get -y install git ruby-dev gcc make
+
+run git clone https://github.com/p-mongo/mongo-manager && \
+  cd mongo-manager && \
+  gem build *.gemspec && \
+  gem install *.gem
+
 COPY . .
 ENTRYPOINT ["./entrypoint.sh"]
