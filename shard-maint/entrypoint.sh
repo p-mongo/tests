@@ -17,7 +17,7 @@ ps awwxu
 echo
 echo
 
-ruby writer.rb &
+#ruby writer.rb &
 ruby reader.rb &
 ruby bouncer.rb
 

@@ -1,8 +1,9 @@
 require 'mongo'
-require 'mongo_manager'
+#require 'mongo_manager'
 autoload :Byebug, 'byebug'
 
-Mongo::Logger.logger = Logger.new(STDOUT, level: :warn)
+#Mongo::Logger.logger = Logger.new(STDOUT, level: :warn)
+Mongo::Logger.logger.level = Logger::WARN
 
 class Bouncer
   def work
@@ -12,11 +13,26 @@ class Bouncer
       puts "Bouncing #{port}"
       pid = get_port_pid(port)
 
-      begin
-        Process.kill('TERM', pid)
-      rescue SystemCallError
-        puts "No go with pid #{pid} for port #{port}"
-        next
+      if false
+        # Stop mongod by sending it SIGTERM
+
+        begin
+          Process.kill('TERM', pid)
+        rescue SystemCallError
+          puts "No go with pid #{pid} for port #{port}"
+          next
+        end
+      else
+        # Stop mongod by connecting to it and executing {shutdown: 1}
+
+        client = Mongo::Client.new(["localhost:#{port}"],
+          connect: :direct)
+        begin
+          client.database.command(shutdown: 1)
+        rescue => e
+          puts "Shutdown error: #{e.class}: #{e}"
+        end
+        client.close
       end
 
       deadline = Time.now + 20

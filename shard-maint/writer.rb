@@ -1,6 +1,7 @@
 require 'mongo'
 
-Mongo::Logger.logger = Logger.new(STDOUT, level: :warn)
+#Mongo::Logger.logger = Logger.new(STDOUT, level: :warn)
+Mongo::Logger.logger.level = Logger::WARN
 
 class Writer
   def work

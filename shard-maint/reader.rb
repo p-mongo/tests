@@ -1,11 +1,13 @@
 require 'mongo'
 
-Mongo::Logger.logger = Logger.new(STDOUT, level: :warn)
+#Mongo::Logger.logger = Logger.new(STDOUT, level: :warn)
+Mongo::Logger.logger.level = Logger::WARN
 
 class Reader
   def work
     client['coll1'].delete_many
     client['coll1'].insert_one(marker: 1)
+    client.close
 
     threads = []
     20.times do

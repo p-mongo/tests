@@ -1,4 +1,4 @@
-FROM debian:10
+FROM debian:9
 
   ENV DEBIAN_FRONTEND=noninteractive
 
@@ -10,8 +10,8 @@ FROM debian:10
 
 run  apt-get -y install gnupg
 
-RUN curl -sfL https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add - && \
-  echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/4.2 main" | tee /etc/apt/sources.list.d/mongodb-org-4.2.list && \
+RUN curl -sfL https://www.mongodb.org/static/pgp/server-4.0.asc | apt-key add - && \
+  echo "deb http://repo.mongodb.org/apt/debian stretch/mongodb-org/4.0 main" | tee /etc/apt/sources.list.d/mongodb-org-4.0.list && \
   apt-get update && \
   apt-get -y install mongodb-org-server mongodb-org-mongos
 
