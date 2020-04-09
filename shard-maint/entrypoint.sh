@@ -17,7 +17,8 @@ ps awwxu
 echo
 echo
 
-ruby work.rb &
+ruby writer.rb &
+ruby reader.rb &
 ruby bouncer.rb
 
 exec "$@"

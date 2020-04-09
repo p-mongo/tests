@@ -2,7 +2,7 @@ require 'mongo'
 
 Mongo::Logger.logger = Logger.new(STDOUT, level: :warn)
 
-class Worker
+class Writer
   def work
     1_000_000.times do
       client['coll'].insert_one(test: 'x'*10000)
@@ -16,5 +16,5 @@ class Worker
   end
 end
 
-puts 'Working'
-Worker.new.work
+puts 'Writing'
+Writer.new.work
