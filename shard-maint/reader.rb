@@ -14,7 +14,17 @@ class Reader
       threads << Thread.new do
         thread_client = Mongo::Client.new(['localhost'])
         1_000_000.times do
-          p thread_client['coll1'].find('$where' => 'sleep(20000) || true').first
+          begin
+            p thread_client['coll1'].find('$where' => 'sleep(20000) || true').
+              read(mode: :secondary).first
+          rescue => e
+            msg = "********* Error in reader: #{e.class}: #{e}"
+            inspect_client = Mongo::Client.new(
+              %w(localhost:27020 localhost:27021 localhost:27022)
+            )
+            puts "#{msg}\nShard summary: #{inspect_client.cluster.summary}\n`````````"
+            inspect_client.close
+          end
         end
       end
     end
