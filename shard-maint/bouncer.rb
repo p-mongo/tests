@@ -1,4 +1,5 @@
 require 'mongo'
+require 'mongo_manager'
 autoload :Byebug, 'byebug'
 
 Mongo::Logger.logger = Logger.new(STDOUT, level: :warn)
@@ -37,10 +38,19 @@ class Bouncer
       puts "Restarting for #{port}"
       cfg = YAML.load(File.read('/db/mongo-manager.yml'))
       key = cfg[:settings].keys.detect { |key| key.end_with?(port.to_s) }
-      p key
-      cmd = cfg[:settings][key][:start_cmd]
-      Byebug.byebug
-      puts Process.spawn(cmd)
+      opts = cfg[:settings][key][:start_options]
+      cmd = [
+        opts[:bin_path],
+        '--logpath', opts[:log_path],
+        '--pidfilepath', opts[:pid_file_path],
+        '--fork',
+      ] + opts[:args]
+
+      #Byebug.byebug
+      puts Process.spawn(*cmd)
+
+      #puts `mongo-manager --dir /db start`
+      #MongoManager::Executor.new(dir: '/db').start
     end
   end
 
