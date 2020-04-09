@@ -17,6 +17,8 @@ RUN curl -sfL https://www.mongodb.org/static/pgp/server-4.2.asc | apt-key add - 
 
 run apt-get -y install git ruby-dev gcc make
 
+run apt-get -y install procps
+
 run git clone https://github.com/p-mongo/mongo-manager && \
   cd mongo-manager && \
   gem build *.gemspec && \
