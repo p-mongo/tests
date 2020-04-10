@@ -12,7 +12,7 @@ class Reader
     threads = []
     20.times do
       threads << Thread.new do
-        thread_client = Mongo::Client.new(['localhost'])
+        thread_client = Mongo::Client.new('mongodb://localhost/test')
         1_000_000.times do
           begin
             p thread_client['coll1'].find('$where' => 'sleep(20000) || true').
@@ -34,7 +34,7 @@ class Reader
   private
 
   def client
-    @client ||= Mongo::Client.new(['localhost'])
+    @client ||= Mongo::Client.new('mongodb://localhost/test')
   end
 end
 
