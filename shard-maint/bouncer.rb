@@ -44,8 +44,7 @@ class Bouncer
           break
         else
           if Time.now >= deadline
-            puts "Process #{pid} did not die after 20 seconds"
-            next
+            puts "Process #{pid} did not die after %d seconds" % (Time.now-deadline+20)
           end
           sleep 1
         end
