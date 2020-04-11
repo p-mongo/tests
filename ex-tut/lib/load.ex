@@ -23,9 +23,10 @@ defmodule Load do
     IO.puts("starting!")
     
     # Starts an unpooled connection
-    {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:14420/load")
+    {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:14420/load",
+      pool_size: 10)
 
-    worker = fn i ->
+    worker = fn ->
       # Gets an enumerable cursor for the results
       cursor = Mongo.find(conn, "coll",
         %{"$and" => [%{a: "hello"}]}
@@ -37,7 +38,14 @@ defmodule Load do
       |> IO.inspect
     end
     
-    Enum.map(1..100, worker)
+    Enum.map(1..100, fn i ->
+      spawn_link worker
+    end)
+    
+    receive do
+    after
+      10_000 -> "done"
+    end
 
     Supervisor.start_link [], strategy: :one_for_one
   end
