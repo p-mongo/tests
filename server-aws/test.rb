@@ -48,7 +48,7 @@ class Tester
 Credential=ASIAYDYF24CYGCSCSRHQ/20200411/us-east-1/sts/aws4_request, \
 SignedHeaders=content-length;content-type;host;x-amz-date;x-mongodb-gs2-cb-flag;x-mongodb-server-nonce, \
 Signature=ec792fffff0a39bbaec8c043999d0dd63e401720be860a1496d968ab82dd817b',
-        d: 'world',
+        d: 'dummy',
       }
       selector = {
         saslContinue: 1,
