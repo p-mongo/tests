@@ -25,13 +25,15 @@ defmodule Load do
     # Starts an unpooled connection
     {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:14420/load")
 
-    # Gets an enumerable cursor for the results
-    cursor = Mongo.find(conn, "coll", %{})
+    Enum.map(1..100, fn i ->
+      # Gets an enumerable cursor for the results
+      cursor = Mongo.find(conn, "coll", %{})
 
-    cursor
-    |> Enum.to_list()
-    |> Enum.count
-    |> IO.inspect
+      cursor
+      |> Enum.to_list()
+      |> Enum.count
+      |> IO.inspect
+    end)
 
     Supervisor.start_link [], strategy: :one_for_one
   end
