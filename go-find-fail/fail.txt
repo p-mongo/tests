@@ -1,0 +1,22 @@
+panic: connection() : dial tcp [::1]:14420: i/o timeout
+
+goroutine 1 [running]:
+main.check(...)
+	/home/w/apps/tests/go-tut/tut.go:17
+main.main()
+	/home/w/apps/tests/go-tut/tut.go:41 +0x4e2
+carbon% go build&&./hello
+panic: context deadline exceeded
+
+goroutine 1 [running]:
+main.check(...)
+	/home/w/apps/tests/go-tut/tut.go:17
+main.main()
+	/home/w/apps/tests/go-tut/tut.go:41 +0x4e2
+carbon% 
+
+
+line 41:
+
+    cursor, err := coll.Find(ctx, bson.M{})
+    check(err)
