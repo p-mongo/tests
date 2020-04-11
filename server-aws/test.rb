@@ -1,7 +1,9 @@
 require 'mongo'
 require 'aws-sdk-core'
 
-sts_client = Aws::STS::Client.new
+sts_client = Aws::STS::Client.new(
+  http_wire_trace: true,
+)
 p sts_client.get_caller_identity
 
 Mongo::Logger.logger.level = Logger::WARN
