@@ -13,29 +13,25 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
         )
         
+        func check(err error){
+        if(err!=nil){log.Fatal(err)}
+        }
+        
 func main() {
 
-uri:="mongodb://localhost"
+uri:="mongodb://localhost:14420"
 	client, err := mongo.NewClient(options.Client().ApplyURI(uri))
-	if err != nil {
-		log.Fatal(err)
-	}
+                check(err)
 	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
 	err = client.Connect(ctx)
-	if err != nil {
-		log.Fatal(err)
-	}
+        check(err)
 	defer client.Disconnect(ctx)
         
         
-        	err = client.Ping(ctx, readpref.Primary())
-	if err != nil {
-		log.Fatal(err)
-	}
+        	err = client.Ping(ctx, readpref.SecondaryPreferred())
+                check(err)
 	databases, err := client.ListDatabaseNames(ctx, bson.M{})
-	if err != nil {
-		log.Fatal(err)
-	}
+                check(err)
 	fmt.Println(databases)
         
         }
