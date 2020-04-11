@@ -27,7 +27,9 @@ defmodule Load do
 
     Enum.map(1..100, fn i ->
       # Gets an enumerable cursor for the results
-      cursor = Mongo.find(conn, "coll", %{})
+      cursor = Mongo.find(conn, "coll",
+        %{"$and" => [%{a: "hello"}]}
+      )
 
       cursor
       |> Enum.to_list()
