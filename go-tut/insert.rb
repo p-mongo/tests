@@ -2,7 +2,7 @@ require 'mongo'
 
 Mongo::Logger.logger.level = Logger::WARN
 
-client = Mongo::Client.new(['localhost:14420'])
+client = Mongo::Client.new(['localhost:14420'], database: 'load')
 coll = client['coll']
 
 10_000.times do |i|
