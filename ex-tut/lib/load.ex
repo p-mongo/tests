@@ -30,6 +30,7 @@ defmodule Load do
 
     cursor
     |> Enum.to_list()
+    |> Enum.count
     |> IO.inspect
 
     Supervisor.start_link [], strategy: :one_for_one
