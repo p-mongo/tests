@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+
+gem 'mongo', git: 'https://github.com/p-mongo/mongo-ruby-driver', branch: 'debug-aws'
+
+gem 'aws-sdk-core', '~> 3'

@@ -1,0 +1,32 @@
+GIT
+  remote: https://github.com/p-mongo/mongo-ruby-driver
+  revision: 86b75535f632d83a86a60946524967a60e296c00
+  branch: debug-aws
+  specs:
+    mongo (2.12.0.rc0)
+      bson (>= 4.8.2, < 5.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    aws-eventstream (1.1.0)
+    aws-partitions (1.296.0)
+    aws-sdk-core (3.94.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.239.0)
+      aws-sigv4 (~> 1.1)
+      jmespath (~> 1.0)
+    aws-sigv4 (1.1.1)
+      aws-eventstream (~> 1.0, >= 1.0.2)
+    bson (4.8.2)
+    jmespath (1.4.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  aws-sdk-core (~> 3)
+  mongo!
+
+BUNDLED WITH
+   2.1.2
