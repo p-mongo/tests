@@ -27,8 +27,8 @@ func main() {
 
   client, err := mongo.NewClient(options.Client().ApplyURI(uri))
   check(err)
-  ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-  err = client.Connect(ctx)
+  ctx := context.Background()
+  err = client.Connect()
   check(err)
   defer client.Disconnect(ctx)
 
@@ -55,4 +55,8 @@ func main() {
   //err = client.Ping(ctx, readpref.SecondaryPreferred())
   fmt.Printf("finish\n")
 
+}
+
+func blah(){
+_=time.Second
 }
