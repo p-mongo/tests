@@ -24,10 +24,10 @@ defmodule Load do
     
     # Starts an unpooled connection
     {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:14420/load",
-      pool_size: 100)
+      pool_size: 1000)
 
     
-    Enum.map(1..100, fn i ->
+    Enum.map(1..1000, fn i ->
       spawn_link fn -> read(conn) end
     end)
     
