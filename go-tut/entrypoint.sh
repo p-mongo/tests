@@ -6,7 +6,7 @@ set -ex
 
 export GOBIN=`pwd`
 
-go mod init example.com/user/hello
+#go mod init example.com/user/hello
 
 go build
 
