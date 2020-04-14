@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -e
+
+hosts="node1.1337.cx node2.1337.cx node3.1337.cx"
+
+for host in $hosts; do
+  ssh admin@$host '
+    mkdir -p /data/db &&
+    mongod --dbpath /data/db --logpath /data/db/mongod.log --fork -bind_ip 0.0.0.0
+  '
+done
