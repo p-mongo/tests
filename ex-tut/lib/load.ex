@@ -22,8 +22,7 @@ defmodule Load do
   def start(_type, _args) do
     IO.puts("starting!")
     
-    # Starts an unpooled connection
-    {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:14420/load",
+    {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:14420,localhost:14421,localhost:14422/load",
       pool_size: 1000)
 
     
