@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+#gem 'mongo', '~> 2.11.0'
+gem 'mongo', '~> 2.12.0'
