@@ -3,13 +3,13 @@ development:
     default:
       database: mongoid
       hosts:
-        - localhost:14420
+        - localhost:14220
       options:
         server_selection_timeout: 1
         #log_level: :warn
   options:
     #log_level: :warn
-    #log_level: :debug
+    log_level: :debug
     #duplicate_fields_exception: true
     #raise_not_found_error: false
     #scope_overwrite_exception: true

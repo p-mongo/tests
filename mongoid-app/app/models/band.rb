@@ -3,6 +3,7 @@ class Band
 
   field :name, type: String
   field :description, type: String
+  field :likes, type: Integer
 
   index description: 'text'
 
