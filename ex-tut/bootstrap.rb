@@ -36,5 +36,5 @@ ROUNDS.times do
   bar.increment
 end
 
-collection.indexes.create(counter: 1)
-collection.indexes.create(text: 1)
+collection.indexes.create_one(counter: 1)
+collection.indexes.create_one(text: 1)
