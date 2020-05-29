@@ -8,6 +8,8 @@ defmodule Load do
     
     {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:34420,localhost:34421,localhost:34422/load",
       pool_size: 10)
+      
+    :ok = Load.Statix.connect()
 
     #Supervisor.start_link [], strategy: :one_for_one
     Reader.start_link(conn)

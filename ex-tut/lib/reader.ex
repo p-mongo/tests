@@ -19,6 +19,11 @@ defmodule Reader do
     |> Enum.count
     #|> IO.inspect
     
+    IO.puts("here")
+    Load.Statix.increment("read_req")
+    IO.puts("there")
+    #Load.Statix.increment("read_req", 1, sample_rate: 0.3)
+    
     read(conn)
   end
 end
