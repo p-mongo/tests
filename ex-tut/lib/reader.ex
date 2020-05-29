@@ -7,7 +7,7 @@ defmodule Reader do
   end
   
   defp read(conn, id) do
-    #IO.write(".")
+    IO.write(".")
     
     # Gets an enumerable cursor for the results
     cursor = Mongo.find(conn, "data",
