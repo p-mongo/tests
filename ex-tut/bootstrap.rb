@@ -3,7 +3,7 @@ require 'ruby-progressbar'
 require 'base64'
 
 Mongo::Logger.logger.level = Logger::INFO
-client = Mongo::Client.new(['localhost:14420'], database: 'load')
+client = Mongo::Client.new(['localhost:34420'], database: 'load')
 
 collection = client['data']
 collection.drop
