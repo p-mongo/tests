@@ -13,14 +13,23 @@ defmodule Reader do
     cursor = Mongo.find(conn, "data",
       %{"$and" => [%{counter: 1234}]}
     )
-
-    cursor
-    |> Enum.to_list()
-    |> Enum.count
-    #|> IO.inspect
     
-    Load.Statix.increment("read_req.#{id}.count")
-    Load.Statix.increment("read_req.count")
+    case cursor do
+      {:error, error} ->
+          IO.inspect(error)
+          
+          Load.Statix.increment("read_req.#{id}.error.count")
+          Load.Statix.increment("read_req.error.count")
+      _ ->
+          cursor
+          |> Enum.to_list()
+          |> Enum.count
+          #|> IO.inspect
+          
+          Load.Statix.increment("read_req.#{id}.ok.count")
+          Load.Statix.increment("read_req.ok.count")
+    end
+    
     #Load.Statix.increment("read_req", 1, sample_rate: 0.3)
     
     read(conn, id)
