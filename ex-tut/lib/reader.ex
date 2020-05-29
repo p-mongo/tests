@@ -1,13 +1,13 @@
 # https://elixir-lang.org/getting-started/processes.html
 defmodule Reader do
-  def start_link(conn) do
-    IO.puts("starting reader")
+  def start_link(conn, id) do
+    IO.puts("starting reader #{id}")
     
-    Task.start_link(fn -> read(conn) end)
+    Task.start_link(fn -> read(conn, id) end)
   end
   
-  defp read(conn) do
-    IO.write(".")
+  defp read(conn, id) do
+    #IO.write(".")
     
     # Gets an enumerable cursor for the results
     cursor = Mongo.find(conn, "data",
@@ -19,9 +19,10 @@ defmodule Reader do
     |> Enum.count
     #|> IO.inspect
     
+    Load.Statix.increment("read_req.#{id}.count")
     Load.Statix.increment("read_req.count")
     #Load.Statix.increment("read_req", 1, sample_rate: 0.3)
     
-    read(conn)
+    read(conn, id)
   end
 end

@@ -12,7 +12,8 @@ defmodule Load do
     :ok = Load.Statix.connect()
 
     #Supervisor.start_link [], strategy: :one_for_one
-    Reader.start_link(conn)
+    Reader.start_link(conn, 1)
+    Reader.start_link(conn, 2)
     
     receive do
     end
