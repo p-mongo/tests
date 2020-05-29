@@ -9,6 +9,14 @@ defmodule Load do
     {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:14420,localhost:14421,localhost:14422/load",
       pool_size: 10)
 
+    #Supervisor.start_link [], strategy: :one_for_one
+    Reader.start_link(conn)
+    
+    receive do
+    end
+  end
+
+  def omit(conn) do
     write_many(conn)
     
     receive do
