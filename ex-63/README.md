@@ -1,0 +1,5 @@
+# Load Tester
+
+Run:
+
+    mix
