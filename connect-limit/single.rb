@@ -9,6 +9,8 @@ servers = client.cluster.servers.sort_by { |s| s.address.seed }
 
 def open_fds
   Dir["/proc/#{Process.pid}/fd/*"].count
+rescue Errno::EMFILE
+  'EMFILE'
 end
 
 loop do
