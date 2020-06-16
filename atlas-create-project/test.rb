@@ -20,9 +20,6 @@ class Tester
       f.request :url_encoded
       f.request :digest, username, password
       f.response :detailed_logger
-      if ENV['JIRA_ACCESS_TOKEN']
-        f.request :oauthenticator_signer, signing_options
-      end
       f.adapter Faraday.default_adapter
       f.headers['user-agent'] = 'EvergreenRubyClient'
       if false && username && password
