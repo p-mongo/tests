@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+gem 'mongoid', path: '../../mongoid'
+
+gem 'rspec'
+gem 'rspec-core'
+gem 'byebug'
