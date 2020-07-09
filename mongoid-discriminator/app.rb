@@ -47,8 +47,8 @@ end
 
 Parent.delete_all
 
-p Parent.create!
-p Child.create!
+p parent = Parent.create!
+p child = Child.create!
 
 p Parent.all.to_a
 
@@ -68,3 +68,6 @@ p Other.discriminator_key
 puts
 
 p GrandChild.create!
+
+p Parent.find(child.id)
+p Parent.find([parent.id, child.id])
