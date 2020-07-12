@@ -1,0 +1,37 @@
+
+￼￼
+oleg  2 hours ago
+How does one in practice use evergreen buildlogger fetch ? Do you fish the URL parts out of the URL and assemble them into arguments by hand?
+￼
+￼
+￼
+￼
+￼
+￼￼
+julian.edwards  21 minutes ago
+evergreen buildlogger fetch --task_id <task id> --exeuction <execution, defaults to 0> --print_time
+￼
+￼
+￼
+￼￼
+julian.edwards  20 minutes ago
+if you want a task log add --proc_name task_log
+￼
+￼
+￼
+￼￼
+oleg  20 minutes ago
+Where do you obtain the task_id?
+￼
+￼
+￼
+￼￼
+julian.edwards  9 minutes ago
+https://evergreen.mongodb.com/task/sink_lint_lint_perf_f04aeab5daffecbc19fdf66ba1c249c1fce04888_20_06_30_14_50_30 the id after task
+￼
+￼
+￼
+￼￼
+julian.edwards  9 minutes ago
+for example here it is sink_lint_lint_perf_f04aeab5daffecbc19fdf66ba1c249c1fce04888_20_06_30_14_50_30 (edited) 
+￼
