@@ -50,6 +50,8 @@ end
 class Child < Parent
 
   #self.discriminator_key = 'bar'
+
+  #store_in  collection: 'foo'
 end
 
 p Child.discriminator_key
