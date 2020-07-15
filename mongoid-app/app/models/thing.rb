@@ -1,7 +1,7 @@
 class Thing
   include Mongoid::Document
 
-  embedded_in :post
+  belongs_to :post
 
   field :message, type: String
   field :num, type: Integer

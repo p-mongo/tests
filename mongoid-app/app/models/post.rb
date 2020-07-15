@@ -13,5 +13,6 @@ class Post
 
   has_one :comment
   embeds_one :vote
-  embeds_many :things
+
+  has_many :things
 end
