@@ -8,7 +8,7 @@ client = Mongo::Client.new(['localhost:14420'], database: 'load')
 collection = client['data']
 collection.drop
 
-# 10 million total documents with:
+# 10k total documents with:
 # - an indexed counter
 # - a non-indexed counter
 # - an indexed text field
