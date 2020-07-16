@@ -7,7 +7,7 @@ defmodule Reader do
   end
   
   defp read(conn, id, reporter) do
-    IO.write(".")
+    #IO.write(".")
     
     # Gets an enumerable cursor for the results
     cursor = Mongo.find(conn, "data",
@@ -16,12 +16,12 @@ defmodule Reader do
     
     case cursor do
       {:error, error} ->
-        IO.inspect(error)
+        #IO.inspect(error)
         
         Load.Statix.increment("read_req.#{id}.error.count")
         Load.Statix.increment("read_req.error.count")
         
-        Reporter.fail(reporter)
+        Load.Reporter.fail(reporter)
       _ ->
         #IO.inspect(cursor)
         
@@ -29,7 +29,7 @@ defmodule Reader do
         |> Enum.to_list()
         |> Enum.count
         
-        Reporter.ok(reporter)
+        Load.Reporter.ok(reporter)
         
         Load.Statix.increment("read_req.#{id}.ok.count")
         Load.Statix.increment("read_req.ok.count")

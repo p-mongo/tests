@@ -16,7 +16,7 @@ defmodule Load do
     
     #IO.inspect(conn)
     
-    {:ok, reporter} = Reporter.start_link([])
+    {:ok, reporter} = Load.Reporter.start_link([])
 
     #Supervisor.start_link [], strategy: :one_for_one
     Enum.map(1..10, fn i ->

@@ -1,5 +1,5 @@
 # https://elixir-lang.org/getting-started/processes.html
-defmodule Reporter do
+defmodule Load.Reporter do
   use Agent
   
   def start_link(_opts) do
