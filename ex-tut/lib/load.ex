@@ -6,7 +6,8 @@ defmodule Load do
   def start(_type, _args) do
     IO.puts("starting load tester")
     
-    {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:34420,localhost:34421,localhost:34422/load?replicaSet=ruby-driver-rs",
+    {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:14420,localhost:14421,localhost:14422/load?replicaSet=ruby-driver-rs",
+    #{:ok, conn} = Mongo.start_link(url: "mongodb://localhost:34420,localhost:34421,localhost:34422/load?replicaSet=ruby-driver-rs",
     #{:ok, conn} = Mongo.start_link(url: "mongodb://localhost:34420,localhost:34421,localhost:34422/load",
     #{:ok, conn} = Mongo.start_link(database: "load", seeds: ["localhost:34420","localhost:34421","localhost:34422"],
       a_pool_size: 100)
