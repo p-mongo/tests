@@ -1,12 +1,12 @@
 # https://elixir-lang.org/getting-started/processes.html
 defmodule Reader do
-  def start_link(conn, id) do
+  def start_link(conn, id, reporter) do
     IO.puts("starting reader #{id}")
     
-    Task.start_link(fn -> read(conn, id) end)
+    Task.start_link(fn -> read(conn, id, reporter) end)
   end
   
-  defp read(conn, id) do
+  defp read(conn, id, reporter) do
     IO.write(".")
     
     # Gets an enumerable cursor for the results
@@ -16,22 +16,27 @@ defmodule Reader do
     
     case cursor do
       {:error, error} ->
-          IO.inspect(error)
-          
-          Load.Statix.increment("read_req.#{id}.error.count")
-          Load.Statix.increment("read_req.error.count")
+        IO.inspect(error)
+        
+        Load.Statix.increment("read_req.#{id}.error.count")
+        Load.Statix.increment("read_req.error.count")
+        
+        Reporter.fail(reporter)
       _ ->
-          cursor
-          |> Enum.to_list()
-          |> Enum.count
-          #|> IO.inspect
-          
-          Load.Statix.increment("read_req.#{id}.ok.count")
-          Load.Statix.increment("read_req.ok.count")
+        #IO.inspect(cursor)
+        
+        cursor
+        |> Enum.to_list()
+        |> Enum.count
+        
+        Reporter.ok(reporter)
+        
+        Load.Statix.increment("read_req.#{id}.ok.count")
+        Load.Statix.increment("read_req.ok.count")
     end
     
     #Load.Statix.increment("read_req", 1, sample_rate: 0.3)
     
-    read(conn, id)
+    read(conn, id, reporter)
   end
 end

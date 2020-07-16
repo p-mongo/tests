@@ -15,10 +15,12 @@ defmodule Load do
     :ok = Load.Statix.connect()
     
     #IO.inspect(conn)
+    
+    {:ok, reporter} = Reporter.start_link([])
 
     #Supervisor.start_link [], strategy: :one_for_one
     Enum.map(1..10, fn i ->
-      Reader.start_link(conn, i)
+      Reader.start_link(conn, i, reporter)
     end)
     
     receive do
