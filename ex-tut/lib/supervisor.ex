@@ -9,7 +9,7 @@ defmodule Load.Supervisor do
   def init(:ok) do
     children = [
       Load.Reporter |
-      (1..10 |> Enum.map(fn -> {Reader} end))
+      (1..10 |> Enum.map(fn -> {{Reader, [conn, id, reporter]} end))
     ]
 
     Supervisor.init(children, strategy: :one_for_one)
