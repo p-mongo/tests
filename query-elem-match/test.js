@@ -23,6 +23,10 @@ e({a: {$elemMatch: {$and: [{b: {$exists: true}}]}
 
 e({d: 2})
 
+e({a: {$elemMatch: {d: {$eq: 2}}}})
+
+e({a: {$elemMatch: {d: 2}}})
+
 e({d: {$elemMatch: 2}})
 
 e({a: {$elemMatch: {$or: [
@@ -31,3 +35,9 @@ e({a: {$elemMatch: {$or: [
   
   ]}
 }})
+
+e({d: {$elemMatch: {$not: /x/}}})
+
+e({d: {$elemMatch: {$not: 'x'}}})
+
+e({d: {$elemMatch: /x/}})
