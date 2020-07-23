@@ -27,6 +27,8 @@ e({a: {$elemMatch: {d: {$eq: 2}}}})
 
 e({a: {$elemMatch: {d: 2}}})
 
+e({d: {$elemMatch: {$eq: 2}}})
+
 e({d: {$elemMatch: 2}})
 
 e({a: {$elemMatch: {$or: [
