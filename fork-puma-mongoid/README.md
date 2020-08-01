@@ -2,6 +2,10 @@
 
 Run with:
 
+    puma -c puma.rb
+
+Or without config file:
+
     puma -w 2 --preload config.ru
 
 Then:
