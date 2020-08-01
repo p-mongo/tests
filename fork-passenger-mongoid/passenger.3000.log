@@ -1,0 +1,1199 @@
+[ N 2020-08-01 15:46:01.4023 5635/T1 age/Wat/WatchdogMain.cpp:1373 ]: Starting Passenger watchdog...
+[ N 2020-08-01 15:46:01.4140 5638/T1 age/Cor/CoreMain.cpp:1340 ]: Starting Passenger core...
+[ N 2020-08-01 15:46:01.4141 5638/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2020-08-01 15:46:01.4216 5638/T1 age/Cor/CoreMain.cpp:1015 ]: Passenger core online, PID 5638
+[ N 2020-08-01 15:46:03.9066 5638/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 5675 output: D, [2020-08-01T15:46:04.342779 #5675] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+App 5675 output: D, [2020-08-01T15:46:04.343027 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'Unknown' topology.
+App 5675 output: D, [2020-08-01T15:46:04.343227 #5675] DEBUG -- : MONGODB | Server localhost:14420 initializing.
+App 5675 output: D, [2020-08-01T15:46:04.343415 #5675] DEBUG -- : MONGODB | Waiting for up to 3.00 seconds for servers to be scanned: #<Cluster topology=Unknown[localhost:14420] servers=[#<Server address=localhost:14420 UNKNOWN>]>
+App 5675 output: D, [2020-08-01T15:46:04.344949 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'unknown' to 'primary'.
+App 5675 output: D, [2020-08-01T15:46:04.345340 #5675] DEBUG -- : MONGODB | Server localhost:14421 initializing.
+App 5675 output: D, [2020-08-01T15:46:04.345760 #5675] DEBUG -- : MONGODB | Server localhost:14422 initializing.
+App 5675 output: D, [2020-08-01T15:46:04.345842 #5675] DEBUG -- : MONGODB | Server localhost:14423 initializing.
+App 5675 output: D, [2020-08-01T15:46:04.346201 #5675] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'ReplicaSetWithPrimary'.
+App 5675 output: D, [2020-08-01T15:46:04.346743 #5675] DEBUG -- : MONGODB | Waiting for up to 3.00 seconds for servers to be scanned: #<Cluster topology=ReplicaSetWithPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14421 UNKNOWN>,#<Server address=localhost:14422 UNKNOWN>,#<Server address=localhost:14423 UNKNOWN>]>
+App 5675 output: D, [2020-08-01T15:46:04.347659 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'unknown' to 'arbiter'.
+App 5675 output: D, [2020-08-01T15:46:04.348259 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:04.348611 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'unknown' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:46:04.348767 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:04.349062 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'unknown' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:46:04.349432 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:04.351009 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5675 output: D, [2020-08-01T15:46:04.351227 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:04.351617 #5675] DEBUG -- : MONGODB | localhost:14420 req:14 conn:1:1 sconn:984 | my_db.count | STARTED | {"count"=>"foos", "query"=>{}, "$db"=>"my_db", "lsid"=>{"id"=><BSON::Binary:0x2300 type=uuid data=0x3ae46e4109204f43...>}}
+App 5675 output: D, [2020-08-01T15:46:04.351948 #5675] DEBUG -- : MONGODB | localhost:14420 req:14 | my_db.count | SUCCEEDED | 0.000s
+App 5675 output: 0
+App 5732 output: "#<Cluster topology=ReplicaSetWithPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=1 (0-5) used=0 avail=1 pending=0>>,#<Server address=localhost:14421 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>]>"
+App 5732 output: D, [2020-08-01T15:46:04.414768 #5732] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'unknown'.
+App 5732 output: D, [2020-08-01T15:46:04.414995 #5732] DEBUG -- : MONGODB | Topology type 'ReplicaSetWithPrimary' changed to type 'ReplicaSetNoPrimary'.
+App 5732 output: D, [2020-08-01T15:46:04.415336 #5732] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'unknown'.
+App 5732 output: D, [2020-08-01T15:46:04.415476 #5732] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 5732 output: D, [2020-08-01T15:46:04.415617 #5732] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'unknown'.
+App 5732 output: D, [2020-08-01T15:46:04.415722 #5732] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 5732 output: 2020-08-01 15:46:06 - Mongo::Error::NoServerAvailable - No primary server is available in cluster: #<Cluster topology=ReplicaSetNoPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14421 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>]> with timeout=1, LT=0.015. The following servers have dead monitor threads: #<Server address=localhost:14420 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>, #<Server address=localhost:14421 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>, #<Server address=localhost:14422 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>, #<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>:
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/server_selector/base.rb:272:in `select_server'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/retryable.rb:463:in `select_server'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/retryable.rb:314:in `modern_read_with_retry'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/retryable.rb:117:in `read_with_retry'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/2.7.0/forwardable.rb:235:in `read_with_retry'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/collection/view/readable.rb:158:in `block in count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/client.rb:1007:in `with_session'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/collection/view.rb:212:in `with_session'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/collection/view/readable.rb:157:in `count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-7.1.2/lib/mongoid/contextual/mongo.rb:74:in `block in count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-7.1.2/lib/mongoid/contextual/mongo.rb:536:in `try_cache'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-7.1.2/lib/mongoid/contextual/mongo.rb:74:in `count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/2.7.0/forwardable.rb:235:in `count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-7.1.2/lib/mongoid/findable.rb:60:in `count'
+App 5732 output: 	config.ru:25:in `block in <class:App>'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `block in compile!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (3 levels) in route!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1006:in `route_eval'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (2 levels) in route!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1035:in `block in process_route'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `catch'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `process_route'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:985:in `block in route!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `each'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `route!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1098:in `block in dispatch!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1095:in `dispatch!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `block in call!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `call!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:908:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/xss_header.rb:18:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/path_traversal.rb:16:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/json_csrf.rb:26:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/frame_options.rb:31:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/null_logger.rb:11:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/head.rb:12:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/show_exceptions.rb:22:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:194:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1951:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1503:in `block in call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1730:in `synchronize'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1503:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/rack/thread_handler_extension.rb:107:in `process_request'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:157:in `accept_and_process_next_request'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/request_handler.rb:415:in `block (3 levels) in start_threads'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+App 5675 output: D, [2020-08-01T15:46:14.348694 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5675 output: D, [2020-08-01T15:46:14.349912 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:14.355734 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5675 output: D, [2020-08-01T15:46:14.356405 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:14.356962 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:14.357366 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:14.359382 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:14.359987 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:14.360548 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:14.360788 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5732 output: "#<Cluster topology=ReplicaSetNoPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14421 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>]>"
+App 5675 output: D, [2020-08-01T15:46:24.351954 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5675 output: D, [2020-08-01T15:46:24.353116 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:24.354113 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5675 output: D, [2020-08-01T15:46:24.355200 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:24.356407 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:46:24.356749 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:24.357377 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:46:24.357732 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:24.363194 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5675 output: D, [2020-08-01T15:46:24.363719 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:24.364198 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:24.364547 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:24.367228 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:24.367798 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:24.368237 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:24.368422 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5732 output: 2020-08-01 15:46:25 - Mongo::Error::NoServerAvailable - No primary server is available in cluster: #<Cluster topology=ReplicaSetNoPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14421 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>]> with timeout=1, LT=0.015. The following servers have dead monitor threads: #<Server address=localhost:14420 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>, #<Server address=localhost:14421 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>, #<Server address=localhost:14422 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>, #<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>:
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/server_selector/base.rb:272:in `select_server'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/retryable.rb:463:in `select_server'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/retryable.rb:314:in `modern_read_with_retry'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/retryable.rb:117:in `read_with_retry'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/2.7.0/forwardable.rb:235:in `read_with_retry'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/collection/view/readable.rb:158:in `block in count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/client.rb:1007:in `with_session'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/collection/view.rb:212:in `with_session'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/collection/view/readable.rb:157:in `count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-7.1.2/lib/mongoid/contextual/mongo.rb:74:in `block in count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-7.1.2/lib/mongoid/contextual/mongo.rb:536:in `try_cache'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-7.1.2/lib/mongoid/contextual/mongo.rb:74:in `count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/2.7.0/forwardable.rb:235:in `count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-7.1.2/lib/mongoid/findable.rb:60:in `count'
+App 5732 output: 	config.ru:25:in `block in <class:App>'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `block in compile!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (3 levels) in route!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1006:in `route_eval'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (2 levels) in route!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1035:in `block in process_route'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `catch'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `process_route'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:985:in `block in route!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `each'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `route!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1098:in `block in dispatch!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1095:in `dispatch!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `block in call!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `call!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:908:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/xss_header.rb:18:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/path_traversal.rb:16:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/json_csrf.rb:26:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/frame_options.rb:31:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/null_logger.rb:11:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/head.rb:12:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/show_exceptions.rb:22:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:194:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1951:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1503:in `block in call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1730:in `synchronize'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1503:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/rack/thread_handler_extension.rb:107:in `process_request'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/request_handler.rb:415:in `block (3 levels) in start_threads'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+App 5675 output: D, [2020-08-01T15:46:34.355175 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5675 output: D, [2020-08-01T15:46:34.355839 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:34.357264 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5675 output: D, [2020-08-01T15:46:34.357888 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:34.359330 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:46:34.360241 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:34.360900 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:46:34.361213 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:34.371557 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:34.372268 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:34.372720 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5675 output: D, [2020-08-01T15:46:34.372888 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:34.375255 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:34.375783 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:34.376219 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:34.376406 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:44.357878 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5675 output: D, [2020-08-01T15:46:44.358580 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:44.360031 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5675 output: D, [2020-08-01T15:46:44.360335 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:44.361697 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:46:44.362194 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:44.363342 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:46:44.363640 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:44.377352 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:44.377836 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:44.379376 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5675 output: D, [2020-08-01T15:46:44.379585 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:44.383922 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:44.384750 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:44.385457 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:44.385719 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:54.360547 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5675 output: D, [2020-08-01T15:46:54.361484 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:54.362676 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5675 output: D, [2020-08-01T15:46:54.362980 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:54.364454 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:46:54.364980 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:54.365649 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:46:54.366060 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:54.387801 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:54.388332 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:54.389294 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5675 output: D, [2020-08-01T15:46:54.390047 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:54.390734 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:54.391000 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:46:54.392526 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:46:54.392798 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:04.364058 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5675 output: D, [2020-08-01T15:47:04.365013 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:04.365916 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5675 output: D, [2020-08-01T15:47:04.366687 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:04.367824 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:47:04.368823 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:04.369399 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:47:04.369717 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:04.395578 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:04.396047 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:04.399529 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:04.400604 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:04.401199 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5675 output: D, [2020-08-01T15:47:04.401454 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:04.402077 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:04.402318 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:14.367962 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5675 output: D, [2020-08-01T15:47:14.368604 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:14.370153 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5675 output: D, [2020-08-01T15:47:14.371237 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:14.372364 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:47:14.372677 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:14.373050 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:47:14.373193 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:14.402892 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:14.403216 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:14.407667 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:14.408657 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:14.409203 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:14.409407 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:14.409874 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5675 output: D, [2020-08-01T15:47:14.410075 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5732 output: "#<Cluster topology=ReplicaSetNoPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14421 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>]>"
+App 5732 output: 2020-08-01 15:47:17 - Mongo::Error::NoServerAvailable - No primary server is available in cluster: #<Cluster topology=ReplicaSetNoPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14421 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>]> with timeout=1, LT=0.015. The following servers have dead monitor threads: #<Server address=localhost:14420 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>, #<Server address=localhost:14421 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>, #<Server address=localhost:14422 UNKNOWN pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>, #<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>:
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/server_selector/base.rb:272:in `select_server'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/retryable.rb:463:in `select_server'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/retryable.rb:314:in `modern_read_with_retry'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/retryable.rb:117:in `read_with_retry'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/2.7.0/forwardable.rb:235:in `read_with_retry'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/collection/view/readable.rb:158:in `block in count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/client.rb:1007:in `with_session'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/collection/view.rb:212:in `with_session'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongo-2.13.0/lib/mongo/collection/view/readable.rb:157:in `count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-7.1.2/lib/mongoid/contextual/mongo.rb:74:in `block in count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-7.1.2/lib/mongoid/contextual/mongo.rb:536:in `try_cache'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-7.1.2/lib/mongoid/contextual/mongo.rb:74:in `count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/2.7.0/forwardable.rb:235:in `count'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/mongoid-7.1.2/lib/mongoid/findable.rb:60:in `count'
+App 5732 output: 	config.ru:25:in `block in <class:App>'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1636:in `block in compile!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (3 levels) in route!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1006:in `route_eval'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:987:in `block (2 levels) in route!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1035:in `block in process_route'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `catch'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1033:in `process_route'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:985:in `block in route!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `each'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:984:in `route!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1098:in `block in dispatch!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1095:in `dispatch!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `block in call!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `block in invoke'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `catch'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1072:in `invoke'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:919:in `call!'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:908:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/xss_header.rb:18:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/path_traversal.rb:16:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/json_csrf.rb:26:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/base.rb:50:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-protection-2.0.8.1/lib/rack/protection/frame_options.rb:31:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/null_logger.rb:11:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/rack-2.2.3/lib/rack/head.rb:12:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/show_exceptions.rb:22:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:194:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1951:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1503:in `block in call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1730:in `synchronize'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/sinatra-2.0.8.1/lib/sinatra/base.rb:1503:in `call'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/rack/thread_handler_extension.rb:107:in `process_request'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:149:in `accept_and_process_next_request'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/request_handler/thread_handler.rb:110:in `main_loop'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/request_handler.rb:415:in `block (3 levels) in start_threads'
+App 5732 output: 	/home/w/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/passenger-6.0.6/src/ruby_supportlib/phusion_passenger/utils.rb:113:in `block in create_thread_and_abort_on_exception'
+App 5675 output: D, [2020-08-01T15:47:24.370839 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5675 output: D, [2020-08-01T15:47:24.371466 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:24.373245 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5675 output: D, [2020-08-01T15:47:24.374004 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:24.374939 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:47:24.376060 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:24.376686 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:47:24.376986 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:24.407722 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5675 output: D, [2020-08-01T15:47:24.407980 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:24.412031 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:24.412606 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:24.415626 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:24.416439 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:24.417150 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:24.417417 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:34.373467 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5675 output: D, [2020-08-01T15:47:34.374090 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:34.377170 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5675 output: D, [2020-08-01T15:47:34.378242 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:34.379499 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:47:34.379808 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:34.380395 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:47:34.380688 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:34.418374 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5675 output: D, [2020-08-01T15:47:34.418647 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:34.422738 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:34.423328 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:34.424215 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:34.424483 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:34.425502 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:34.426090 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:44.376116 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5675 output: D, [2020-08-01T15:47:44.376768 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:44.380718 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5675 output: D, [2020-08-01T15:47:44.381129 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:44.381708 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:47:44.382114 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:44.382432 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5675 output: D, [2020-08-01T15:47:44.382601 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:44.427706 #5675] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5675 output: D, [2020-08-01T15:47:44.427962 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:44.431732 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:44.433017 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:44.433595 #5675] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:44.433819 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:44.434403 #5675] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5675 output: D, [2020-08-01T15:47:44.434668 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+
+[ N 2020-08-01 15:47:49.9489 5638/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2020-08-01 15:47:49.9489 5638/T1 age/Cor/CoreMain.cpp:1246 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2020-08-01 15:47:49.9490 5638/T1 age/Cor/CoreMain.cpp:1147 ]: Checking whether to disconnect long-running connections for process 5732, application /home/w/apps/tests/fork-passenger-mongoid (development)
+[ N 2020-08-01 15:47:49.9490 5638/T8 Ser/Server.h:902 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2020-08-01 15:47:49.9490 5638/Ta Ser/Server.h:902 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2020-08-01 15:47:49.9490 5638/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2020-08-01 15:47:49.9490 5638/Tc Ser/Server.h:902 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2020-08-01 15:47:49.9490 5638/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2020-08-01 15:47:49.9490 5638/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2020-08-01 15:47:49.9491 5638/Te Ser/Server.h:902 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2020-08-01 15:47:49.9491 5638/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2020-08-01 15:47:49.9491 5638/Tg Ser/Server.h:902 ]: [ApiServer] Freed 0 spare client objects
+[ N 2020-08-01 15:47:49.9491 5638/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2020-08-01 15:47:49.9493 5638/T1 age/Cor/CoreMain.cpp:1147 ]: Checking whether to disconnect long-running connections for process 5732, application /home/w/apps/tests/fork-passenger-mongoid (development)
+App 5675 output: D, [2020-08-01T15:47:49.951855 #5675] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5675 output: D, [2020-08-01T15:47:49.952099 #5675] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5675 output: D, [2020-08-01T15:47:49.952641 #5675] DEBUG -- : MONGODB | localhost:14420 req:16 conn:1:2 sconn:985 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x2300 type=uuid data=0x3ae46e4109204f43...>}], "$db"=>"admin", "$clusterTime"=>{"clusterTime"=>#<BSON::Timestamp:0x0000555cdb293c08 @seconds=1596311156, @increment=1>, "signature"=>{"hash"=><BSON::Binary:0x4160 t...
+App 5675 output: D, [2020-08-01T15:47:49.952949 #5675] DEBUG -- : MONGODB | localhost:14420 req:16 | admin.endSessions | SUCCEEDED | 0.000s
+[ N 2020-08-01 15:47:51.7056 5638/T1 age/Cor/CoreMain.cpp:1325 ]: Passenger core shutdown finished
+[ N 2020-08-01 15:50:59.3775 5872/T1 age/Wat/WatchdogMain.cpp:1373 ]: Starting Passenger watchdog...
+[ N 2020-08-01 15:50:59.3892 5875/T1 age/Cor/CoreMain.cpp:1340 ]: Starting Passenger core...
+[ N 2020-08-01 15:50:59.3893 5875/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2020-08-01 15:50:59.3970 5875/T1 age/Cor/CoreMain.cpp:1015 ]: Passenger core online, PID 5875
+[ N 2020-08-01 15:51:01.8819 5875/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 5912 output: D, [2020-08-01T15:51:02.324694 #5912] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+App 5912 output: D, [2020-08-01T15:51:02.324983 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'Unknown' topology.
+App 5912 output: D, [2020-08-01T15:51:02.325172 #5912] DEBUG -- : MONGODB | Server localhost:14420 initializing.
+App 5912 output: D, [2020-08-01T15:51:02.325443 #5912] DEBUG -- : MONGODB | Waiting for up to 3.00 seconds for servers to be scanned: #<Cluster topology=Unknown[localhost:14420] servers=[#<Server address=localhost:14420 UNKNOWN>]>
+App 5912 output: D, [2020-08-01T15:51:02.326980 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'unknown' to 'primary'.
+App 5912 output: D, [2020-08-01T15:51:02.327326 #5912] DEBUG -- : MONGODB | Server localhost:14421 initializing.
+App 5912 output: D, [2020-08-01T15:51:02.327417 #5912] DEBUG -- : MONGODB | Server localhost:14422 initializing.
+App 5912 output: D, [2020-08-01T15:51:02.327688 #5912] DEBUG -- : MONGODB | Server localhost:14423 initializing.
+App 5912 output: D, [2020-08-01T15:51:02.327879 #5912] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'ReplicaSetWithPrimary'.
+App 5912 output: D, [2020-08-01T15:51:02.328365 #5912] DEBUG -- : MONGODB | Waiting for up to 3.00 seconds for servers to be scanned: #<Cluster topology=ReplicaSetWithPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14421 UNKNOWN>,#<Server address=localhost:14422 UNKNOWN>,#<Server address=localhost:14423 UNKNOWN>]>
+App 5912 output: D, [2020-08-01T15:51:02.329390 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'unknown' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:51:02.329943 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:02.330512 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'unknown' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:51:02.330805 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:02.331213 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'unknown' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:51:02.331360 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:02.332924 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:51:02.333134 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:02.333559 #5912] DEBUG -- : MONGODB | localhost:14420 req:14 conn:1:1 sconn:988 | my_db.count | STARTED | {"count"=>"foos", "query"=>{}, "$db"=>"my_db", "lsid"=>{"id"=><BSON::Binary:0x2300 type=uuid data=0x9ea5b1debb8245c6...>}}
+App 5912 output: D, [2020-08-01T15:51:02.333901 #5912] DEBUG -- : MONGODB | localhost:14420 req:14 | my_db.count | SUCCEEDED | 0.000s
+App 5912 output: 0
+App 5969 output: "starting worker"
+App 5969 output: W, [2020-08-01T15:51:02.374645 #5969]  WARN -- : MONGODB | Detected PID change - Mongo client should have been reconnected (old pid 5912, new pid 5969
+App 5969 output: D, [2020-08-01T15:51:02.376368 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:02.376629 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:02.377232 #5969] DEBUG -- : MONGODB | localhost:14420 req:16 conn:1:2 sconn:989 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x2300 type=uuid data=0x9ea5b1debb8245c6...>}], "$db"=>"admin", "$clusterTime"=>{"clusterTime"=>#<BSON::Timestamp:0x0000562db5ed47f0 @seconds=1596311456, @increment=1>, "signature"=>{"hash"=><BSON::Binary:0x2400 t...
+App 5969 output: D, [2020-08-01T15:51:02.377539 #5969] DEBUG -- : MONGODB | localhost:14420 req:16 | admin.endSessions | SUCCEEDED | 0.000s
+App 5969 output: D, [2020-08-01T15:51:02.378221 #5969] DEBUG -- : MONGODB | Server localhost:14420 connection closed.
+App 5969 output: D, [2020-08-01T15:51:02.378431 #5969] DEBUG -- : MONGODB | Server localhost:14421 connection closed.
+App 5969 output: D, [2020-08-01T15:51:02.378660 #5969] DEBUG -- : MONGODB | Server localhost:14422 connection closed.
+App 5969 output: D, [2020-08-01T15:51:02.378847 #5969] DEBUG -- : MONGODB | Server localhost:14423 connection closed.
+App 5969 output: D, [2020-08-01T15:51:02.378918 #5969] DEBUG -- : MONGODB | Topology type 'replicasetwithprimary' closed.
+App 5969 output: D, [2020-08-01T15:51:02.379117 #5969] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+App 5969 output: D, [2020-08-01T15:51:02.379647 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'Unknown' topology.
+App 5969 output: D, [2020-08-01T15:51:02.379758 #5969] DEBUG -- : MONGODB | Server localhost:14420 initializing.
+App 5969 output: D, [2020-08-01T15:51:02.379972 #5969] DEBUG -- : MONGODB | Server localhost:14421 initializing.
+App 5969 output: D, [2020-08-01T15:51:02.380161 #5969] DEBUG -- : MONGODB | Server localhost:14422 initializing.
+App 5969 output: D, [2020-08-01T15:51:02.380308 #5969] DEBUG -- : MONGODB | Server localhost:14423 initializing.
+App 5969 output: D, [2020-08-01T15:51:02.380712 #5969] DEBUG -- : MONGODB | Waiting for up to 3.00 seconds for servers to be scanned: #<Cluster topology=Unknown[localhost:14420,localhost:14421,localhost:14422,localhost:14423] servers=[#<Server address=localhost:14420 UNKNOWN>,#<Server address=localhost:14421 UNKNOWN>,#<Server address=localhost:14422 UNKNOWN>,#<Server address=localhost:14423 UNKNOWN>]>
+App 5969 output: D, [2020-08-01T15:51:02.381633 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'unknown' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:02.381944 #5969] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'ReplicaSetNoPrimary'.
+App 5969 output: D, [2020-08-01T15:51:02.382922 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'unknown' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:02.383126 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:02.383457 #5969] DEBUG -- : MONGODB | Waiting for up to 3.00 seconds for servers to be scanned: #<Cluster topology=ReplicaSetNoPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs] servers=[#<Server address=localhost:14420 UNKNOWN>,#<Server address=localhost:14421 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 UNKNOWN>]>
+App 5969 output: D, [2020-08-01T15:51:02.384053 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'unknown' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:02.384866 #5969] DEBUG -- : MONGODB | Topology type 'ReplicaSetNoPrimary' changed to type 'ReplicaSetWithPrimary'.
+App 5969 output: D, [2020-08-01T15:51:02.385251 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'unknown' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:51:02.385510 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: "#<Cluster topology=ReplicaSetWithPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14421 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>]>"
+App 5969 output: D, [2020-08-01T15:51:02.399363 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'unknown'.
+App 5969 output: D, [2020-08-01T15:51:02.399470 #5969] DEBUG -- : MONGODB | Topology type 'ReplicaSetWithPrimary' changed to type 'ReplicaSetNoPrimary'.
+App 5969 output: D, [2020-08-01T15:51:02.399598 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'unknown'.
+App 5969 output: D, [2020-08-01T15:51:02.399670 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:02.399755 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'unknown'.
+App 5969 output: D, [2020-08-01T15:51:02.399817 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:02.884383 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'unknown' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:02.885976 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:02.887474 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'unknown' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:02.888923 #5969] DEBUG -- : MONGODB | Topology type 'ReplicaSetNoPrimary' changed to type 'ReplicaSetWithPrimary'.
+App 5969 output: D, [2020-08-01T15:51:02.890190 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'unknown' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:02.890519 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:02.894159 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:02.894425 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:02.894936 #5969] DEBUG -- : MONGODB | localhost:14420 req:26 conn:2:1 sconn:992 | my_db.count | STARTED | {"count"=>"foos", "query"=>{}, "$db"=>"my_db", "lsid"=>{"id"=><BSON::Binary:0x2820 type=uuid data=0xfb0b6c9d67fe43a1...>}}
+App 5969 output: D, [2020-08-01T15:51:02.895410 #5969] DEBUG -- : MONGODB | localhost:14420 req:26 | my_db.count | SUCCEEDED | 0.000s
+App 5969 output: "#<Cluster topology=ReplicaSetWithPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=1 (0-5) used=0 avail=1 pending=0>>,#<Server address=localhost:14421 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>]>"
+App 5969 output: D, [2020-08-01T15:51:05.210113 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'unknown'.
+App 5969 output: D, [2020-08-01T15:51:05.210215 #5969] DEBUG -- : MONGODB | Topology type 'ReplicaSetWithPrimary' changed to type 'ReplicaSetNoPrimary'.
+App 5969 output: D, [2020-08-01T15:51:05.210359 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'unknown'.
+App 5969 output: D, [2020-08-01T15:51:05.210421 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:05.210497 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'unknown'.
+App 5969 output: D, [2020-08-01T15:51:05.210569 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:05.211375 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'unknown' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:05.211989 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:05.212252 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'unknown' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:05.212481 #5969] DEBUG -- : MONGODB | Topology type 'ReplicaSetNoPrimary' changed to type 'ReplicaSetWithPrimary'.
+App 5969 output: D, [2020-08-01T15:51:05.212618 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'unknown' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:05.212718 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:05.213956 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:05.214133 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:05.214563 #5969] DEBUG -- : MONGODB | localhost:14420 req:28 conn:3:2 sconn:993 | my_db.count | STARTED | {"count"=>"foos", "query"=>{}, "$db"=>"my_db", "$clusterTime"=>{"clusterTime"=>#<BSON::Timestamp:0x0000562db6635f58 @seconds=1596311456, @increment=1>, "signature"=>{"hash"=><BSON::Binary:0x3040 type=generic data=0x0000000000000000...>, "keyId"=>0}}, ...
+App 5969 output: D, [2020-08-01T15:51:05.214945 #5969] DEBUG -- : MONGODB | localhost:14420 req:28 | my_db.count | SUCCEEDED | 0.000s
+App 5969 output: "#<Cluster topology=ReplicaSetWithPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=1 (0-5) used=0 avail=1 pending=0>>,#<Server address=localhost:14421 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>]>"
+App 5969 output: D, [2020-08-01T15:51:06.200856 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'unknown'.
+App 5969 output: D, [2020-08-01T15:51:06.200953 #5969] DEBUG -- : MONGODB | Topology type 'ReplicaSetWithPrimary' changed to type 'ReplicaSetNoPrimary'.
+App 5969 output: D, [2020-08-01T15:51:06.201082 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'unknown'.
+App 5969 output: D, [2020-08-01T15:51:06.201152 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:06.201233 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'unknown'.
+App 5969 output: D, [2020-08-01T15:51:06.201287 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:06.202083 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'unknown' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:06.202339 #5969] DEBUG -- : MONGODB | Topology type 'ReplicaSetNoPrimary' changed to type 'ReplicaSetWithPrimary'.
+App 5969 output: D, [2020-08-01T15:51:06.202988 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'unknown' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:06.203142 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:06.203267 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'unknown' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:06.203360 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:06.204538 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:06.204705 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:06.205040 #5969] DEBUG -- : MONGODB | localhost:14420 req:30 conn:4:3 sconn:994 | my_db.count | STARTED | {"count"=>"foos", "query"=>{}, "$db"=>"my_db", "$clusterTime"=>{"clusterTime"=>#<BSON::Timestamp:0x0000562db6635f58 @seconds=1596311456, @increment=1>, "signature"=>{"hash"=><BSON::Binary:0x3040 type=generic data=0x0000000000000000...>, "keyId"=>0}}, ...
+App 5969 output: D, [2020-08-01T15:51:06.205386 #5969] DEBUG -- : MONGODB | localhost:14420 req:30 | my_db.count | SUCCEEDED | 0.000s
+App 5912 output: D, [2020-08-01T15:51:12.330178 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:51:12.331052 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:12.336602 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:12.337249 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:12.340125 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:51:12.340664 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:12.340967 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:12.341112 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:12.341570 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:12.341699 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:12.395164 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:12.395884 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:12.396556 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:12.397605 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:12.398189 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:12.398679 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:12.399199 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:51:12.399446 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:16.205097 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:16.205520 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:16.206530 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:16.207147 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:16.208273 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:16.209173 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:16.209789 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:51:16.210121 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:22.333561 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:51:22.334524 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:22.335516 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:51:22.335843 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:22.337286 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:51:22.338164 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:22.338834 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:51:22.339237 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:22.343474 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:22.343886 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:22.346985 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:51:22.347375 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:22.347666 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:22.347789 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:22.350968 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:22.351085 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:22.401897 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:22.402834 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:22.403794 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:22.404035 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:22.404599 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:22.404839 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:22.407388 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:51:22.407619 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:26.207473 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:26.208122 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:26.209331 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:26.210225 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:26.211456 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:26.211897 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:26.212756 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:51:26.212993 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:32.337746 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:51:32.338805 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:32.339858 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:51:32.341048 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:32.341747 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:51:32.342281 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:32.342787 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:51:32.343040 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:32.351753 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:32.352243 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:32.355670 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:32.356283 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:32.356772 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:51:32.356983 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:32.359358 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:32.359571 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:32.405573 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:32.406212 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:32.411999 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:32.412979 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:32.413754 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:32.414065 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:32.415651 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:51:32.415859 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:36.210660 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:36.211033 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:36.212420 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:36.213028 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:36.220755 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:36.221089 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:36.221289 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:51:36.221372 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:42.340975 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:51:42.341313 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:42.343486 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:51:42.344833 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:42.345780 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:51:42.346364 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:42.346964 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:51:42.347258 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:42.359714 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:42.360157 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:42.363620 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:42.364257 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:42.364780 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:51:42.364980 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:42.367836 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:42.368129 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:42.416535 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:42.417228 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:42.420083 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:42.421017 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:42.421833 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:42.422134 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:42.423643 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:51:42.423942 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:46.213146 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:46.213511 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:46.214860 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:46.215346 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:46.222774 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:46.223546 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:46.224024 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:51:46.224284 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:52.343225 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:51:52.343558 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:52.347987 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:51:52.349398 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:52.350566 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:51:52.350882 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:52.351453 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:51:52.351746 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:52.367676 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:52.368095 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:52.371721 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:51:52.372486 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:52.373107 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:52.373360 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:51:52.375506 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:51:52.375743 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:52.426579 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:52.427760 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:52.429154 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:52.429752 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:52.430472 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:51:52.430852 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:52.431863 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:51:52.432149 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:56.215696 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:56.216346 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:56.217556 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:51:56.218139 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:56.225046 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:51:56.225583 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:51:56.226444 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:51:56.226675 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:02.345485 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:52:02.345830 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:02.351923 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:52:02.353047 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:02.354050 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:52:02.354541 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:02.354775 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:52:02.354900 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:02.377751 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:52:02.378350 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:02.378899 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:02.379672 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:02.380150 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:02.380352 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:02.383291 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:02.383473 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:02.436579 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:02.437236 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:02.438389 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:02.439604 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:02.440786 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:02.441090 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:02.441749 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:52:02.442033 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:06.218761 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:52:06.219444 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:06.220593 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:52:06.221181 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:06.227280 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:52:06.227753 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:06.228453 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:52:06.228860 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:12.347231 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:52:12.347488 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:12.354566 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:52:12.355042 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:12.356253 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:52:12.356614 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:12.357452 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:52:12.357779 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:12.387651 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:12.388549 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:12.389325 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:12.389632 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:12.390572 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:52:12.390831 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:12.391815 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:12.392068 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:12.443377 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:12.443594 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:12.447181 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:12.448052 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:12.448451 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:12.448815 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:12.449131 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:52:12.449261 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:16.221925 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:52:16.222582 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:16.223797 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:52:16.224388 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:16.229959 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:52:16.230767 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:16.231278 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:52:16.231536 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:22.349367 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:52:22.349705 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:22.357412 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:52:22.358373 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:22.359174 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:52:22.359777 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:22.360455 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:52:22.360677 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:22.387797 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:22.388274 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:22.395839 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:52:22.396654 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:22.397332 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:22.397593 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:22.399665 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:22.399937 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:22.446678 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:22.447313 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:22.456065 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:22.457169 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:22.457834 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:52:22.458622 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:22.459283 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:22.459584 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:26.225126 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:52:26.225755 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:26.226999 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:52:26.227551 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:26.232259 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:52:26.232847 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:26.233554 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:52:26.233959 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:32.351718 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:52:32.352066 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:32.361372 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:52:32.362580 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:32.363508 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:52:32.363755 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:32.364190 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:52:32.364435 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:32.392116 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:32.392747 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:32.404040 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:52:32.404410 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:32.406429 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:32.406749 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:32.407823 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:32.408124 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:32.456155 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:32.456519 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:32.464036 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:52:32.464962 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:32.465726 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:32.466306 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:32.467545 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:32.467780 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:36.228307 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:52:36.228960 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:36.230140 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:52:36.230751 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:36.235226 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:52:36.236059 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:36.236694 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:52:36.236981 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:42.353975 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:52:42.354334 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:42.364955 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:52:42.366164 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:42.367882 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:52:42.368200 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:42.368768 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:52:42.369063 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:42.403008 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:42.403652 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:42.412033 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:52:42.412391 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:42.415776 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:42.416647 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:42.417428 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:42.417740 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:42.467043 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:42.467720 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:42.472042 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:52:42.472995 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:42.473766 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:42.474379 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:42.475766 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:42.476081 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:46.231470 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:52:46.232107 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:46.233331 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:52:46.233884 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:46.237589 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:52:46.238100 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:46.239128 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:52:46.239425 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:52.356179 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:52:52.356516 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:52.369213 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:52:52.370164 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:52.371839 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:52:52.372203 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:52.372768 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:52:52.373093 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:52.408008 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:52.408594 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:52.421744 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:52.422111 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:52.423477 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:52:52.424364 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:52:52.425119 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:52:52.425442 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:52.468151 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:52.468521 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:52.479515 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:52:52.480452 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:52.481291 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:52.481966 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:52.483557 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:52:52.483821 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:56.234832 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:52:56.235490 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:56.236757 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:52:56.237416 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:56.240121 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:52:56.240719 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:52:56.241813 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:52:56.242113 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:02.363479 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:53:02.363641 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:02.372039 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:53:02.372325 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:02.372932 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:53:02.373072 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:02.373809 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:53:02.373958 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:02.411653 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:02.412066 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:02.427891 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:02.428174 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:02.431746 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:53:02.432495 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:02.433111 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:02.433345 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:02.476185 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:02.476589 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:02.488143 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:02.489123 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:02.490316 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:53:02.490646 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:02.491663 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:02.491958 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:06.238097 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:53:06.238723 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:06.240008 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:53:06.240625 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:06.242574 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:53:06.242968 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:06.243735 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:53:06.243945 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:12.365523 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:53:12.365859 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:12.373900 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:53:12.374620 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:12.375451 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:53:12.376124 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:12.376575 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:53:12.376791 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:12.422722 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:12.423267 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:12.432517 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:12.432826 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:12.440064 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:12.441002 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:12.441750 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:53:12.442049 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:12.480134 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:12.480538 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:12.495639 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:53:12.497324 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:12.498174 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:12.498526 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:12.499316 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:12.499911 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:16.241380 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:53:16.242040 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:16.243332 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:53:16.243974 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:16.245273 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:53:16.245947 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:16.246411 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:53:16.246661 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:22.367766 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:53:22.368102 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:22.376526 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:53:22.377113 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:22.377955 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:53:22.378378 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:22.378686 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:53:22.378844 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:22.423775 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:22.424245 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:22.433333 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:22.433591 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:22.450843 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:22.451657 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:22.452283 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:53:22.452563 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:22.493223 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:22.493603 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:22.504255 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:53:22.504776 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:22.505189 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:22.505339 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:22.505890 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:22.506207 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:26.244598 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:53:26.245292 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:26.246543 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:53:26.247390 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:26.248298 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:53:26.249039 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:26.249493 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:53:26.249729 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:32.370046 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:53:32.370382 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:32.379366 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:53:32.380513 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:32.381445 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:53:32.382301 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:32.382903 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:53:32.383196 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:32.426619 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:32.427195 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:32.444378 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:32.444747 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:32.460653 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:32.461577 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:32.462318 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:53:32.462656 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:32.494429 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:32.494828 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:32.512237 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:32.513252 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:32.514290 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:53:32.514867 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:32.516199 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:32.516544 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:36.247784 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:53:36.248135 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:36.249849 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:53:36.250953 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:36.252546 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:53:36.252851 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:36.253326 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:53:36.253607 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:42.372282 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:53:42.372667 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:42.382559 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:53:42.383445 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:42.385146 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:53:42.385531 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:42.386118 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:53:42.386414 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:42.432089 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:42.432743 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:42.455251 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:42.455594 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:42.470498 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:53:42.471436 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:42.472217 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:42.472543 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:42.505252 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:42.505616 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:42.520125 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:42.520782 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:42.523722 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:53:42.524624 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:42.525360 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:42.525658 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:46.249943 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:53:46.250335 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:46.253569 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:53:46.254529 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:46.255763 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5969 output: D, [2020-08-01T15:53:46.256603 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:46.257190 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5969 output: D, [2020-08-01T15:53:46.257484 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:52.374622 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:53:52.374955 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:52.386184 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:53:52.387124 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:52.388067 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary'.
+App 5912 output: D, [2020-08-01T15:53:52.388809 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:52.389903 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter'.
+App 5912 output: D, [2020-08-01T15:53:52.390191 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:52.442930 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:52.443581 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:52.466157 #5912] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:52.466525 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:52.480001 #5912] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5912 output: D, [2020-08-01T15:53:52.480343 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:52.481268 #5912] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5912 output: D, [2020-08-01T15:53:52.481918 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:52.515993 #5969] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:52.516356 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:52.528124 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:52.528796 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:52.531560 #5969] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'arbiter' to 'arbiter' [awaited].
+App 5969 output: D, [2020-08-01T15:53:52.532378 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:52.533002 #5969] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'secondary' [awaited].
+App 5969 output: D, [2020-08-01T15:53:52.533292 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+
+[ N 2020-08-01 15:53:55.1797 5875/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2020-08-01 15:53:55.1797 5875/T1 age/Cor/CoreMain.cpp:1246 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2020-08-01 15:53:55.1797 5875/T1 age/Cor/CoreMain.cpp:1147 ]: Checking whether to disconnect long-running connections for process 5969, application /home/w/apps/tests/fork-passenger-mongoid (development)
+[ N 2020-08-01 15:53:55.1798 5875/T8 Ser/Server.h:902 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2020-08-01 15:53:55.1798 5875/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2020-08-01 15:53:55.1798 5875/Ta Ser/Server.h:902 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2020-08-01 15:53:55.1798 5875/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2020-08-01 15:53:55.1798 5875/Te Ser/Server.h:902 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2020-08-01 15:53:55.1799 5875/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2020-08-01 15:53:55.1799 5875/Tc Ser/Server.h:902 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2020-08-01 15:53:55.1799 5875/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2020-08-01 15:53:55.1799 5875/Tg Ser/Server.h:902 ]: [ApiServer] Freed 0 spare client objects
+[ N 2020-08-01 15:53:55.1799 5875/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2020-08-01 15:53:55.1801 5875/T1 age/Cor/CoreMain.cpp:1147 ]: Checking whether to disconnect long-running connections for process 5969, application /home/w/apps/tests/fork-passenger-mongoid (development)
+App 5912 output: D, [2020-08-01T15:53:55.185206 #5912] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5912 output: D, [2020-08-01T15:53:55.185454 #5912] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5912 output: D, [2020-08-01T15:53:55.185974 #5912] DEBUG -- : MONGODB | localhost:14420 req:16 conn:1:2 sconn:995 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x2300 type=uuid data=0x9ea5b1debb8245c6...>}], "$db"=>"admin", "$clusterTime"=>{"clusterTime"=>#<BSON::Timestamp:0x0000562db5ed47f0 @seconds=1596311456, @increment=1>, "signature"=>{"hash"=><BSON::Binary:0x5280 t...
+App 5912 output: D, [2020-08-01T15:53:55.186301 #5912] DEBUG -- : MONGODB | localhost:14420 req:16 | admin.endSessions | SUCCEEDED | 0.000s
+App 5969 output: D, [2020-08-01T15:53:55.284106 #5969] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 5969 output: D, [2020-08-01T15:53:55.284306 #5969] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 5969 output: D, [2020-08-01T15:53:55.284591 #5969] DEBUG -- : MONGODB | localhost:14420 req:32 conn:4:4 sconn:996 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x2820 type=uuid data=0xfb0b6c9d67fe43a1...>}], "$db"=>"admin", "$clusterTime"=>{"clusterTime"=>#<BSON::Timestamp:0x0000562db6953258 @seconds=1596311466, @increment=1>, "signature"=>{"hash"=><BSON::Binary:0x6200 t...
+App 5969 output: D, [2020-08-01T15:53:55.284818 #5969] DEBUG -- : MONGODB | localhost:14420 req:32 | admin.endSessions | SUCCEEDED | 0.000s
+[ N 2020-08-01 15:53:55.9162 5875/T1 age/Cor/CoreMain.cpp:1325 ]: Passenger core shutdown finished
+[ N 2020-08-01 15:53:57.3312 6265/T1 age/Wat/WatchdogMain.cpp:1373 ]: Starting Passenger watchdog...
+[ N 2020-08-01 15:53:57.3432 6268/T1 age/Cor/CoreMain.cpp:1340 ]: Starting Passenger core...
+[ N 2020-08-01 15:53:57.3433 6268/T1 age/Cor/CoreMain.cpp:256 ]: Passenger core running in multi-application mode.
+[ N 2020-08-01 15:53:57.3509 6268/T1 age/Cor/CoreMain.cpp:1015 ]: Passenger core online, PID 6268
+App 6303 output: D, [2020-08-01T15:53:59.640460 #6303] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+App 6303 output: D, [2020-08-01T15:53:59.640687 #6303] DEBUG -- : MONGODB | There was a change in the members of the 'Unknown' topology.
+App 6303 output: D, [2020-08-01T15:53:59.640873 #6303] DEBUG -- : MONGODB | Server localhost:14420 initializing.
+App 6303 output: D, [2020-08-01T15:53:59.641172 #6303] DEBUG -- : MONGODB | Waiting for up to 3.00 seconds for servers to be scanned: #<Cluster topology=Unknown[localhost:14420] servers=[#<Server address=localhost:14420 UNKNOWN>]>
+App 6303 output: D, [2020-08-01T15:53:59.642632 #6303] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'unknown' to 'primary'.
+App 6303 output: D, [2020-08-01T15:53:59.643117 #6303] DEBUG -- : MONGODB | Server localhost:14421 initializing.
+App 6303 output: D, [2020-08-01T15:53:59.643227 #6303] DEBUG -- : MONGODB | Server localhost:14422 initializing.
+App 6303 output: D, [2020-08-01T15:53:59.643409 #6303] DEBUG -- : MONGODB | Server localhost:14423 initializing.
+App 6303 output: D, [2020-08-01T15:53:59.643791 #6303] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'ReplicaSetWithPrimary'.
+App 6303 output: D, [2020-08-01T15:53:59.644235 #6303] DEBUG -- : MONGODB | Waiting for up to 3.00 seconds for servers to be scanned: #<Cluster topology=ReplicaSetWithPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14421 UNKNOWN>,#<Server address=localhost:14422 UNKNOWN>,#<Server address=localhost:14423 UNKNOWN>]>
+App 6303 output: D, [2020-08-01T15:53:59.645239 #6303] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'unknown' to 'secondary'.
+App 6303 output: D, [2020-08-01T15:53:59.645865 #6303] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6303 output: D, [2020-08-01T15:53:59.646027 #6303] DEBUG -- : MONGODB | Waiting for up to 2.99 seconds for servers to be scanned: #<Cluster topology=ReplicaSetWithPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14421 UNKNOWN>,#<Server address=localhost:14422 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 UNKNOWN>]>
+App 6303 output: D, [2020-08-01T15:53:59.646231 #6303] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'unknown' to 'arbiter'.
+App 6303 output: D, [2020-08-01T15:53:59.646496 #6303] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6303 output: D, [2020-08-01T15:53:59.646934 #6303] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'unknown' to 'secondary'.
+App 6303 output: D, [2020-08-01T15:53:59.647252 #6303] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6303 output: D, [2020-08-01T15:53:59.648798 #6303] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 6303 output: D, [2020-08-01T15:53:59.649070 #6303] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6303 output: D, [2020-08-01T15:53:59.649491 #6303] DEBUG -- : MONGODB | localhost:14420 req:14 conn:1:1 sconn:999 | my_db.count | STARTED | {"count"=>"foos", "query"=>{}, "$db"=>"my_db", "lsid"=>{"id"=><BSON::Binary:0x2300 type=uuid data=0x80d7ac79603f4597...>}}
+App 6303 output: D, [2020-08-01T15:53:59.649816 #6303] DEBUG -- : MONGODB | localhost:14420 req:14 | my_db.count | SUCCEEDED | 0.000s
+App 6303 output: 0
+App 6364 output: "starting worker"
+App 6364 output: W, [2020-08-01T15:53:59.694441 #6364]  WARN -- : MONGODB | Detected PID change - Mongo client should have been reconnected (old pid 6303, new pid 6364
+App 6364 output: D, [2020-08-01T15:53:59.695953 #6364] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 6364 output: D, [2020-08-01T15:53:59.696205 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6364 output: D, [2020-08-01T15:53:59.696707 #6364] DEBUG -- : MONGODB | localhost:14420 req:16 conn:1:2 sconn:1000 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x2300 type=uuid data=0x80d7ac79603f4597...>}], "$db"=>"admin", "$clusterTime"=>{"clusterTime"=>#<BSON::Timestamp:0x000055b8776b2710 @seconds=1596311636, @increment=1>, "signature"=>{"hash"=><BSON::Binary:0x2400 t...
+App 6364 output: D, [2020-08-01T15:53:59.697018 #6364] DEBUG -- : MONGODB | localhost:14420 req:16 | admin.endSessions | SUCCEEDED | 0.000s
+App 6364 output: D, [2020-08-01T15:53:59.697589 #6364] DEBUG -- : MONGODB | Server localhost:14420 connection closed.
+App 6364 output: D, [2020-08-01T15:53:59.697836 #6364] DEBUG -- : MONGODB | Server localhost:14421 connection closed.
+App 6364 output: D, [2020-08-01T15:53:59.698023 #6364] DEBUG -- : MONGODB | Server localhost:14422 connection closed.
+App 6364 output: D, [2020-08-01T15:53:59.698162 #6364] DEBUG -- : MONGODB | Server localhost:14423 connection closed.
+App 6364 output: D, [2020-08-01T15:53:59.698210 #6364] DEBUG -- : MONGODB | Topology type 'replicasetwithprimary' closed.
+App 6364 output: D, [2020-08-01T15:53:59.698379 #6364] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+App 6364 output: D, [2020-08-01T15:53:59.698818 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'Unknown' topology.
+App 6364 output: D, [2020-08-01T15:53:59.698899 #6364] DEBUG -- : MONGODB | Server localhost:14420 initializing.
+App 6364 output: D, [2020-08-01T15:53:59.699090 #6364] DEBUG -- : MONGODB | Server localhost:14421 initializing.
+App 6364 output: D, [2020-08-01T15:53:59.699144 #6364] DEBUG -- : MONGODB | Server localhost:14422 initializing.
+App 6364 output: D, [2020-08-01T15:53:59.699228 #6364] DEBUG -- : MONGODB | Server localhost:14423 initializing.
+App 6364 output: D, [2020-08-01T15:53:59.699380 #6364] DEBUG -- : MONGODB | Waiting for up to 3.00 seconds for servers to be scanned: #<Cluster topology=Unknown[localhost:14420,localhost:14421,localhost:14422,localhost:14423] servers=[#<Server address=localhost:14420 UNKNOWN>,#<Server address=localhost:14421 UNKNOWN>,#<Server address=localhost:14422 UNKNOWN>,#<Server address=localhost:14423 UNKNOWN>]>
+App 6364 output: D, [2020-08-01T15:53:59.700848 #6364] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'unknown' to 'secondary'.
+App 6364 output: D, [2020-08-01T15:53:59.701349 #6364] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'ReplicaSetNoPrimary'.
+App 6364 output: D, [2020-08-01T15:53:59.702162 #6364] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'unknown' to 'primary'.
+App 6364 output: D, [2020-08-01T15:53:59.702903 #6364] DEBUG -- : MONGODB | Topology type 'ReplicaSetNoPrimary' changed to type 'ReplicaSetWithPrimary'.
+App 6364 output: D, [2020-08-01T15:53:59.703372 #6364] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'unknown' to 'arbiter'.
+App 6364 output: D, [2020-08-01T15:53:59.703866 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6364 output: D, [2020-08-01T15:53:59.704214 #6364] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'unknown' to 'secondary'.
+App 6364 output: D, [2020-08-01T15:53:59.704361 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6364 output: "#<Cluster topology=ReplicaSetWithPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14421 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>]>"
+App 6364 output: D, [2020-08-01T15:53:59.717062 #6364] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'unknown'.
+App 6364 output: D, [2020-08-01T15:53:59.717212 #6364] DEBUG -- : MONGODB | Topology type 'ReplicaSetWithPrimary' changed to type 'ReplicaSetNoPrimary'.
+App 6364 output: D, [2020-08-01T15:53:59.717390 #6364] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'unknown'.
+App 6364 output: D, [2020-08-01T15:53:59.717449 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 6364 output: D, [2020-08-01T15:53:59.717522 #6364] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'unknown'.
+App 6364 output: D, [2020-08-01T15:53:59.717576 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 6399 output: "starting worker"
+App 6399 output: W, [2020-08-01T15:53:59.744319 #6399]  WARN -- : MONGODB | Detected PID change - Mongo client should have been reconnected (old pid 6303, new pid 6399
+App 6399 output: D, [2020-08-01T15:53:59.746076 #6399] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 6399 output: D, [2020-08-01T15:53:59.746344 #6399] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6399 output: D, [2020-08-01T15:53:59.747058 #6399] DEBUG -- : MONGODB | localhost:14420 req:16 conn:1:2 sconn:1003 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x2300 type=uuid data=0x80d7ac79603f4597...>}], "$db"=>"admin", "$clusterTime"=>{"clusterTime"=>#<BSON::Timestamp:0x000055b8776b2710 @seconds=1596311636, @increment=1>, "signature"=>{"hash"=><BSON::Binary:0x2400 t...
+App 6399 output: D, [2020-08-01T15:53:59.747408 #6399] DEBUG -- : MONGODB | localhost:14420 req:16 | admin.endSessions | SUCCEEDED | 0.000s
+App 6399 output: D, [2020-08-01T15:53:59.748223 #6399] DEBUG -- : MONGODB | Server localhost:14420 connection closed.
+App 6399 output: D, [2020-08-01T15:53:59.748459 #6399] DEBUG -- : MONGODB | Server localhost:14421 connection closed.
+App 6399 output: D, [2020-08-01T15:53:59.748680 #6399] DEBUG -- : MONGODB | Server localhost:14422 connection closed.
+App 6399 output: D, [2020-08-01T15:53:59.748838 #6399] DEBUG -- : MONGODB | Server localhost:14423 connection closed.
+App 6399 output: D, [2020-08-01T15:53:59.748904 #6399] DEBUG -- : MONGODB | Topology type 'replicasetwithprimary' closed.
+App 6399 output: D, [2020-08-01T15:53:59.749094 #6399] DEBUG -- : MONGODB | Topology type 'unknown' initializing.
+App 6399 output: D, [2020-08-01T15:53:59.749592 #6399] DEBUG -- : MONGODB | There was a change in the members of the 'Unknown' topology.
+App 6399 output: D, [2020-08-01T15:53:59.749711 #6399] DEBUG -- : MONGODB | Server localhost:14420 initializing.
+App 6399 output: D, [2020-08-01T15:53:59.749861 #6399] DEBUG -- : MONGODB | Server localhost:14421 initializing.
+App 6399 output: D, [2020-08-01T15:53:59.750051 #6399] DEBUG -- : MONGODB | Server localhost:14422 initializing.
+App 6399 output: D, [2020-08-01T15:53:59.750138 #6399] DEBUG -- : MONGODB | Server localhost:14423 initializing.
+App 6399 output: D, [2020-08-01T15:53:59.750466 #6399] DEBUG -- : MONGODB | Waiting for up to 3.00 seconds for servers to be scanned: #<Cluster topology=Unknown[localhost:14420,localhost:14421,localhost:14422,localhost:14423] servers=[#<Server address=localhost:14420 UNKNOWN>,#<Server address=localhost:14421 UNKNOWN>,#<Server address=localhost:14422 UNKNOWN>,#<Server address=localhost:14423 UNKNOWN>]>
+App 6399 output: D, [2020-08-01T15:53:59.751957 #6399] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'unknown' to 'secondary'.
+App 6399 output: D, [2020-08-01T15:53:59.752506 #6399] DEBUG -- : MONGODB | Topology type 'Unknown' changed to type 'ReplicaSetNoPrimary'.
+App 6399 output: D, [2020-08-01T15:53:59.753096 #6399] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'unknown' to 'secondary'.
+App 6399 output: D, [2020-08-01T15:53:59.753518 #6399] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 6399 output: D, [2020-08-01T15:53:59.754104 #6399] DEBUG -- : MONGODB | Waiting for up to 3.00 seconds for servers to be scanned: #<Cluster topology=ReplicaSetNoPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs] servers=[#<Server address=localhost:14420 UNKNOWN>,#<Server address=localhost:14421 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 UNKNOWN>]>
+App 6399 output: D, [2020-08-01T15:53:59.754562 #6399] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'unknown' to 'primary'.
+App 6399 output: D, [2020-08-01T15:53:59.755012 #6399] DEBUG -- : MONGODB | Topology type 'ReplicaSetNoPrimary' changed to type 'ReplicaSetWithPrimary'.
+App 6399 output: D, [2020-08-01T15:53:59.755655 #6399] DEBUG -- : MONGODB | Server description for localhost:14423 changed from 'unknown' to 'arbiter'.
+App 6399 output: D, [2020-08-01T15:53:59.755894 #6399] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6399 output: "#<Cluster topology=ReplicaSetWithPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14421 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>]>"
+App 6399 output: D, [2020-08-01T15:53:59.769059 #6399] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'unknown'.
+App 6399 output: D, [2020-08-01T15:53:59.769162 #6399] DEBUG -- : MONGODB | Topology type 'ReplicaSetWithPrimary' changed to type 'ReplicaSetNoPrimary'.
+App 6399 output: D, [2020-08-01T15:53:59.769270 #6399] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'unknown'.
+App 6399 output: D, [2020-08-01T15:53:59.769339 #6399] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 6399 output: D, [2020-08-01T15:53:59.769436 #6399] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'unknown'.
+App 6399 output: D, [2020-08-01T15:53:59.769499 #6399] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+[ N 2020-08-01 15:53:59.8346 6268/T5 age/Cor/SecurityUpdateChecker.h:519 ]: Security update check: no update found (next check in 24 hours)
+App 6364 output: D, [2020-08-01T15:54:00.203102 #6364] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'unknown' to 'secondary'.
+App 6364 output: D, [2020-08-01T15:54:00.203902 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 6364 output: D, [2020-08-01T15:54:00.207265 #6364] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'unknown' to 'primary'.
+App 6364 output: D, [2020-08-01T15:54:00.208549 #6364] DEBUG -- : MONGODB | Topology type 'ReplicaSetNoPrimary' changed to type 'ReplicaSetWithPrimary'.
+App 6364 output: D, [2020-08-01T15:54:00.209924 #6364] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'unknown' to 'secondary'.
+App 6364 output: D, [2020-08-01T15:54:00.210324 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6364 output: D, [2020-08-01T15:54:00.211445 #6364] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 6364 output: D, [2020-08-01T15:54:00.211662 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6364 output: D, [2020-08-01T15:54:00.212072 #6364] DEBUG -- : MONGODB | localhost:14420 req:26 conn:2:1 sconn:1006 | my_db.count | STARTED | {"count"=>"foos", "query"=>{}, "$db"=>"my_db", "lsid"=>{"id"=><BSON::Binary:0x2820 type=uuid data=0xd1adb7f9572841d6...>}}
+App 6364 output: D, [2020-08-01T15:54:00.212500 #6364] DEBUG -- : MONGODB | localhost:14420 req:26 | my_db.count | SUCCEEDED | 0.000s
+App 6399 output: D, [2020-08-01T15:54:00.253910 #6399] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'unknown' to 'secondary'.
+App 6399 output: D, [2020-08-01T15:54:00.254550 #6399] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 6399 output: D, [2020-08-01T15:54:00.255349 #6399] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'unknown' to 'secondary'.
+App 6399 output: D, [2020-08-01T15:54:00.255810 #6399] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 6399 output: D, [2020-08-01T15:54:00.256993 #6399] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'unknown' to 'primary'.
+App 6399 output: D, [2020-08-01T15:54:00.257713 #6399] DEBUG -- : MONGODB | Topology type 'ReplicaSetNoPrimary' changed to type 'ReplicaSetWithPrimary'.
+App 6399 output: D, [2020-08-01T15:54:00.261188 #6399] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 6399 output: D, [2020-08-01T15:54:00.261577 #6399] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6399 output: D, [2020-08-01T15:54:00.262342 #6399] DEBUG -- : MONGODB | localhost:14420 req:26 conn:2:1 sconn:1007 | my_db.count | STARTED | {"count"=>"foos", "query"=>{}, "$db"=>"my_db", "lsid"=>{"id"=><BSON::Binary:0x2820 type=uuid data=0x29d7cf35bca24e53...>}}
+App 6399 output: D, [2020-08-01T15:54:00.262875 #6399] DEBUG -- : MONGODB | localhost:14420 req:26 | my_db.count | SUCCEEDED | 0.000s
+App 6364 output: "#<Cluster topology=ReplicaSetWithPrimary[localhost:14420,localhost:14421,localhost:14422,localhost:14423,name=ruby-driver-rs,v=1,e=7fffffff0000000000000001] servers=[#<Server address=localhost:14420 PRIMARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=1 (0-5) used=0 avail=1 pending=0>>,#<Server address=localhost:14421 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14422 SECONDARY replica_set=ruby-driver-rs pool=#<ConnectionPool size=0 (0-5) used=0 avail=0 pending=0>>,#<Server address=localhost:14423 ARBITER replica_set=ruby-driver-rs>]>"
+App 6364 output: D, [2020-08-01T15:54:01.502809 #6364] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'unknown'.
+App 6364 output: D, [2020-08-01T15:54:01.502908 #6364] DEBUG -- : MONGODB | Topology type 'ReplicaSetWithPrimary' changed to type 'ReplicaSetNoPrimary'.
+App 6364 output: D, [2020-08-01T15:54:01.503044 #6364] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'secondary' to 'unknown'.
+App 6364 output: D, [2020-08-01T15:54:01.503115 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 6364 output: D, [2020-08-01T15:54:01.503189 #6364] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'secondary' to 'unknown'.
+App 6364 output: D, [2020-08-01T15:54:01.503241 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetNoPrimary' topology.
+App 6364 output: D, [2020-08-01T15:54:01.504052 #6364] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'unknown' to 'primary'.
+App 6364 output: D, [2020-08-01T15:54:01.504619 #6364] DEBUG -- : MONGODB | Topology type 'ReplicaSetNoPrimary' changed to type 'ReplicaSetWithPrimary'.
+App 6364 output: D, [2020-08-01T15:54:01.505008 #6364] DEBUG -- : MONGODB | Server description for localhost:14421 changed from 'unknown' to 'secondary'.
+App 6364 output: D, [2020-08-01T15:54:01.505108 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6364 output: D, [2020-08-01T15:54:01.505435 #6364] DEBUG -- : MONGODB | Server description for localhost:14422 changed from 'unknown' to 'secondary'.
+App 6364 output: D, [2020-08-01T15:54:01.505609 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6364 output: D, [2020-08-01T15:54:01.506165 #6364] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 6364 output: D, [2020-08-01T15:54:01.506334 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6364 output: D, [2020-08-01T15:54:01.506693 #6364] DEBUG -- : MONGODB | localhost:14420 req:28 conn:3:2 sconn:1008 | my_db.count | STARTED | {"count"=>"foos", "query"=>{}, "$db"=>"my_db", "$clusterTime"=>{"clusterTime"=>#<BSON::Timestamp:0x000055b877e25ee8 @seconds=1596311636, @increment=1>, "signature"=>{"hash"=><BSON::Binary:0x3040 type=generic data=0x0000000000000000...>, "keyId"=>0}}, ...
+App 6364 output: D, [2020-08-01T15:54:01.506984 #6364] DEBUG -- : MONGODB | localhost:14420 req:28 | my_db.count | SUCCEEDED | 0.000s
+
+[ N 2020-08-01 15:54:02.2420 6268/T8 age/Cor/CoreMain.cpp:671 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ N 2020-08-01 15:54:02.2420 6268/T1 age/Cor/CoreMain.cpp:1246 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ N 2020-08-01 15:54:02.2421 6268/T1 age/Cor/CoreMain.cpp:1147 ]: Checking whether to disconnect long-running connections for process 6364, application /home/w/apps/tests/fork-passenger-mongoid (development)
+[ N 2020-08-01 15:54:02.2421 6268/T1 age/Cor/CoreMain.cpp:1147 ]: Checking whether to disconnect long-running connections for process 6399, application /home/w/apps/tests/fork-passenger-mongoid (development)
+[ N 2020-08-01 15:54:02.2422 6268/T8 Ser/Server.h:902 ]: [ServerThr.1] Freed 0 spare client objects
+[ N 2020-08-01 15:54:02.2422 6268/Te Ser/Server.h:902 ]: [ServerThr.4] Freed 0 spare client objects
+[ N 2020-08-01 15:54:02.2422 6268/Ta Ser/Server.h:902 ]: [ServerThr.2] Freed 0 spare client objects
+[ N 2020-08-01 15:54:02.2422 6268/Te Ser/Server.h:558 ]: [ServerThr.4] Shutdown finished
+[ N 2020-08-01 15:54:02.2422 6268/T8 Ser/Server.h:558 ]: [ServerThr.1] Shutdown finished
+[ N 2020-08-01 15:54:02.2422 6268/Ta Ser/Server.h:558 ]: [ServerThr.2] Shutdown finished
+[ N 2020-08-01 15:54:02.2422 6268/Tc Ser/Server.h:902 ]: [ServerThr.3] Freed 0 spare client objects
+[ N 2020-08-01 15:54:02.2422 6268/Tc Ser/Server.h:558 ]: [ServerThr.3] Shutdown finished
+[ N 2020-08-01 15:54:02.2422 6268/Tg Ser/Server.h:902 ]: [ApiServer] Freed 0 spare client objects
+[ N 2020-08-01 15:54:02.2423 6268/Tg Ser/Server.h:558 ]: [ApiServer] Shutdown finished
+[ N 2020-08-01 15:54:02.2424 6268/T1 age/Cor/CoreMain.cpp:1147 ]: Checking whether to disconnect long-running connections for process 6364, application /home/w/apps/tests/fork-passenger-mongoid (development)
+[ N 2020-08-01 15:54:02.2424 6268/T1 age/Cor/CoreMain.cpp:1147 ]: Checking whether to disconnect long-running connections for process 6399, application /home/w/apps/tests/fork-passenger-mongoid (development)
+App 6303 output: D, [2020-08-01T15:54:02.245199 #6303] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 6303 output: D, [2020-08-01T15:54:02.245451 #6303] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6303 output: D, [2020-08-01T15:54:02.245846 #6303] DEBUG -- : MONGODB | localhost:14420 req:16 conn:1:2 sconn:1009 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x2300 type=uuid data=0x80d7ac79603f4597...>}], "$db"=>"admin", "$clusterTime"=>{"clusterTime"=>#<BSON::Timestamp:0x000055b8776b2710 @seconds=1596311636, @increment=1>, "signature"=>{"hash"=><BSON::Binary:0x2560 t...
+App 6303 output: D, [2020-08-01T15:54:02.246112 #6303] DEBUG -- : MONGODB | localhost:14420 req:16 | admin.endSessions | SUCCEEDED | 0.000s
+App 6364 output: D, [2020-08-01T15:54:02.347719 #6364] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 6364 output: D, [2020-08-01T15:54:02.347928 #6364] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6364 output: D, [2020-08-01T15:54:02.348238 #6364] DEBUG -- : MONGODB | localhost:14420 req:30 conn:3:3 sconn:1010 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x2820 type=uuid data=0xd1adb7f9572841d6...>}], "$db"=>"admin", "$clusterTime"=>{"clusterTime"=>#<BSON::Timestamp:0x000055b877e25ee8 @seconds=1596311636, @increment=1>, "signature"=>{"hash"=><BSON::Binary:0x3040 t...
+App 6364 output: D, [2020-08-01T15:54:02.348615 #6364] DEBUG -- : MONGODB | localhost:14420 req:30 | admin.endSessions | SUCCEEDED | 0.000s
+App 6399 output: D, [2020-08-01T15:54:02.348981 #6399] DEBUG -- : MONGODB | Server description for localhost:14420 changed from 'primary' to 'primary'.
+App 6399 output: D, [2020-08-01T15:54:02.349227 #6399] DEBUG -- : MONGODB | There was a change in the members of the 'ReplicaSetWithPrimary' topology.
+App 6399 output: D, [2020-08-01T15:54:02.349596 #6399] DEBUG -- : MONGODB | localhost:14420 req:28 conn:2:2 sconn:1011 | admin.endSessions | STARTED | {"endSessions"=>[{"id"=><BSON::Binary:0x2820 type=uuid data=0x29d7cf35bca24e53...>}], "$db"=>"admin", "$clusterTime"=>{"clusterTime"=>#<BSON::Timestamp:0x000055b877e43600 @seconds=1596311636, @increment=1>, "signature"=>{"hash"=><BSON::Binary:0x3100 t...
+App 6399 output: D, [2020-08-01T15:54:02.349932 #6399] DEBUG -- : MONGODB | localhost:14420 req:28 | admin.endSessions | SUCCEEDED | 0.000s
+[ N 2020-08-01 15:54:02.9756 6268/T1 age/Cor/CoreMain.cpp:1325 ]: Passenger core shutdown finished

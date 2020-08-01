@@ -23,6 +23,19 @@ class App < Sinatra::Base
   end
 end
 
+# https://www.phusionpassenger.com/library/indepth/ruby/spawn_methods/#the-need-to-revive-threads
+if defined?(PhusionPassenger)
+  PhusionPassenger.on_event(:starting_worker_process) do |forked|
+    if forked
+      p 'starting worker'
+      Mongoid::Clients.clients.each do |name, client|
+        client.close
+        client.reconnect
+      end
+    end
+  end
+end
+
 # This forces the client to be created before fork, when --preload is used.
 p Foo.count
 
