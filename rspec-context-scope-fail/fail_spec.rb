@@ -10,10 +10,10 @@ describe 'fail' do
   context 'A' do
     let(:persisted_person) { 'one' }
 
-    include_examples 'shared' do
+    include_examples 'shared'
   end
 
-  context 'B'
+  context 'B' do
     let(:persisted_person) { 'two' }
   end
 end
