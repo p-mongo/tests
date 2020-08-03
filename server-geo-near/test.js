@@ -1,0 +1,5 @@
+db.foo.deleteMany({})
+db.foo.insert({a:1})
+db.foo.createIndex({point:"2dsphere"})
+a=db.runCommand({geoNear:'foo',near:{type:'Point',coordinates:[1,1]},spherical:true})
+print(JSON.stringify(a))
