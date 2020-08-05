@@ -1,3 +1,3 @@
-#!/usr/bin/env elixir
+#!/usr/bin/env -S mix run
 
 Retry.start
