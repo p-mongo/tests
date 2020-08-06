@@ -6,7 +6,7 @@ defmodule Retry do
   def start(_type, _args) do
     IO.puts("starting retryer")
     
-    {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:14420,localhost:14421,localhost:14422/retry")
+    {:ok, conn} = Mongo.start_link(url: "mongodb://localhost:14420,localhost:14421,localhost:14422/retry?retryWrites=true")
     
     write(conn)
   end
