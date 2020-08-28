@@ -6,7 +6,12 @@ Exception raised as expected.
 require 'mongoid'
 
 
-Mongoid.load!(File.join(File.dirname(__FILE__), 'mongoid_config.yml'), env_name: 'development')
+Mongoid.configure do |config|
+  config.clients.default = {
+    hosts: ['localhost:14440'],
+    database: 'my_db'
+  }
+end
 
 
 class User

@@ -1,8 +1,0 @@
-development:
-  clients:
-    default:
-      database: debug_issue_dont_crash_on_create
-      hosts:
-        - 127.0.0.1:27017
-      options:
-        server_selection_timeout: 1

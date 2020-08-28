@@ -5,7 +5,12 @@ Doesn't throw as expected if own attribute present.
 require 'mongoid'
 
 
-Mongoid.load!(File.join(File.dirname(__FILE__), 'mongoid_config.yml'), env_name: 'development')
+Mongoid.configure do |config|
+  config.clients.default = {
+    hosts: ['localhost:14440'],
+    database: 'my_db'
+  }
+end
 
 
 class User
@@ -33,4 +38,6 @@ class UserAuthData
 end
 
 
-User.create! username: 'some_name', auth_data: {}
+u = User.create! username: 'some_name', auth_data: {}
+
+p u
