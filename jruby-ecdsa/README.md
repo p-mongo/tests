@@ -11,3 +11,7 @@ Verify with s_client:
 Test with Ruby:
 
     ruby test.rb
+
+Or using separate certificate and key:
+
+    ruby test2.rb
