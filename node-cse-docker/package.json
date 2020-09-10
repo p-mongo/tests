@@ -1,0 +1,9 @@
+{
+  "name": "MONG-ENCRPT-TEST",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb-client-encryption": "^1.1.0"
+  }
+}

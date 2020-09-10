@@ -1,0 +1,36 @@
+Arguments: 
+  /usr/local/n/versions/node/12.18.1/bin/node /home/w/bin/yarn add mongo-client-encryption
+
+PATH: 
+  /home/w/.rbenv/shims:/home/w/.rbenv/bin:/home/w/bin:/usr/local/bin:/usr/bin:/bin:/usr/games:/home/w/.local/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.18.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/mongo-client-encryption: Not found
+      at Request.params.callback [as _callback] (/usr/local/n/versions/node/12.18.1/lib/node_modules/yarn/lib/cli.js:66987:18)
+      at Request.self.callback (/usr/local/n/versions/node/12.18.1/lib/node_modules/yarn/lib/cli.js:140748:22)
+      at Request.emit (events.js:315:20)
+      at Request.<anonymous> (/usr/local/n/versions/node/12.18.1/lib/node_modules/yarn/lib/cli.js:141720:10)
+      at Request.emit (events.js:315:20)
+      at IncomingMessage.<anonymous> (/usr/local/n/versions/node/12.18.1/lib/node_modules/yarn/lib/cli.js:141642:12)
+      at Object.onceWrapper (events.js:421:28)
+      at IncomingMessage.emit (events.js:327:22)
+      at endReadableNT (_stream_readable.js:1221:12)
+      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
