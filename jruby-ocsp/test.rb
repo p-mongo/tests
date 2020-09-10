@@ -7,9 +7,15 @@ ssl_socket.connect
 
 cert = ssl_socket.peer_cert
 p cert
+puts
 
 p cert.extensions.map(&:oid)
+puts
 
 ocsp_ext = cert.extensions.detect { |ext| ext.oid == 'authorityInfoAccess' }
 p ocsp_ext
 p ocsp_ext.value
+puts
+
+cert.extensions.map(&:value).each { |v| p v }
+puts
