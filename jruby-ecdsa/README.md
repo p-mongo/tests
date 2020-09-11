@@ -15,3 +15,7 @@ Test with Ruby:
 Or using separate certificate and key:
 
     ruby test2.rb
+
+Or using `PKey.read` with the separate key:
+
+    ruby test3.rb
