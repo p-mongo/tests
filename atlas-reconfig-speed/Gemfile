@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+
+gem 'byebug'
+gem 'mongo-cloud', '~> 0.1.0', path: '../../mcloud'
+gem 'faraday-digestauth', path: '../../exp/faraday-digestauth'
+

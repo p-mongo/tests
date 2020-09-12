@@ -1,0 +1,40 @@
+PATH
+  remote: ../../exp/faraday-digestauth
+  specs:
+    faraday-digestauth (0.4.1)
+      faraday (>= 0.7)
+      net-http-digest_auth (~> 1.4)
+
+PATH
+  remote: ../../mcloud
+  specs:
+    mongo-cloud (0.1.0)
+      faraday
+      faraday-detailed_logger
+      faraday-digestauth
+      oj
+      rack
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    byebug (11.1.3)
+    faraday (1.0.1)
+      multipart-post (>= 1.2, < 3)
+    faraday-detailed_logger (2.3.0)
+      faraday (>= 0.8, < 2)
+    multipart-post (2.1.1)
+    net-http-digest_auth (1.4.1)
+    oj (3.10.14)
+    rack (2.2.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  byebug
+  faraday-digestauth!
+  mongo-cloud (~> 0.1.0)!
+
+BUNDLED WITH
+   2.1.4
