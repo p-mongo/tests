@@ -1,7 +1,13 @@
-# Atlas reconfig speed
+# Atlas global clusters shard addition/removal
 
-1. Use `create.rb` to create a cluster.
-2. Use `update.rb` to update the cluster.
+1. Use `bundle exec create.rb` to create a cluster.
+2. Use `bundle exec insert.rb` to insert test data (possibly optional).
+3. Use `bundle exec update.rb` to update the cluster to configuration 4.
+
+Other tools:
+
+- Use `bundle exec delete.rb` to delete the inserted test data.
+- Edit `update.rb` to update to other configurations (2 or 3).
 
 With config2.yml:
 
