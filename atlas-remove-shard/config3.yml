@@ -1,0 +1,16 @@
+clusterType: REPLICASET
+providerSettings:
+  providerName: AWS
+  instanceSizeName: M10
+replicationSpecs:
+  -
+    numShards: 1
+    regionsConfig:
+      US_WEST_1:
+        electableNodes: 1
+        priority: 6
+        readOnlyNodes: 0
+      US_EAST_1:
+        electableNodes: 2
+        priority: 7
+        readOnlyNodes: 0
