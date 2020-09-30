@@ -47,6 +47,6 @@ else
   gem 'mongoid'
 end
 
-if ENV['driver_master']
+if ENV['driver'] == 'master'
   gem 'mongo', path: '../../ruby-driver'
 end
