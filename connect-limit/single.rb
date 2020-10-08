@@ -17,5 +17,6 @@ loop do
   puts(servers.map do |s|
     "#{s.address.seed}: #{'%-5d' % s.pool.size} open sockets: #{$open} open fds: #{open_fds}"
   end.join(' '))
+  STDOUT.flush
   sleep 1
 end

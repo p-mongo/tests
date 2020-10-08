@@ -1,13 +1,13 @@
 PATH
   remote: ../../ruby-driver
   specs:
-    mongo (2.12.1)
+    mongo (2.14.0.beta)
       bson (>= 4.8.2, < 5.0.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    bson (4.8.2)
+    bson (4.10.0)
 
 PLATFORMS
   ruby
