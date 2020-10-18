@@ -2,6 +2,7 @@
 Doesn't throw as expected if own attribute present.
 =end
 
+
 require 'mongoid'
 
 
@@ -27,4 +28,7 @@ class UserAuthData
 end
 
 
-User.create!
+u = User.create!
+p u
+p u.auth_data
+p u.valid?
