@@ -34,3 +34,10 @@ a = A.new(name: 'foo')
 a.clone
 p '--'
 a.new_clone
+
+__END__
+
+"init: {:name=>\"foo\"}"
+"init: {\"name\"=>\"foo\"}"
+"--"
+"init: {}"
