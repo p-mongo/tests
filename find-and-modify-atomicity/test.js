@@ -4,7 +4,7 @@ const { MongoClient } = require("mongodb");
 
 const uri = 'mongodb://localhost:14400'
 
-const client = new MongoClient(uri);
+const client = new MongoClient(uri,{minPoolSize:10,maxPoolSize:10});
 
 async function run() {
 
@@ -24,7 +24,7 @@ console.log()
     }
     
     let ps=[]
-    for (var i = 0; i < 10000; ++i) {
+    for (var i = 0; i < 100000; ++i) {
       ps.push(c.updateOne({counter: {$gt: 0}}, {$inc: {counter: -1}}))
     }
     
