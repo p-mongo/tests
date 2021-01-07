@@ -1,0 +1,19 @@
+risque% python3 test.py
+0.001464
+0.002031
+0.022351
+
+risque% python3 test.py
+0.013875
+0.019704
+0.153323
+
+risque% python3 test.py
+0.147391
+0.236540
+1.631367
+
+risque% python3 test.py
+1.492073
+2.063393
+16.289790
