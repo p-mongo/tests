@@ -1,0 +1,66 @@
+GIT
+  remote: https://github.com/p-mongo/faraday-digestauth
+  revision: 74021185e4bbdf07fe7c6c528264c0fe5b87c688
+  branch: mine
+  specs:
+    faraday-digestauth (0.4.1)
+      faraday (>= 0.7)
+      net-http-digest_auth (~> 1.4)
+
+PATH
+  remote: ../../mcloud
+  specs:
+    mongo-cloud (0.1.0)
+      faraday
+      faraday-detailed_logger
+      faraday-digestauth
+      oj
+      rack
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    async (1.28.5)
+      console (~> 1.10)
+      nio4r (~> 2.3)
+      timers (~> 4.1)
+    async-dns (1.2.5)
+      async-io (~> 1.15)
+    async-io (1.30.1)
+      async (~> 1.14)
+    awesome_print (1.8.0)
+    bson (4.12.0)
+    byebug (11.1.3)
+    console (1.10.1)
+      fiber-local
+    faraday (1.3.0)
+      faraday-net_http (~> 1.0)
+      multipart-post (>= 1.2, < 3)
+      ruby2_keywords
+    faraday-detailed_logger (2.3.0)
+      faraday (>= 0.8, < 2)
+    faraday-net_http (1.0.1)
+    fiber-local (1.0.0)
+    mongo (2.14.0)
+      bson (>= 4.8.2, < 5.0.0)
+    multipart-post (2.1.1)
+    net-http-digest_auth (1.4.1)
+    nio4r (2.5.5)
+    oj (3.11.2)
+    rack (2.2.3)
+    ruby2_keywords (0.0.4)
+    timers (4.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  async-dns
+  awesome_print
+  byebug
+  faraday-digestauth!
+  mongo
+  mongo-cloud!
+
+BUNDLED WITH
+   2.1.4

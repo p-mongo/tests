@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+
+gem 'mongo-cloud', path: '../../mcloud'
+gem 'faraday-digestauth', git: 'https://github.com/p-mongo/faraday-digestauth', branch: 'mine'
+gem 'byebug'
+gem 'awesome_print'
+gem 'mongo'
+gem 'async-dns'
