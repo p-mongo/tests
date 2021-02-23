@@ -5,7 +5,7 @@ require "rails"
 require "active_model/railtie"
 require "active_job/railtie"
 # require "active_record/railtie"
-#require "active_storage/engine"
+require "active_storage/engine"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 # require "action_mailbox/engine"
@@ -35,5 +35,7 @@ module RailsApi
     config.api_only = true
 
     config.hosts << 'serene'
+
+    config.active_storage.service = :test
   end
 end

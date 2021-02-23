@@ -4,4 +4,6 @@ class Post
   field :body, type: String
 
   has_many :comments, dependent: :destroy
+
+  has_one_attached :image
 end

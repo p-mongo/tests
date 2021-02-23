@@ -1,6 +1,5 @@
-GIT
+PATH
   remote: ../../exp/rails
-  revision: 96db850d5197790e5e2c9f64309945d26185a64d
   specs:
     actioncable (6.2.0.alpha)
       actionpack (= 6.2.0.alpha)
@@ -83,9 +82,8 @@ GIT
       rake (>= 0.8.7)
       thor (~> 1.0)
 
-GIT
+PATH
   remote: ../../mongoid
-  revision: 56131930e6d787cf534afcfcbc721e12af2c71bb
   specs:
     mongoid (7.3.0.alpha)
       activemodel (>= 5.1, < 6.2)
