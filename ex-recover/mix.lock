@@ -1,0 +1,7 @@
+%{
+  "connection": {:hex, :connection, "1.0.4", "a1cae72211f0eef17705aaededacac3eb30e6625b04a6117c1b2db6ace7d5976", [:mix], [], "hexpm", "4a0850c9be22a43af9920a71ab17c051f5f7d45c209e40269a1938832510e4d9"},
+  "db_connection": {:hex, :db_connection, "2.2.2", "3bbca41b199e1598245b716248964926303b5d4609ff065125ce98bcd368939e", [:mix], [{:connection, "~> 1.0.2", [hex: :connection, repo: "hexpm", optional: false]}], "hexpm", "642af240d8a8affb93b4ba5a6fcd2bbcbdc327e1a524b825d383711536f8070c"},
+  "decimal": {:hex, :decimal, "1.8.1", "a4ef3f5f3428bdbc0d35374029ffcf4ede8533536fa79896dd450168d9acdf3c", [:mix], [], "hexpm", "3cb154b00225ac687f6cbd4acc4b7960027c757a5152b369923ead9ddbca7aec"},
+  "mongodb_driver": {:git, "https://github.com/zookzook/elixir-mongodb-driver", "0fc48f1f7b501d3f13eeeeb0eca7b30b1c4ddcef", []},
+  "statix": {:hex, :statix, "1.4.0", "c822abd1e60e62828e8460e932515d0717aa3c089b44cc3f795d43b94570b3a8", [:mix], [], "hexpm", "507373cc80925a9b6856cb14ba17f6125552434314f6613c907d295a09d1a375"},
+}
