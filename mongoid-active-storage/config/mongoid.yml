@@ -3,4 +3,6 @@ development:
     default:
       database: mongoid
       hosts:
-        - localhost:27100
+        - localhost:14400
+      options:
+        server_selection_timeout: 1
