@@ -1,7 +1,9 @@
 require 'mongo'
 
-client = Mongo::Client.new(['localhost:14700'])
+client = Mongo::Client.new(['localhost:14400'])
+#client = Mongo::Client.new(['localhost:14900'], server_api:{version:'1'})
 
+client['foo'].drop
 client['foo'].indexes.create_one({k: 1}, unique: true)
 
 rep = '(╯°□°)╯︵ ┻━┻(╯°□°)╯︵ ┻━┻'
