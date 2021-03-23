@@ -2,7 +2,7 @@ require 'mongo'
 
 clients = {}
 
-ports = %w(14442 14443 14444 14445)
+ports = %w(14041 14042 14043 14044 14045 14046)
 
 ports.each do |port|
   client = Mongo::Client.new(["localhost:#{port}"], connect: :direct)
