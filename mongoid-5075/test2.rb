@@ -11,11 +11,12 @@ gemfile do
   source 'https://rubygems.org'
 
   gem 'mongoid', '7.2.2'
+  gem 'byebug'
 
 end
 
 
-
+require 'byebug'
 require 'mongoid'
 
 
@@ -55,12 +56,12 @@ Comment.delete_all
 comment = Comment.create!
 p comment
 
-test = 3
 
+test = 1
 
 case test
 when 1
-  article = Article.create!(
+  article = Article.new(
 
     comment_ids: [comment.id],
 
@@ -68,44 +69,19 @@ when 1
 
   )
 when 2
-  article = Article.create!(
+  article = Article.new(
 
     comments: [comment],
 
     id: '1234',
 
   )
-when 3
-  article = Article.create!(
-
-    comment_ids: [comment.id],
-
-    id: '1234',
-
-  )
-  comment.save!
 end
 
 p article
 p comment
 p article.comments.first
+p comment
 
-
-
-pp article.comments.count #=> 1
-
-pp article.comments.criteria.selector['article_id'] # => Gives a random id
-
-pp article.comments.context.view.count # => 1
-
-
-
-article.reload
-
-
-
-pp article.comments.count # => 0
-
-pp article.comments.criteria.selector['article_id'] #=> '123'
-
-pp article.comments.context.view.count # => 0
+byebug
+1
