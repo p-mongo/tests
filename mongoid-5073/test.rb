@@ -15,8 +15,6 @@ puts Mongoid::VERSION
 
 puts Mongo::VERSION
 
-Mongoid.connect_to 'bugs'
-
 
 
 class Something
