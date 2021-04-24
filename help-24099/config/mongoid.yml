@@ -1,0 +1,18 @@
+development: &default
+
+ # Configure available database clients. (required)
+
+ clients:
+
+   # Defines the default client. (required)
+
+   default:
+
+     # Mongoid can connect to a URI accepted by the driver:
+
+     #uri: mongodb+srv://xxx:xxx@xxx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+     uri: mongodb://localhost:14920
+
+production:
+
+ <<: *default

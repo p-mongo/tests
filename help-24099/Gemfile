@@ -1,0 +1,15 @@
+source 'https://rubygems.org'
+
+#ruby '2.5.3'
+
+ 
+
+gem 'grape'
+
+gem 'mongoid'#, '7.0.4'
+
+gem 'mongo'#, '2.11.1'
+
+gem 'thin'
+
+gem 'statsd-instrument'
