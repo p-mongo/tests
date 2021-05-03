@@ -10,8 +10,7 @@ development: &default
 
      # Mongoid can connect to a URI accepted by the driver:
 
-     #uri: mongodb+srv://xxx:xxx@xxx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
-     uri: mongodb://localhost:14920
+     uri: mongodb://localhost:14920/?serverselectiontimeoutms=1000&w=majority
 
 production:
 

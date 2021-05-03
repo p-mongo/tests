@@ -38,9 +38,9 @@ module API
 
      trace = []
 
-     StatsD.increment("atlas.samples.counter")
+     #StatsD.increment("atlas.samples.counter")
 
-     StatsD.measure("atlas.samples.#{read_pref}") do
+     #StatsD.measure("atlas.samples.#{read_pref}") do
 
        #tp = TracePoint.new(:call) do |x|
 
@@ -56,7 +56,7 @@ module API
 
        #tp.disable
 
-     end
+     #end
 
      error! "Not Found", 404 unless doc
 

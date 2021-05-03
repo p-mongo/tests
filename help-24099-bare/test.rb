@@ -4,7 +4,7 @@ require 'standard_deviation'
 
 #Mongo::Logger.logger.level = 0
 
-ITERS = 10000
+ITERS = 1000
 
 client = Mongo::Client.new(['localhost:14420'], server_selection_timeout: 1)
 client['foo'].delete_many

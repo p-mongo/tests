@@ -12,4 +12,4 @@ gem 'mongo'#, '2.11.1'
 
 gem 'thin'
 
-gem 'statsd-instrument'
+#gem 'statsd-instrument'
