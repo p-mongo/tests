@@ -45,3 +45,110 @@ Status Codes  [code:count]                      404:100
 Error Set:
 404 Not Found
 ```
+
+## Atlas test with find_one instead of aggregation+$sample
+
+```
+serene% ab -n 500 'http://localhost:9292/api/sample?secondaryRedirectionPercentage=100' 
+This is ApacheBench, Version 2.3 <$Revision: 1879490 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Finished 500 requests
+
+
+Server Software:        thin
+Server Hostname:        localhost
+Server Port:            9292
+
+Document Path:          /api/sample?secondaryRedirectionPercentage=100
+Document Length:        191821 bytes
+
+Concurrency Level:      1
+Time taken for tests:   7.406 seconds
+Complete requests:      500
+Failed requests:        496
+   (Connect: 0, Receive: 0, Length: 496, Exceptions: 0)
+Non-2xx responses:      500
+Total transferred:      97634230 bytes
+HTML transferred:       97574230 bytes
+Requests per second:    67.51 [#/sec] (mean)
+Time per request:       14.812 [ms] (mean)
+Time per request:       14.812 [ms] (mean, across all concurrent requests)
+Transfer rate:          12874.53 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:    11   15  11.1     13     242
+Waiting:       11   15  11.1     13     242
+Total:         11   15  11.1     13     242
+
+Percentage of the requests served within a certain time (ms)
+  50%     13
+  66%     14
+  75%     14
+  80%     14
+  90%     15
+  95%     30
+  98%     33
+  99%     33
+ 100%    242 (longest request)
+serene% ab -n 500 'http://localhost:9292/api/sample?secondaryRedirectionPercentage=0'   
+This is ApacheBench, Version 2.3 <$Revision: 1879490 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 100 requests
+Completed 200 requests
+Completed 300 requests
+Completed 400 requests
+Completed 500 requests
+Finished 500 requests
+
+
+Server Software:        thin
+Server Hostname:        localhost
+Server Port:            9292
+
+Document Path:          /api/sample?secondaryRedirectionPercentage=0
+Document Length:        195425 bytes
+
+Concurrency Level:      1
+Time taken for tests:   7.237 seconds
+Complete requests:      500
+Failed requests:        142
+   (Connect: 0, Receive: 0, Length: 142, Exceptions: 0)
+Non-2xx responses:      500
+Total transferred:      98030546 bytes
+HTML transferred:       97970546 bytes
+Requests per second:    69.09 [#/sec] (mean)
+Time per request:       14.473 [ms] (mean)
+Time per request:       14.473 [ms] (mean, across all concurrent requests)
+Transfer rate:          13228.89 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.0      0       0
+Processing:    12   14   4.4     13      35
+Waiting:       12   14   4.4     13      35
+Total:         12   14   4.4     13      35
+
+Percentage of the requests served within a certain time (ms)
+  50%     13
+  66%     14
+  75%     14
+  80%     14
+  90%     15
+  95%     30
+  98%     33
+  99%     33
+ 100%     35 (longest request)
+```

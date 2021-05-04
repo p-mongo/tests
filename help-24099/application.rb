@@ -50,7 +50,8 @@ module API
 
        #tp.enable
 
-       doc = Sample.collection.aggregate([{ :'$sample' => { size: 1 } }], read: { mode: read_pref }).first
+      # doc = Sample.collection.aggregate([{ :'$sample' => { size: 1 } }], read: { mode: read_pref }).first
+      doc = Sample.collection.find_one
 
      #ensure
 
