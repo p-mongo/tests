@@ -1,5 +1,8 @@
-  class Country
-    include Mongoid::Document
+class Country
+  include Mongoid::Document
 
-has_many :zombies
+  field :size, type: BigDecimal
+  field :extent, type: Integer
+  field :breadth, type: BSON::Decimal128
+
 end
