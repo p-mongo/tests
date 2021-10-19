@@ -201,3 +201,8 @@ task test_p: :environment do
   Band.collection.client.subscribe(Mongo::Monitoring::COMMAND, CommandLogSubscriber.new)
   p Band.create!(cat: Cat.new)
 end
+
+task ajqc: :environment do
+  GuestsCleanupJob.perform_later
+  sleep 1
+end

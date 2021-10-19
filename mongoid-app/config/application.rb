@@ -75,3 +75,7 @@ module MongoidExplicitId
     #config.i18n.fallbacks[:en] = [:de]
   end
 end
+
+  ActiveSupport.on_load(:active_job) do
+    include Mongo::QueryCache::Middleware::ActiveJob
+￼  end
