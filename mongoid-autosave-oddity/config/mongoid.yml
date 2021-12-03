@@ -1,0 +1,17 @@
+development:
+  clients: &development_clients
+    default:
+      database: catdog_development
+      hosts:
+        - localhost:27017
+  sessions:
+    <<: *development_clients
+
+test:
+  clients: &test_clients
+    default:
+      database: catdog_test
+      hosts:
+        - localhost:27017
+  sessions:
+    <<: *test_clients
