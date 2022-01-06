@@ -206,3 +206,23 @@ task ajqc: :environment do
   GuestsCleanupJob.perform_later
   sleep 1
 end
+
+
+task test_bd: :environment do
+  class Foo
+    include Mongoid::Document
+
+    field :a
+  end
+
+  Foo.delete_all
+
+  Foo.create!(a: 'zz')
+
+  class Foo
+    #field :a, type: Time
+    field :a, type: BigDecimal
+  end
+
+  p Foo.first, Foo.first.a
+end
