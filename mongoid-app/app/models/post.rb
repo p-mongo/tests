@@ -11,7 +11,7 @@ class Post
 
   belongs_to :user, optional: true
 
-  has_one :comment
+  has_many :comments
   embeds_one :vote
 
   has_many :things
