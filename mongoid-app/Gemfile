@@ -52,3 +52,7 @@ end
 if ENV['driver'] == 'master'
   gem 'mongo', path: '../../ruby-driver'
 end
+
+if ENV['bson'] == 'master'
+  gem 'bson', path: '../../bson-ruby'
+end
