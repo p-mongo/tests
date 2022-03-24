@@ -1,10 +1,7 @@
 PATH
-  remote: ../../mongoid
+  remote: ../../bson-ruby
   specs:
-    mongoid (7.3.0)
-      activemodel (>= 5.1, < 7.1, != 7.0.0)
-      mongo (>= 2.10.5, < 3.0.0)
-      ruby2_keywords (~> 0.0.5)
+    bson (5.0.0.alpha)
 
 GEM
   remote: https://rubygems.org/
@@ -67,7 +64,6 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     bindex (0.8.1)
-    bson (4.14.1)
     builder (3.2.4)
     byebug (11.1.3)
     capybara (2.18.0)
@@ -102,6 +98,10 @@ GEM
     minitest (5.15.0)
     mongo (2.17.0)
       bson (>= 4.8.2, < 5.0.0)
+    mongoid (7.3.4)
+      activemodel (>= 5.1, < 7.1, != 7.0.0)
+      mongo (>= 2.10.5, < 3.0.0)
+      ruby2_keywords (~> 0.0.5)
     nio4r (2.5.8)
     nokogiri (1.13.3)
       mini_portile2 (~> 2.8.0)
@@ -182,10 +182,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bson!
   byebug
   capybara (~> 2.13)
   listen (>= 3.0.5, < 3.2)
-  mongoid!
+  mongoid
   puma (~> 3.7)
   rails (~> 6.0.0)
   selenium-webdriver
