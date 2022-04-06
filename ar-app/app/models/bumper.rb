@@ -1,0 +1,2 @@
+class Bumper < ApplicationRecord
+end

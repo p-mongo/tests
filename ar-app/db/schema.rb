@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_010623) do
+ActiveRecord::Schema.define(version: 2022_04_06_151302) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(version: 2021_05_27_010623) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "bumpers", force: :cascade do |t|
+    t.integer "car_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "cats", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -62,6 +68,23 @@ ActiveRecord::Schema.define(version: 2021_05_27_010623) do
     t.string "c_fk"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "emm_spec_bumpers", force: :cascade do |t|
+    t.integer "car_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "emm_spec_cars", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "emm_spec_doors", force: :cascade do |t|
+    t.integer "car_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "logos", force: :cascade do |t|
@@ -94,6 +117,7 @@ ActiveRecord::Schema.define(version: 2021_05_27_010623) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
