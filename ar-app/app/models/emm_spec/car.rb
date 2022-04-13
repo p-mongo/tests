@@ -1,4 +1,4 @@
 class EmmSpec::Car < ApplicationRecord
-  has_many :doors
-  has_many :bumpers
+  has_many :doors, class_name: "Door"
+  has_many :bumpers, class_name: 'Bumper'
 end
