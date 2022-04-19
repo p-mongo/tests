@@ -76,6 +76,6 @@ module MongoidExplicitId
   end
 end
 
-  ActiveSupport.on_load(:active_job) do
-    include Mongo::QueryCache::Middleware::ActiveJob
-￼  end
+ActiveSupport.on_load(:active_job) do
+  include Mongo::QueryCache::Middleware::ActiveJob
+end
