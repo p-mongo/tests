@@ -56,3 +56,5 @@ end
 if ENV['bson'] == 'master'
   gem 'bson', path: '../../bson-ruby'
 end
+
+gem 'libmongocrypt-helper'
