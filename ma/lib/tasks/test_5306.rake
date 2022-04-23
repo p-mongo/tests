@@ -13,9 +13,9 @@ class Shop
   embeds_one :address
   belongs_to :company
 
-  after_initialize :build_address
+  after_initialize :build_address1
 
-  def build_address
+  def build_address1
     self.address ||= Address.new
   end
 end
@@ -28,7 +28,7 @@ end
 class User
   include Mongoid::Document
 
-  belongs_to :company, validate: false, autosave: false
+  belongs_to :company
 
   validate :break_mongoid
 
@@ -39,12 +39,9 @@ end
 
 
 
-company = Company.new
-company.save!
+company = Company.create!
 
-shop = Shop.new
-shop.company = company
-shop.save!
+shop = Shop.create!(company: company)
 
 user = User.new
 user.company = company
