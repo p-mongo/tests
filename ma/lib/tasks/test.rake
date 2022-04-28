@@ -226,3 +226,12 @@ task test_bd: :environment do
 
   p Foo.first, Foo.first.a
 end
+
+
+task test_bw: :environment do
+  a = Band.collection.client
+  pp a['x'].insert_one({c:1}, write_concern:{w:0})
+  pp a['x'].bulk_write([{insert_one:{a:1}}],write_concern:{w:0})
+
+end
+
