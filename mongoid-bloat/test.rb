@@ -5,7 +5,7 @@ require 'mongoid'
 
 Mongoid.configure do |config|
   config.clients.default = {
-    hosts: ['localhost:27017'],
+    hosts: ['localhost:14400'],
     database: 'memory_bloat',
   }
 
