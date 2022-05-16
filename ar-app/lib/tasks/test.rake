@@ -1,4 +1,5 @@
-task 'runme' => :environment do
+task 't:tx' => :environment do
+p Rails.env
   puts Post.count
   begin
     Post.transaction do
@@ -10,6 +11,7 @@ task 'runme' => :environment do
       Post.transaction do
         Post.create!(title: 'three')
       end
+      puts "All done"
       fail
     end
   rescue => e
