@@ -1,0 +1,2 @@
+class TypeTest < ApplicationRecord
+end

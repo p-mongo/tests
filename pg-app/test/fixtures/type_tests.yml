@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  str: MyString
+  dec: 9.99
+  t: 2022-05-20 22:22:17
+  ts: 2022-05-20 22:22:17
+  hs: 
+
+two:
+  str: MyString
+  dec: 9.99
+  t: 2022-05-20 22:22:17
+  ts: 2022-05-20 22:22:17
+  hs: 
