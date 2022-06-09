@@ -5,6 +5,7 @@ task :test_3267_1 => :environment do
     has_and_belongs_to_many :pits
 
     field :_id, type: String, default: -> { 'hello' }
+    #field :_id, type: String, default: -> { 'hello' }, pre_processed: true
   end
 
   class Pit
@@ -13,6 +14,7 @@ task :test_3267_1 => :environment do
     has_and_belongs_to_many :peaches
 
     field :_id, type: String, default: -> { 'hello' }
+    #field :_id, type: String, default: -> { 'hello' }, pre_processed: true
   end
 
   Peach.delete_all
