@@ -20,7 +20,7 @@ kms_providers = {
 
 # The key vault client is a Mongo::Client instance connected to the collection
 # that will store your data keys.
-key_vault_client = Mongo::Client.new(['localhost:27017'])
+key_vault_client = Mongo::Client.new(['localhost:16020'])
 
 # Use an instance of Mongo::ClientEncryption to create a new data key
 client_encryption = Mongo::ClientEncryption.new(
@@ -49,7 +49,7 @@ encrypted_value = client_encryption.encrypt(
 )
 
 # Create the client you will use to read and write the data to MongoDB
-client = Mongo::Client.new(['localhost:27017'])
+client = Mongo::Client.new(['localhost:16020'])
 collection = client.use('encryption_db')['encryption_coll']
 collection.drop # Make sure there is no data in the collection
 
@@ -62,4 +62,5 @@ find_result = collection.find(encrypted_field: encrypted_value).first['encrypted
 # => <BSON::Binary...> (the find result is encrypted)
 
 unencrypted_result = client_encryption.decrypt(find_result)
+p find_result
 # => "sensitive data"
