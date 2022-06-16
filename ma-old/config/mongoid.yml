@@ -1,0 +1,51 @@
+development:
+  clients:
+    default:
+      database: mongoid
+      hosts:
+        - localhost:14400
+      options:
+        server_selection_timeout: 1
+        #log_level: :warn
+        
+  options:
+    #log_level: :warn
+    log_level: :debug
+    #duplicate_fields_exception: true
+    #raise_not_found_error: false
+    #scope_overwrite_exception: true
+
+
+xdevelopment:
+  clients:
+    default:
+      database: mongoid
+      hosts:
+        - localhost:27741
+      options:
+        compressors: [zlib]
+  options:
+    log_level: :debug
+
+
+
+xdevelopment:
+  clients:
+    default:
+      database: databasename
+      hosts:
+        - localhost:27741
+      options:
+        user: 'admin'
+        password: 'some-password'
+        auth_mech: :scram
+        auth_source: admin
+        connect: :replica_set
+        replica_set: replset
+        ssl: true
+        #ssl_ca_cert: ./some-certificate.pem
+        ssl_verify: true
+        server_selection_timeout: 1
+  options:
+    log_level: :debug
+    
