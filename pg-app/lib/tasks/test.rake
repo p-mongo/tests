@@ -14,7 +14,9 @@ namespace :t do
     TypeTest.create!(ts: 'x')
     p TypeTest.last
 
-    #TypeTest.create!(hs: 42)
+    t = TypeTest.new(hs: 42)
+    p t
+    t.save!
     #p TypeTest.last
 
     #TypeTest.create!(hs: 'x')

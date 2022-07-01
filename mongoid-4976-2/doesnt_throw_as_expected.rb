@@ -3,6 +3,7 @@ Doesn't throw as expected if own attribute present.
 =end
 
 
+require 'byebug'
 require 'mongoid'
 
 
