@@ -7,6 +7,8 @@ class CreateShapes < ActiveRecord::Migration[5.2]
 
       t.string :name
 
+      t.integer :i
+
       t.timestamps
     end
   end

@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_151302) do
     t.string "type"
     t.string "ic"
     t.string "name"
+    t.integer "i"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -117,7 +118,6 @@ ActiveRecord::Schema.define(version: 2022_04_06_151302) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
