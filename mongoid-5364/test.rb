@@ -45,7 +45,7 @@ house.rooms = []
   room = Room.new(residents: [{name: "dude no #{i}" }])
   house.rooms << room
 end
-house.save
+house.save!
 house = House.find(house.id)
 puts "got #{house.rooms.count} house.rooms, should be 5"
 puts "before last room, should be 'dude no 3' | its '#{house.rooms[-2].residents.first.name}'"
@@ -53,7 +53,7 @@ puts "before last room, should be 'dude no 3' | its '#{house.rooms[-2].residents
 # house.rooms.last.residents.last.name = 'the new dude'  # this works well
 house.rooms.last.assign_attributes(residents: [{name: 'the new dude'}]) # this does not work...
 house.rooms[2].destroy
-house.save
+house.save!
 
 house = House.find(house.id)
 puts "got #{house.rooms.count} house.rooms, should be 4"
