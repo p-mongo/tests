@@ -8,4 +8,7 @@ class Band
 
   field :t, type: Time
   field :o
+
+  has_one :manager
+  validates_presence_of :manager
 end

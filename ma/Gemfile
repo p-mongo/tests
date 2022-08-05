@@ -58,3 +58,5 @@ if ENV['bson'] == 'master'
 end
 
 gem 'libmongocrypt-helper'
+
+gem 'i18n', '~> 1.0.0'

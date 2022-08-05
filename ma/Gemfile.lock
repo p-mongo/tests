@@ -77,7 +77,7 @@ GEM
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    i18n (1.12.0)
+    i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     libmongocrypt-helper (1.5.0.0.1001)
     listen (3.0.8)
@@ -186,6 +186,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara (~> 2.13)
+  i18n (~> 1.0.0)
   libmongocrypt-helper
   listen (>= 3.0.5, < 3.2)
   mongoid

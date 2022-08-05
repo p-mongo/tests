@@ -6,4 +6,6 @@ class Band < ApplicationRecord
   after_update do
     puts 'after update'
   end
+
+  default_scope -> { where(x: 1) }
 end

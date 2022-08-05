@@ -5,4 +5,5 @@ class Country
   field :extent, type: Integer
   field :breadth, type: BSON::Decimal128
 
+  has_many :users
 end
